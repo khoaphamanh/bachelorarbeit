@@ -297,6 +297,7 @@ class CrossValidation:
             torch.save(model.state_dict(),model_path)
             
             return loss_train, score_train, loss_val, score_val
+        
         else:
             #delete the bad trials mdoel
             model_bad = sorted([file for file in os.listdir(self.dir) if file.startswith("t_")])
@@ -307,6 +308,7 @@ class CrossValidation:
             #save the best trained model
             model_path = os.path.join(self.dir,"t_{}_final.pth".format(self.best_trial_number))
             torch.save(model.state_dict(),model_path) 
+            
             return loss_train, score_train, loss_val, score_val, score_final
         
     def cv_load_data_parallel (self,batch_size,w_stft:int, hop:int,params_idx):
