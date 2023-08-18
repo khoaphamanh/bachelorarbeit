@@ -9,6 +9,7 @@ from torch.utils.data import TensorDataset
 from sklearn.preprocessing import MinMaxScaler,StandardScaler
 from pyts.image import RecurrencePlot,GramianAngularField,MarkovTransitionField
 from tqdm import tqdm
+from pyts.approximation import PiecewiseAggregateApproximation as PAA
 
 #class to load transition
 class Transformation:
@@ -258,7 +259,8 @@ class Transformation:
         
         #load method
         RP = RecurrencePlot(dimension=dimension,time_delay=time_delay,threshold=threshold,percentage=percentage)
-
+        paa = PAA(window_size=None,output_size=224)
+        
         #load data
         raw_data, label = raw_data.tensors
         len_data = len(raw_data)
@@ -266,14 +268,12 @@ class Transformation:
         #features transform tensor.
         feature_transform = torch.empty(size=(len_data,2,self.image_size,self.image_size))
 
-        #for index, feature in enumerate(raw_data):
-        for index,feature in enumerate(tqdm(raw_data,desc ="Processing {} Data")):    
+        for index, feature in enumerate(raw_data):
+        #for index,feature in enumerate(tqdm(raw_data,desc ="Processing {} Data")):    
             #create image:
+            feature = paa.transform(feature)
             feature_image = RP.fit_transform(feature)
             feature_image = torch.from_numpy(feature_image)
-
-            #transform image
-            feature_image = self.transform(feature_image)
 
             #indexing feature image and label
             feature_transform[index] = feature_image
@@ -309,44 +309,35 @@ class Transformation:
     
     def gaf(self,raw_data,method:str="summation"):
        
-       #load transition and scaler
-        GASF = GramianAngularField(sample_range=None,method="summation")
-        GADF = GramianAngularField(sample_range=None,method="difference")
+        #load transition and scaler
+        GAF = GramianAngularField(sample_range=None,method=method,image_size=224)
         
         #load data
         raw_data, label = raw_data.tensors
         len_data = len(raw_data)
         
-       #features transform tensor.
+        #features transform tensor.
         feature_transform = torch.empty(size=(len_data,2,self.image_size,self.image_size))
 
         for index,feature in enumerate(raw_data):
         #for index,feature in enumerate(tqdm(raw_data,desc ="Processing {} Data")):    
             #create image:
-            feature_image_1 = GASF.fit_transform(feature)
-            feature_image_1 = torch.from_numpy(feature_image_1)
-            
-            feature_image_2 = GADF.fit_transform(feature)
-            feature_image_2 = torch.from_numpy(feature_image_2)
-
-            #concat the feature_image 
-            feature_image_1 = torch.concat((feature_image_1,feature_image_2),dim = 0)
-            print("feature_image_1 shape:", feature_image_1.shape)
-            
-            #transform image
-            feature_image_1 = self.transform(feature_image_1)
+            feature_image = GAF.fit_transform(feature)
+            feature_image = torch.from_numpy(feature_image)
 
             #indexing feature image and label
-            feature_transform[index] = feature_image_1
+            feature_transform[index] = feature_image
 
         #create TensorDataset:
         data_transform = TensorDataset(feature_transform,label)
+        
         return data_transform
     
     def mtf(self,raw_data,n_bins=5,strategy="quantile"):
         
         #load transition
         MTF = MarkovTransitionField(n_bins=n_bins,strategy=strategy)
+        paa = PAA(window_size=None,output_size=224)
         
         #load data
         raw_data, label = raw_data.tensors
@@ -358,12 +349,10 @@ class Transformation:
         for index,feature in enumerate(raw_data):
         #for index,feature in enumerate(tqdm(raw_data,desc ="Processing {} Data")):    
             #create image:
+            feature = paa.transform(feature)
             feature_image = MTF.fit_transform(feature)
             feature_image = torch.from_numpy(feature_image)
                 
-            #transform image
-            feature_image = self.transform(feature_image)
-            
             #indexing image and label
             feature_transform[index] = feature_image
 
@@ -454,7 +443,7 @@ if __name__ == "__main__":
     plt.colorbar()"""
     
     full_data = tranformation.load_raw_data(kind_data="full",window_size=window_size)
-    train_data_norm, test_data_norm,_ =  tranformation.normalize_raw(train_data,test_raw_data=full_data,min_max_scaler=False,clamp=False)
+    train_data_norm, test_data_norm,_ =  tranformation.normalize_raw(train_data,test_raw_data=full_data,min_max_scaler=True,clamp=False)
     #stft = tranformation.stft(test_data_norm)
     
     #print("train_data_norm len:", len(train_data_norm))
@@ -487,7 +476,7 @@ if __name__ == "__main__":
     y = inverse_transform(bearing,y_scaled)
     print(y)"""
 
-    STFT = tranformation.rp(train_data_norm)  
+    STFT = tranformation.mtf(train_data_norm)  
     print(STFT)
     print(len(STFT))
     print(STFT[2793])
