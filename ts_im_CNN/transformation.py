@@ -202,10 +202,15 @@ class Transformation:
         max_0 = torch.max(feature_train[:,0,:])
         max_1 = torch.max(feature_train[:,1,:])
     
-        #create transform normalize
-        scaler_train = transforms.Normalize((min_0,min_1),(max_0-min_0,max_1-min_1))
-        
-        return TensorDataset(scaler_train(feature_train),label_train) , TensorDataset(scaler_train(feature_test),label_test), scaler_train
+        if max_0 == min_0 and max_1 == min_1:
+            scaler_train = transforms.Normalize((0,0),(1,1))
+            return train_image, test_image, scaler_train
+
+        else:
+            #create transform normalize
+            scaler_train = transforms.Normalize((min_0,min_1),(max_0-min_0,max_1-min_1))
+            
+            return TensorDataset(scaler_train(feature_train),label_train) , TensorDataset(scaler_train(feature_test),label_test), scaler_train
     
     def load_model (self,drop,w_size):
         model = torchvision.models.efficientnet_b0()
