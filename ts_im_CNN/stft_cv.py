@@ -192,7 +192,6 @@ class CrossValidation:
                 
                 #forward pass
                 y_train_pred = model(X_train_ts,X_train_im).ravel()
-                y_train_pred = y_train_pred.clamp(0,1)
                 
                 #calculate the loss/score
                 loss_train_this_batch = self.loss(y_train_pred,y_train)
@@ -200,6 +199,9 @@ class CrossValidation:
                 
                 score_train_this_batch = self.score(y_train_pred,y_train)
                 score_train = score_train + score_train_this_batch
+                
+                #clamp
+                y_train_pred = y_train_pred.clamp(0,1)
                 
                 #gradient zero grad
                 optimizer.zero_grad()
@@ -236,7 +238,6 @@ class CrossValidation:
                     
                     #forward pass
                     y_val_pred = model(X_val_ts,X_val_im).ravel()
-                    y_val_pred = y_val_pred.clamp(0,1)
                     
                     #calculate the score/loss
                     loss_val_this_batch = self.loss(y_val_pred,y_val)
@@ -244,6 +245,9 @@ class CrossValidation:
                     
                     score_val_this_batch = self.score(y_val_pred,y_val)
                     score_val = score_val + score_val_this_batch
+                    
+                    #clamp
+                    y_val_pred = y_val_pred.clamp(0,1)
                     
                     #indexing tracking
                     if cv == True: 
@@ -806,7 +810,7 @@ def objective(trial:optuna.trial.Trial):
     return loss_val
 
 #project 
-PROJECT = "ba-final/stft-2"
+PROJECT = "ba-final/stft-4"
 API_TOKEN = "eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiJiODUwOWJmNy05M2UzLTQ2ZDItYjU2MS0yZWMwNGI1NDI5ZjAifQ=="
 METHOD = "STFT"
 
