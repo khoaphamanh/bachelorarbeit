@@ -197,16 +197,17 @@ class CrossValidation:
                 #forward pass
                 y_train_pred = model(X_train).ravel()
                 
-                #calculate the loss/score
+                #calculate the loss
                 loss_train_this_batch = self.loss(y_train_pred,y_train)
                 loss_train = loss_train + loss_train_this_batch
-                
-                score_train_this_batch = self.score(y_train_pred,y_train)
-                score_train = score_train + score_train_this_batch
                 
                 #clamp
                 y_train_pred = y_train_pred.clamp(0,1)
                 
+                #calculate the score
+                score_train_this_batch = self.score(y_train_pred,y_train)
+                score_train = score_train + score_train_this_batch
+
                 #gradient zero grad
                 optimizer.zero_grad()
                 
@@ -242,16 +243,17 @@ class CrossValidation:
                     #forward pass
                     y_val_pred = model(X_val).ravel()
                     
-                    #calculate the score/loss
+                    #calculate the loss
                     loss_val_this_batch = self.loss(y_val_pred,y_val)
                     loss_val = loss_val + loss_val_this_batch
-                    
-                    score_val_this_batch = self.score(y_val_pred,y_val)
-                    score_val = score_val + score_val_this_batch
                     
                     #clamp
                     y_val_pred = y_val_pred.clamp(0,1)
                     
+                    #calculate the score
+                    score_val_this_batch = self.score(y_val_pred,y_val)
+                    score_val = score_val + score_val_this_batch
+
                     #indexing tracking
                     if cv == True: 
                         tracking_cv["val"][0] = tracking_cv["val"][0] + y_val_pred.tolist()
@@ -804,7 +806,7 @@ def objective(trial:optuna.trial.Trial):
     return loss_val
 
 #project 
-PROJECT = "ba-final/stft-3"
+PROJECT = "ba-final/stft-1"
 API_TOKEN = "eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiJiODUwOWJmNy05M2UzLTQ2ZDItYjU2MS0yZWMwNGI1NDI5ZjAifQ=="
 METHOD = "STFT"
 
