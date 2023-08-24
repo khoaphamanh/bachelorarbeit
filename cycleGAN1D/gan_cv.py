@@ -169,8 +169,8 @@ class CrossValidation:
                 label_train = label_train[:,0]  
                 
                 #load data to device
-                source_train = source_train.to(self.device)
-                target_train = target_train.to(self.device)
+                source_train = source_train.float().to(self.device)
+                target_train = target_train.float().to(self.device)
                 
                 #create fake source and target
                 source_train_fake = gen_S(target_train)  #source ≈ Horse , target ≈ Zebra
@@ -269,8 +269,8 @@ class CrossValidation:
                     label_val = label_val[:,0]
                     
                     #load data to device
-                    source_val = source_val.to(self.device)
-                    target_val = target_val.to(self.device)
+                    source_val = source_val.float().to(self.device)
+                    target_val = target_val.float().to(self.device)
                     
                     #create fake source and target
                     source_val_fake = gen_S(target_val)  #source ≈ Horse , target ≈ Zebra
@@ -413,7 +413,7 @@ class CrossValidation:
         #turn data to data loader
         train_loader = self.data_loader(data=train_data,batch_size=batch_size)   
         val_loader = self.data_loader(data=val_data,batch_size=batch_size)
-        
+        print("split shape in cv load DONE:", split)
         #save the scaler:
         self.save_scaler(split=split,scaler_raw = scaler_source)
         
@@ -428,6 +428,15 @@ class CrossValidation:
         #load mode
         gen_S, dis_S = self.load_model() #source ≈ Horse , target ≈ Zebra
         gen_T, dis_T = self.load_model() #source ≈ Horse , target ≈ Zebra
+        if torch.cuda.device_count() > 1:
+            gen_S = nn.DataParallel(gen_S)
+            dis_S = nn.DataParallel(dis_S)
+            gen_T = nn.DataParallel(gen_T)
+            dis_T = nn.DataParallel(dis_T)
+        gen_S = gen_S.to(self.device)
+        dis_S = dis_S.to(self.device)
+        gen_T = gen_T.to(self.device)
+        dis_T = dis_T.to(self.device)
         
         #optimizer
         opt_g = getattr(torch.optim,optimizer_name)(params = list(gen_S.parameters()) + list(gen_T.parameters()), lr = lr_g, weight_decay = weight_decay_g, betas = betas_d)
@@ -453,7 +462,6 @@ class CrossValidation:
         run["status"] = "finished"
         run["runing_time"] = run["sys/running_time"]
         run.stop()
-        
         return loss_d_train,loss_g_train, loss_cyc_train, loss_idt_train, loss_train_raw, loss_d_val, loss_g_val, loss_cyc_val,loss_idt_val ,loss_val_raw
              
     def cross_validation(self,trial:optuna.trial.Trial,optimizer_name:str,lr_g,lr_d:float, betas_g, betas_d,epochs:int,batch_size:int,weight_decay_g:float,weight_decay_d:float,lambda_cyc, lambda_idt):
@@ -896,7 +904,7 @@ PROJECT =  "ba-final/cyclegan-1"
 API_TOKEN = "eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiJiODUwOWJmNy05M2UzLTQ2ZDItYjU2MS0yZWMwNGI1NDI5ZjAifQ=="
 METHOD = "GAN"
 
-N_JOBS_LOAD_DATA = -1
+N_JOBS_LOAD_DATA = 1
 N_JOBS_CV = 1
 N_JOBS_LOAD_DATA_BEST_CV = 1
 N_JOBS_BEST_CV = 1
@@ -911,12 +919,12 @@ OUTPUT = 1
 K = 5
 TOTAL_TRIALS = 100
 W_SIZE = 25600
-BATCH_SIZE = [32]
+BATCH_SIZE = [1]
 EPOCHS = [100]
 HIDDEN_CHANNELS_GEN = 32
 HIDDEN_CHANNELS_DIS = 64
-EPOCHS = [100]
-n_trials = 1
+EPOCHS = [10]
+n_trials = 20
 
 fix_parameters = {"k":K,"seed":SEED,"w_size":W_SIZE,"n_trials":TOTAL_TRIALS,"batch_size":BATCH_SIZE,"epochs":EPOCHS, "hidden_channels_gen":HIDDEN_CHANNELS_GEN,"hidden_channels_dis":HIDDEN_CHANNELS_DIS}
 
