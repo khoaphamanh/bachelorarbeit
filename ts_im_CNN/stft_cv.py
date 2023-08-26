@@ -812,7 +812,7 @@ def objective(trial:optuna.trial.Trial):
     return loss_val
 
 #project 
-PROJECT = "bachelorarbeit/stft-2"
+PROJECT = "ba-final/stft-2"
 API_TOKEN = "eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiJiODUwOWJmNy05M2UzLTQ2ZDItYjU2MS0yZWMwNGI1NDI5ZjAifQ=="
 METHOD = "STFT"
 
