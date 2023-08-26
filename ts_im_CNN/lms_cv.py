@@ -192,12 +192,15 @@ class CrossValidation:
                 
                 #forward pass
                 y_train_pred = model(X_train_ts,X_train_im).ravel()
-                y_train_pred = y_train_pred.clamp(0,1)
                 
-                #calculate the loss/score
+                #calculate the loss
                 loss_train_this_batch = self.loss(y_train_pred,y_train)
                 loss_train = loss_train + loss_train_this_batch
                 
+                #clamp 
+                y_train_pred = y_train_pred.clamp(0,1)
+                
+                #calculate the score
                 score_train_this_batch = self.score(y_train_pred,y_train)
                 score_train = score_train + score_train_this_batch
                 
@@ -236,12 +239,15 @@ class CrossValidation:
                     
                     #forward pass
                     y_val_pred = model(X_val_ts,X_val_im).ravel()
-                    y_val_pred = y_val_pred.clamp(0,1)
                     
-                    #calculate the score/loss
+                    #calculate the loss
                     loss_val_this_batch = self.loss(y_val_pred,y_val)
                     loss_val = loss_val + loss_val_this_batch
                     
+                    #clamp
+                    y_val_pred = y_val_pred.clamp(0,1)
+                    
+                    #calculate the score/loss
                     score_val_this_batch = self.score(y_val_pred,y_val)
                     score_val = score_val + score_val_this_batch
                     
