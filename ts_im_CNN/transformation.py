@@ -202,7 +202,7 @@ class Transformation:
         max_0 = torch.max(feature_train[:,0,:])
         max_1 = torch.max(feature_train[:,1,:])
     
-        if max_0 == min_0 and max_1 == min_1:
+        if max_0 == min_0 or max_1 == min_1:
             scaler_train = transforms.Normalize((0,0),(1,1))
             return train_image, test_image, scaler_train
 
