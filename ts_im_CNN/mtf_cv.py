@@ -120,7 +120,7 @@ class CrossValidation:
         test_data = TensorDataset(feature_test,label_test)
         
         #transform to image
-        test_data = self.transformation.mtf(test_data, n_bins=n_bins, strategy=strategy)   
+        test_data_image = self.transformation.mtf(test_data, n_bins=n_bins, strategy=strategy)   
         feature_test, label_test = test_data_image.tensors
         
         file_path = os.path.join(self.dir,"scaler_pixel_cv.pkl")
