@@ -807,7 +807,7 @@ def objective(trial:optuna.trial.Trial):
     return loss_val
 
 #project 
-PROJECT ="ba-finalt/cwt-1"
+PROJECT ="ba-final/cwt-1"
 API_TOKEN = "eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiJiODUwOWJmNy05M2UzLTQ2ZDItYjU2MS0yZWMwNGI1NDI5ZjAifQ=="
 METHOD = "CWT"
 
