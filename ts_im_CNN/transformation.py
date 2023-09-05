@@ -535,7 +535,6 @@ class Conv1dNeuralNetwork(nn.Module):
         x = self.conv2d_2(x)
         x = self.conv2d_3(x)
         x = self.conv2d_4(x)
-        print("x shape", x.shape)
         
         x = self.flatten(x)
 
