@@ -7,7 +7,7 @@
 #SBATCH --time=1-0             
 #SBATCH --partition=gpu_normal_stud                                     
 #SBATCH --cpus-per-task=16        
-#SBATCH --mem=120G                  
+#SBATCH --mem=80G                  
 #SBATCH --gres=gpu:1
 # #SBATCH --array=0-0
 
