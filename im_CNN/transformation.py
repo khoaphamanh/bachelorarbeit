@@ -199,7 +199,7 @@ class Transformation:
         max_0 = torch.max(feature_train[:,0,:])
         max_1 = torch.max(feature_train[:,1,:])
 
-        if max_0 == min_0 and max_1 == min_1:
+        if max_0 == min_0 or max_1 == min_1:
             scaler_train = transforms.Normalize((0,0),(1,1))
             return train_image, test_image, scaler_train
 
@@ -229,9 +229,6 @@ class Transformation:
         path_file_name = os.path.join(dir_text,'{}_final_result.txt'.format(name_method))
         with open(path_file_name, 'w') as merge_file:
             merge_file.write(merged_content)
-            
-        for file_name in file_names:
-            os.remove(os.path.join(dir_text,file_name))
                 
     def stft(self, raw_data, w_stft = 2560, hop = 128):
         
