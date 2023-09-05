@@ -251,9 +251,6 @@ class Transformation:
         with open(path_file_name, 'w') as merge_file:
             merge_file.write(merged_content)
             
-        for file_name in file_names:
-            os.remove(os.path.join(dir_text,file_name))    
-            
     def stft(self, raw_data, w_stft = 2560, hop = 128):
         
         #load data
@@ -538,6 +535,7 @@ class Conv1dNeuralNetwork(nn.Module):
         x = self.conv2d_2(x)
         x = self.conv2d_3(x)
         x = self.conv2d_4(x)
+        print("x shape", x.shape)
         
         x = self.flatten(x)
 

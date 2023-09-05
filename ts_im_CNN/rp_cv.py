@@ -360,7 +360,7 @@ class CrossValidation:
         
         #log parameters and transform images
         hyperparameters = self.trial.params     
-        run["hyperparameters"] = hyperparameters
+        run["hyperparameters"] = stringify_unsupported(hyperparameters)
         run["fix_parameters"] =  stringify_unsupported(fix_parameters)      
         run["fix_interval"] = stringify_unsupported(fix_interval) 
         
@@ -720,7 +720,7 @@ class CrossValidation:
         train_raw_data, full_raw_data, _ = self.normalize_raw(train_val_raw_data=self.train_val_raw_data,test_raw_data=full_data_raw,min_max_scaler=MIN_MAX_SCALER, clamp=CLAMP)
         
         #transform data to images
-        train_data, full_data, _ = self.transform_image(train_raw_data=train_data,test_raw_data=full_data,threshold = threshold, percentage = percentage, dimension = dimension, time_delay = time_delay)
+        train_data, full_data, _ = self.transform_image(train_raw_data=train_raw_data,test_raw_data=full_raw_data,threshold = threshold, percentage = percentage, dimension = dimension, time_delay = time_delay)
         fig_transform = self.visualize_transform_image(train_val_data=train_data)
         
         #create dataset

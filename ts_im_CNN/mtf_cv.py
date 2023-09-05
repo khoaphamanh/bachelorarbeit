@@ -719,7 +719,7 @@ class CrossValidation:
         train_raw_data, full_raw_data, _ = self.normalize_raw(train_val_raw_data=self.train_val_raw_data,test_raw_data=full_data_raw,min_max_scaler=MIN_MAX_SCALER, clamp=CLAMP)
         
         #transform data to images
-        train_data, full_data, _ = self.transform_image(train_raw_data=train_data,test_raw_data=full_data,n_bins=n_bins, strategy=strategy)
+        train_data, full_data, _ = self.transform_image(train_raw_data=train_raw_data,test_raw_data=full_raw_data,n_bins=n_bins, strategy=strategy)
         fig_transform = self.visualize_transform_image(train_val_data=train_data)
         
         #create dataset
