@@ -406,32 +406,39 @@ class Transformation:
             
         return dict_dataset
 
-    def rp (self,raw_data, threshold= None, percentage=50, dimension = 1, time_delay = 1):
+    def rp (self,dict_dataset:dict, threshold= None, percentage=50, dimension = 1, time_delay = 1):
         
         #load method
         RP = RecurrencePlot(dimension=dimension,time_delay=time_delay,threshold=threshold,percentage=percentage)
         paa = PAA(window_size=None,output_size=224)
         
-        #load data
-        raw_data, label = raw_data.tensors
-        len_data = len(raw_data)
+        for key in dict_dataset.keys():
+        #for key in tqdm(dict_dataset.keys()):
+            #load data
+            raw_data = dict_dataset[key]
+            len_data = len(raw_data)
+            raw_data, label = raw_data.tensors
+            
+            #features transform tensor.
+            feature_transform = torch.empty(size=(len_data,2,self.image_size,self.image_size))
 
-        #features transform tensor.
-        feature_transform = torch.empty(size=(len_data,2,self.image_size,self.image_size))
+            for index, feature in enumerate(raw_data):
+            #for index,feature in enumerate(tqdm(raw_data,desc ="Processing {} Data")):    
+                #create image:
+                feature = paa.transform(feature)
+                feature_image = RP.fit_transform(feature)
+                feature_image = torch.from_numpy(feature_image)
 
-        for index, feature in enumerate(raw_data):
-        #for index,feature in enumerate(tqdm(raw_data,desc ="Processing {} Data")):    
-            #create image:
-            feature = paa.transform(feature)
-            feature_image = RP.fit_transform(feature)
-            feature_image = torch.from_numpy(feature_image)
+                #indexing feature image and label
+                feature_transform[index] = feature_image
 
-            #indexing feature image and label
-            feature_transform[index] = feature_image
-
-        #create TensorDataset:
-        data_transform = TensorDataset(feature_transform,label)
-        return data_transform
+            #create TensorDataset:
+            data_transform = TensorDataset(feature_transform,label)
+            
+            #add it to dict:
+            dict_dataset[key] = data_transform
+            
+        return dict_dataset
 
     def lms(self,dict_dataset,w_stft=2560,hop=256,n_mels=256):
         
@@ -467,67 +474,13 @@ class Transformation:
             
         return dict_dataset
     
-    def gaf(self,raw_data,method:str="summation"):
-       
+    def gaf(self,dict_dataset,method:str="summation"):
+        
         #load transition and scaler
         GAF = GramianAngularField(sample_range=None,method=method,image_size=224)
         
-        #load data
-        raw_data, label = raw_data.tensors
-        len_data = len(raw_data)
-        
-        #features transform tensor.
-        feature_transform = torch.empty(size=(len_data,2,self.image_size,self.image_size))
-
-        for index,feature in enumerate(raw_data):
-        #for index,feature in enumerate(tqdm(raw_data,desc ="Processing {} Data")):    
-            #create image:
-            feature_image = GAF.fit_transform(feature)
-            feature_image = torch.from_numpy(feature_image)
-
-            #indexing feature image and label
-            feature_transform[index] = feature_image
-
-        #create TensorDataset:
-        data_transform = TensorDataset(feature_transform,label)
-        
-        return data_transform
-    
-    def mtf(self,raw_data,n_bins=5,strategy="quantile"):
-        
-        #load transition
-        MTF = MarkovTransitionField(n_bins=n_bins,strategy=strategy)
-        paa = PAA(window_size=None,output_size=224)
-        
-        #load data
-        raw_data, label = raw_data.tensors
-        len_data = len(raw_data)
-        
-        #features transform tensor.
-        feature_transform = torch.empty(size=(len_data,2,self.image_size,self.image_size))
-        
-        for index,feature in enumerate(raw_data):
-        #for index,feature in enumerate(tqdm(raw_data,desc ="Processing {} Data")):    
-            #create image:
-            feature = paa.transform(feature)
-            feature_image = MTF.fit_transform(feature)
-            feature_image = torch.from_numpy(feature_image)
-                
-            #indexing image and label
-            feature_transform[index] = feature_image
-
-        #create TensorDataset       
-        data_transform = TensorDataset(feature_transform,label)
-        return data_transform
-    
-    def cwt(self,dict_dataset:dict,b:float = 1.5,fc:float = 1.0,scale_min:float = 2, scale_max:float = 20 ,n_scales:int=250):
-        
-        #load wavelet and scale
-        wavelet = "cmor{}-{}".format(b,fc)
-        scales = np.linspace(scale_min,scale_max,n_scales)
-        
-        #for key in dict_dataset.keys():
-        for key in tqdm(dict_dataset.keys()):
+        for key in dict_dataset.keys():
+        #for key in tqdm(dict_dataset.keys()):
             #load data
             raw_data = dict_dataset[key]
             len_data = len(raw_data)
@@ -536,8 +489,75 @@ class Transformation:
             #features transform tensor.
             feature_transform = torch.empty(size=(len_data,2,self.image_size,self.image_size))
 
-            #for index,(feature_1,feature_2) in enumerate(raw_data):
-            for index,(feature_1,feature_2) in enumerate(tqdm(raw_data)):    
+            for index,feature in enumerate(raw_data):
+            #for index,feature in enumerate(tqdm(raw_data,desc ="Processing {} Data")):    
+                #create image:
+                feature_image = GAF.fit_transform(feature)
+                feature_image = torch.from_numpy(feature_image)
+
+                #indexing feature image and label
+                feature_transform[index] = feature_image
+
+            #create TensorDataset:
+            data_transform = TensorDataset(feature_transform,label)
+            
+            #add it to dict:
+            dict_dataset[key] = data_transform
+            
+        return dict_dataset
+    
+    def mtf(self,dict_dataset,n_bins=5,strategy="quantile"):
+        
+        #load transition
+        MTF = MarkovTransitionField(n_bins=n_bins,strategy=strategy)
+        paa = PAA(window_size=None,output_size=224)
+        
+        for key in dict_dataset.keys():
+        #for key in tqdm(dict_dataset.keys()):
+            #load data
+            raw_data = dict_dataset[key]
+            len_data = len(raw_data)
+            raw_data, label = raw_data.tensors
+            
+            #features transform tensor.
+            feature_transform = torch.empty(size=(len_data,2,self.image_size,self.image_size))
+
+            for index,feature in enumerate(raw_data):
+            #for index,feature in enumerate(tqdm(raw_data,desc ="Processing {} Data")):    
+                #create image:
+                feature = paa.transform(feature)
+                feature_image = MTF.fit_transform(feature)
+                feature_image = torch.from_numpy(feature_image)
+                    
+                #indexing image and label
+                feature_transform[index] = feature_image
+
+            #create TensorDataset       
+            data_transform = TensorDataset(feature_transform,label)
+            
+            #add it to dict:
+            dict_dataset[key] = data_transform
+            
+        return dict_dataset
+    
+    def cwt(self,dict_dataset:dict,b:float = 1.5,fc:float = 1.0,scale_min:float = 2, scale_max:float = 20 ,n_scales:int=250):
+        
+        #load wavelet and scale
+        wavelet = "cmor{}-{}".format(b,fc)
+        scales = np.linspace(scale_min,scale_max,n_scales)
+        
+        for key in dict_dataset.keys():
+        #for key in tqdm(dict_dataset.keys()):
+            #load data
+            raw_data = dict_dataset[key]
+            len_data = len(raw_data)
+            raw_data, label = raw_data.tensors
+            
+            #features transform tensor.
+            feature_transform = torch.empty(size=(len_data,2,self.image_size,self.image_size))
+            
+            for index,(feature_1,feature_2) in enumerate(raw_data):
+            #for index,(feature_1,feature_2) in enumerate(tqdm(raw_data)):    
                 #create image:
                 feature_image_1, freq = pywt.cwt(data=feature_1.numpy(),scales=scales,wavelet=wavelet,sampling_period=1/self.sr)
                 feature_image_2, freq = pywt.cwt(data=feature_2.numpy(),scales=scales,wavelet=wavelet,sampling_period=1/self.sr)
@@ -596,7 +616,7 @@ if __name__ == "__main__":
     #true_label = tranformation.true_label(train_data)
     #print("true_label", true_label)
     
-    train_data, test_data, _ = tranformation.normalize_raw(train_val_raw_data= train_data,train_bearing=train_bearing,val_bearing=val_bearing, min_max_scaler= False)
+    train_data, test_data, _ = tranformation.normalize_raw(train_val_raw_data= train_data,train_bearing=train_bearing,val_bearing=val_bearing, min_max_scaler= True,clamp=True)
     
     #pair_train = tranformation.create_pairs(train_data)
     #print("pair_train:", pair_train)
@@ -710,7 +730,7 @@ if __name__ == "__main__":
     y = inverse_transform(bearing,y_scaled)
     print(y)"""
 
-    STFT = tranformation.cwt(train_data)  
+    STFT = tranformation.mtf(train_data)  
     print(STFT)
     print(len(STFT))
     tensor = STFT[12]
