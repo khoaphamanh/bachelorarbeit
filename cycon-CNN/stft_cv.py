@@ -45,6 +45,7 @@ class CrossValidation:
         self.len_index = self.transformation.len_index
         self.lc_window_index = self.transformation.lc_window_index(window_size=self.w_size)
         self.create_pairs = self.transformation.create_pairs
+        self.true_label = self.transformation.true_label
         
         #saved variable:
         self.train_val_raw_data = self.load_raw_data(kind_data="train")
@@ -161,7 +162,8 @@ class CrossValidation:
         model.features[0][0] = nn.Conv2d(INPUT,32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
         model.classifier = nn.Sequential(
         nn.Dropout(p=drop,inplace=True),
-        nn.Linear(in_features=1280, out_features=embedding_dim, bias=True))
+        nn.Linear(in_features=1280, out_features=2, bias=True),
+        nn.Linear(in_features=2, out_features=embedding_dim, bias=True))
 
         return model
     
@@ -172,33 +174,90 @@ class CrossValidation:
         score = torch.mean(A)
         return score
     
+    def RUL (self, FPT_train:dict, FPT_val:dict, neareast_neighbor_dict_val:dict):
+        #check if None:
+        for key in FPT_train.keys():
+            if None in FPT_train[key]:
+                return None
+        
+        for key in FPT_val.keys():
+            if None in FPT_val[key]:
+                return None
+                
+        #calculate percentage RUL
+        y = {}
+        for key in FPT_train.keys():
+            N_train = self.n_windows_bearing(self.w_size)["train"][key]
+            FPT_mean = round(np.mean(FPT_train[key]))
+            indices = np.arange(0,N_train)
+            y_value = (N_train-1-indices) / (N_train-1-FPT_mean)
+            y_value = np.where(y_value>1,1,y_value)
+            y[key] = y_value
+        
+        #calculate y dach
+        y_dach = {}
+        for key in neareast_neighbor_dict_val.keys():
+            neareast_neighbor = neareast_neighbor_dict_val[key]
+            y_dach_value = []
+            train_keys = list(y.keys())
+            FPT_mean = round(np.mean(FPT_val[key]))
+            
+            for kei in range(len(train_keys)):
+                neareast_neighbor_tmp = neareast_neighbor[kei]
+                y_dach_tmp = y[train_keys[kei]][neareast_neighbor_tmp]
+                y_dach_value.append(y_dach_tmp)
+            
+            y_dach_key = np.mean(y_dach_value,axis=0)
+            y_dach_key[0:FPT_mean] = 1
+            y_dach[key] = y_dach_key
+            
+        #calculate rul
+        rul = {}
+        for key in y_dach.keys():
+            FPT_mean = round(np.mean(FPT_val[key]))
+            y_dach_value = y_dach[key]
+            indices = np.arange(0,len(y_dach_value))
+            rul_value_ts = indices+1-FPT_mean
+            rul_value_ms = 1-y_dach_value
+            rul_value = np.where(rul_value_ms!=0, rul_value_ts/rul_value_ms*y_dach_value,len(y_dach_value))
+            rul_value[0:FPT_mean] = np.flip(np.linspace(rul_value[FPT_mean],len(y_dach_value),FPT_mean))     
+            rul[key] = rul_value / len(rul_value)
+            
+        return rul
+    
+    def calulate_loss_and_score (self,rul:dict,true_label:dict):
+        #check if rul None
+        if rul is None:
+            return 5,0
+        
+        #calculate the score and 
+        losses = []
+        scores = []
+        for key in true_label.keys():
+            true_value = true_label[key]
+            rul_value = torch.from_numpy(rul[key]) 
+            loss = self.mae(rul_value,true_value)
+            rul_value = torch.clamp(rul_value,0,1)
+            score = self.score(rul_value,true_value)
+            losses.append(loss.item())
+            scores.append(score.item())
+            
+        return np.mean(losses),np.mean(scores)
+
     def train_evaluate_loop(self,run:neptune.init_run,model:nn.Module,train_data:dict,val_data:dict,batch_size:int,epochs,optimizer:torch.optim,n_FPT:int,n_period:int,cv:bool=True):
         
         #keys of the data
         train_keys = train_data.keys()
         val_keys = val_data.keys()
+        true_label_val = self.true_label(val_data)
         text_report = ""
         
         #training loop
         for iter in range(epochs):
-
-            #total loss each epoch, the sum of all pairs
-            loss_total_train = 0
             
             #shuffle and create pairs
-            train_pairs = self.create_pairs(train_data=train_data)
-            val_pairs = self.create_pairs(train_data=train_data,test_data=val_data)
-            
-            #cycle sequence dict to store the sequence of cycle points
-            cycle_sequence_dict_train = {} 
-            for key in train_keys:
-                cycle_sequence_dict_train[key] = []
-                
-            #accuracy dict and list to store the accuracy of cycle points
-            accuracy_dict_train = {} 
-            for keys in train_keys:
-                accuracy_dict_train[keys] = []
-            accuracy_list_train = []
+            train_pairs = self.create_pairs(train_data=train_data,shuffle=True)
+            val_pairs = self.create_pairs(train_data=train_data,test_data=val_data,shuffle=True)
             
             #training mode:
             model.train()
@@ -206,122 +265,92 @@ class CrossValidation:
             #loop through each pair to select u and v from train data
             for pair in train_pairs:
                 
-                #loss of u and v each pair
-                loss_pair_u_train = 0
-                loss_pair_v_train = 0
-                
-                #sequence of u and v if cycle point
-                cycle_sequence_u_train = []
-                cycle_sequence_v_train = []
-                
                 #select u and v from train data
                 s_train = train_data[pair[0]]
                 t_train = train_data[pair[1]]
                 s_train,_ = s_train.tensors
                 t_train,_ = t_train.tensors
                 
-                #create dataloader
-                s_train = s_train[random.sample(range(len(s_train)),batch_size)]
-                t_train = t_train[random.sample(range(len(t_train)),batch_size)]
+                #print the max sequence length
+                seq_len = max(len(s_train),len(t_train))
                 
-                #load tensors to device
-                s_train = s_train.to(self.device)
-                t_train = t_train.to(self.device)
+                #do a loop for each iteration
+                for _ in range(int(np.ceil(seq_len // batch_size))):
+                    
+                    #loss of u and v each pair
+                    loss_pair_u_train = 0
+                    loss_pair_v_train = 0
                 
-                #forward pass u and v
-                u_train = model(s_train)
-                v_train = model(t_train)
-                
-                #loop through index of every u to find soft nearest neighbor in v
-                for index in range(len(u_train)):
+                    #create dataloader
+                    if len(s_train) > batch_size:
+                        s_train = s_train[random.sample(range(len(s_train)),batch_size)]
+                    else: 
+                        s_train = s_train[random.sample(range(len(s_train)),len(s_train))]
                     
-                    #choose u_i in u and repeat as length of v
-                    u_i_train = u_train[index]
-                    u_i_train = u_i_train.repeat(len(v_train),1)
-                    
-                    #calculate alpha, v tilde and beta
-                    alpha_train = torch.softmax(-torch.sqrt(torch.sum((u_i_train-v_train)**2,dim = 1,keepdim=True)),dim = 0)
-                    v_t_train = torch.sum(alpha_train*v_train,dim = 0)
-                    beta_train = -torch.sqrt(torch.sum((v_t_train-u_train)**2,dim = 1)).unsqueeze(0)
-                    
-                    #calculate the loss
-                    loss_u_train = self.ce(beta_train,torch.tensor([index]).to(self.device))
-                    loss_pair_u_train = loss_pair_u_train + loss_u_train
-                    
-                    #check if cycle consistency point
-                    beta_train = torch.argmax(beta_train.ravel(),dim = 0)
-                    if beta_train == index:
-                        cycle_sequence_u_train.append(1)
+                    if len(t_train) > batch_size:
+                        t_train = t_train[random.sample(range(len(t_train)),batch_size)]
                     else:
-                        cycle_sequence_u_train.append(0)
-                    
-                #save the cycle sequence in dict, save accuracy in dict and calculate the total loss pair u
-                cycle_sequence_dict_train[pair[0]].append(cycle_sequence_u_train)
-                accuracy_dict_train[pair[0]].append(np.mean(cycle_sequence_u_train)*100)
-                loss_pair_u_train = loss_pair_u_train / len(u_train)
-                
-                #update the gradient 
-                optimizer.zero_grad()
-                loss_pair_u_train.backward()
-                optimizer.step()
-
-                #forward pass u and v
-                u_train = model(s_train)
-                v_train = model(t_train)
-                
-                #loop through idnex of every v to find soft nearest neighbor in u
-                for index in range(len(v_train)):
-                    
-                    #choose v_i in v and repeat it as length of u
-                    v_i_train = v_train[index]
-                    v_i_train = v_i_train.repeat(len(u_train),1)
-                    
-                    #calculate alpha, v tilde and beta
-                    alpha_train = torch.softmax(-torch.sqrt(torch.sum((v_i_train-u_train)**2,dim=1,keepdim=True)),dim = 0)
-                    u_t_train = torch.sum(alpha_train*u_train,dim = 0)
-                    beta_train = -torch.sqrt(torch.sum((u_t_train-v_train)**2,dim=1)).unsqueeze(0)
-                    
-                    #calculate the loss
-                    loss_v_train = self.ce(beta_train,torch.tensor([index]).to(self.device))
-                    loss_pair_v_train = loss_pair_v_train + loss_v_train
-                    
-                    #check if cycle consistency point
-                    beta_train = torch.argmax(beta_train.ravel(),dim = 0)
-                    if beta_train == index:
-                        cycle_sequence_v_train.append(1)
-                    else:
-                        cycle_sequence_v_train.append(0)
+                        t_train = t_train[random.sample(range(len(t_train)),len(t_train))]
                         
-                #save the cycle consistency in dict, save accuracy in dict and calculate the loss pair v
-                cycle_sequence_dict_train[pair[1]].append(cycle_sequence_v_train)
-                accuracy_dict_train[pair[1]].append(np.mean(cycle_sequence_v_train)*100)
-                loss_pair_v_train = loss_pair_v_train / len(v_train)
+                    #load tensors to device
+                    s_train = s_train.to(self.device)
+                    t_train = t_train.to(self.device)
+                    
+                    #forward pass u and v
+                    u_train = model(s_train)
+                    v_train = model(t_train)
+                    
+                    #loop through index of every u to find soft nearest neighbor in v
+                    for index in range(len(u_train)):
+                        
+                        #choose u_i in u and repeat as length of v
+                        u_i_train = u_train[index]
+                        u_i_train = u_i_train.repeat(len(v_train),1)
+                        
+                        #calculate alpha, v tilde and beta
+                        alpha_train = torch.softmax(-torch.sqrt(torch.sum((u_i_train-v_train)**2,dim = 1,keepdim=True)),dim = 0)
+                        v_t_train = torch.sum(alpha_train*v_train,dim = 0)
+                        beta_train = -torch.sqrt(torch.sum((v_t_train-u_train)**2,dim = 1)).unsqueeze(0)
+                        
+                        #calculate the loss
+                        loss_u_train = self.ce(beta_train,torch.tensor([index]).to(self.device))
+                        loss_pair_u_train = loss_pair_u_train + loss_u_train
+                        
+                    #normalize the loss
+                    loss_pair_u_train = loss_pair_u_train / len(u_train)
+                    
+                    #update the gradient 
+                    optimizer.zero_grad()
+                    loss_pair_u_train.backward()
+                    optimizer.step()
 
-                #update the gradient 
-                optimizer.zero_grad()
-                loss_pair_v_train.backward()
-                optimizer.step()
-                
-                #calculate the loss total train every pair
-                loss_total_train = loss_total_train + loss_pair_u_train.item() + loss_pair_v_train.item() # 
-            
-            #calculate the FPT
-            cycle_sequence_dict_train = self.t_FPT(cycle_sequence_dict=cycle_sequence_dict_train,n_FPT=n_FPT, n_period=n_period)
-            
-            #calculate the accuracy
-            for key in train_keys:
-                accuracy_list_train.append(np.mean(accuracy_dict_train[key]))
-            accuracy_train = np.mean(accuracy_list_train)
-            
-            #caculate the loss of all pairs
-            loss_total_train = loss_total_train / len(train_pairs)
-            
-            #remove tensors to device
-            #s_train = s_train.cpu()
-            #t_train = t_train.cpu()
-            
-            #u_train = u_train.cpu()
-            #v_train = v_train.cpu()
+                    #forward pass u and v
+                    u_train = model(s_train)
+                    v_train = model(t_train)
+                    
+                    #loop through idnex of every v to find soft nearest neighbor in u
+                    for index in range(len(v_train)):
+                        
+                        #choose v_i in v and repeat it as length of u
+                        v_i_train = v_train[index]
+                        v_i_train = v_i_train.repeat(len(u_train),1)
+                        
+                        #calculate alpha, v tilde and beta
+                        alpha_train = torch.softmax(-torch.sqrt(torch.sum((v_i_train-u_train)**2,dim=1,keepdim=True)),dim = 0)
+                        u_t_train = torch.sum(alpha_train*u_train,dim = 0)
+                        beta_train = -torch.sqrt(torch.sum((u_t_train-v_train)**2,dim=1)).unsqueeze(0)
+                        
+                        #calculate the loss
+                        loss_v_train = self.ce(beta_train,torch.tensor([index]).to(self.device))
+                        loss_pair_v_train = loss_pair_v_train + loss_v_train
+                    
+                    #normalize the loss
+                    loss_pair_v_train = loss_pair_v_train / len(v_train)
+
+                    #update the gradient 
+                    optimizer.zero_grad()
+                    loss_pair_v_train.backward()
+                    optimizer.step()
             
             #evaluating
             model.eval()
@@ -331,8 +360,8 @@ class CrossValidation:
                 loss_total_train = 0
                 
                 #shuffle and create pairs
-                train_pairs = self.create_pairs(train_data=train_data)
-                val_pairs = self.create_pairs(train_data=train_data,test_data=val_data)
+                train_pairs = self.create_pairs(train_data=train_data,shuffle=False)
+                val_pairs = self.create_pairs(train_data=train_data,test_data=val_data,shuffle=False)
                 
                 #cycle sequence dict to store the sequence of cycle points
                 cycle_sequence_dict_train = {} 
@@ -344,9 +373,6 @@ class CrossValidation:
                 for keys in train_keys:
                     accuracy_dict_train[keys] = []
                 accuracy_list_train = []
-                
-                #training mode:
-                #model.train()
                 
                 #loop through each pair to select u and v from train data
                 for pair in train_pairs:
@@ -366,14 +392,13 @@ class CrossValidation:
                     t_train,_ = t_train.tensors
                     
                     #create dataloader
-                    s_train = DataLoader(s_train,shuffle=False,batch_size=batch_size)
-                    t_train = DataLoader(t_train,shuffle=False,batch_size=batch_size)
+                    s_train = DataLoader(s_train,shuffle=False)
+                    t_train = DataLoader(t_train,shuffle=False)
                     
                     #create feature map from data laoder and concat it
                     u_train = []
                     v_train = []
-                    for batch,image in enumerate(s_train):
-                        #print("s_train", batch)
+                    for image in s_train:
                         image = image.to(self.device)
                         feature = model(image)
                         u_train.append(feature)
@@ -414,26 +439,6 @@ class CrossValidation:
                     accuracy_dict_train[pair[0]].append(np.mean(cycle_sequence_u_train)*100)
                     loss_pair_u_train = loss_pair_u_train / len(u_train)
                     
-                    ##create feature map from data laoder and concat it
-                    u_train = []
-                    v_train = []
-                    for image in s_train:
-                        image = image.to(self.device)
-                        feature = model(image)
-                        u_train.append(feature)
-                        
-                    for image in t_train:
-                        image = image.to(self.device)
-                        feature = model(image)
-                        v_train.append(feature)
-                        
-                    u_train = torch.concatenate(u_train,dim = 0)
-                    v_train = torch.concatenate(v_train,dim = 0)
-                
-                    #forward pass u and v
-                    #u_train = model(s_train)
-                    #v_train = model(t_train)
-                    
                     #loop through idnex of every v to find soft nearest neighbor in u
                     for index in range(len(v_train)):
                         
@@ -466,7 +471,7 @@ class CrossValidation:
                     loss_total_train = loss_total_train + loss_pair_u_train.item() + loss_pair_v_train.item() # 
                 
                 #calculate the FPT
-                cycle_sequence_dict_train = self.t_FPT(cycle_sequence_dict=cycle_sequence_dict_train,n_FPT=n_FPT, n_period=n_period)
+                FPT_train = self.t_FPT(cycle_sequence_dict=cycle_sequence_dict_train,n_FPT=n_FPT, n_period=n_period)
                 
                 #calculate the accuracy
                 for key in train_keys:
@@ -475,13 +480,6 @@ class CrossValidation:
                 
                 #caculate the loss of all pairs
                 loss_total_train = loss_total_train / len(train_pairs)
-
-                #remove tensors to device
-                #s_train = s_train.cpu()
-                #t_train = t_train.cpu()
-                
-                #u_train = u_train.cpu()
-                #v_train = v_train.cpu()
             
                 #loss total of each epoch, the sum of all pairs
                 loss_total_val = 0
@@ -497,9 +495,11 @@ class CrossValidation:
                     accuracy_dict_val[key] = []
                 accuracy_list_val = []
                 
-                #evaluate mode
-                model.eval()  
-                  
+                #nearest neighbor val
+                nearest_neighbor_dict_val = {}
+                for keys in val_keys:
+                    nearest_neighbor_dict_val[keys] = []
+                    
                 #loop through each pair to select u and v from val data
                 for pair in val_pairs:
                     
@@ -508,6 +508,9 @@ class CrossValidation:
                     
                     #sequence of u and v if cycle point
                     cycle_sequence_u_val = []
+                    
+                    #nearest nieghtbor list
+                    nearest_neighbor_u_val = []
                     
                     #select u and v from val data
                     s_val = val_data[pair[0]]
@@ -551,6 +554,10 @@ class CrossValidation:
                         loss_u_val = self.ce(beta_val,torch.tensor([index]).to(self.device))
                         loss_pair_u_val = loss_pair_u_val + loss_u_val
                         
+                        #find the nearest neighbor
+                        alpha_val = torch.argmax(alpha_val.ravel(),dim = 0)
+                        nearest_neighbor_u_val.append(alpha_val.item())
+                        
                         #check if cycle consistency point
                         beta_val = torch.argmax(beta_val.ravel(),dim = 0)
                         if beta_val == index:
@@ -562,12 +569,13 @@ class CrossValidation:
                     cycle_sequence_dict_val[pair[0]].append(cycle_sequence_u_val)
                     accuracy_dict_val[pair[0]].append(np.mean(cycle_sequence_u_val)*100)
                     loss_pair_u_val = loss_pair_u_val / len(u_val)
+                    nearest_neighbor_dict_val[pair[0]].append(nearest_neighbor_u_val) 
                     
                     #calculate the loss total val
                     loss_total_val = loss_total_val + loss_pair_u_val.item()
                 
                 #calculate the FPT
-                cycle_sequence_dict_val = self.t_FPT(cycle_sequence_dict=cycle_sequence_dict_val,n_FPT=n_FPT,n_period=n_period)
+                FPT_val = self.t_FPT(cycle_sequence_dict=cycle_sequence_dict_val,n_FPT=n_FPT,n_period=n_period)
                 
                 #calculate the accuracy
                 for key in val_keys:
@@ -576,36 +584,45 @@ class CrossValidation:
                 
                 #calculate the loss of all pairs
                 loss_total_val = loss_total_val / len(val_pairs)
-                
-                #s_test = s_test.cpu()
-                #t_test = t_test.cpu()
-                
-                #u_test = u_test.cpu()
-                #v_test = v_test.cpu()  
-
-            #loss_total_train = 0 
-            #accuracy_train = 0
-            #loss_total_val = 0 
-            #accuracy_val = 0
-            #log the metrics"""
             
-            #loss_total_train = 0 
-            #accuracy_train = 0
-            #loss_total_val = 0 
-            #accuracy_val = 0
-            #log the metrics
+            #calculate the loss and score:
+            #if iter == 0:
+            #    FPT_train = {12: [20, 0,0,10], 21: [20, 10,5,0], 22: [30, 30,0,0],31:[10, 35,0,0],32:[0, 0,0,0]}
+            #    FPT_val =  {11: [0, 0, 5,5]}
+            #   nearest_neighbor_dict_val = {11: [np.sort(np.random.randint(0,87,(280,))),np.sort(np.random.randint(0,91,(280,))),np.sort(np.random.randint(0,79,(280,))),np.sort(np.random.randint(0,51,(280,))),np.sort(np.random.randint(0,163,(280,))) ]}
+                
+            rul_val = self.RUL(FPT_train=FPT_train,FPT_val=FPT_val,neareast_neighbor_dict_val=nearest_neighbor_dict_val)
+            loss_val, score_val = self.calulate_loss_and_score(rul_val,true_label_val)
             
-            metric = {"loss train":loss_total_train, "loss val":loss_total_val, "accuracy train": accuracy_train, "accuracy val":accuracy_val}
+            #plot the rul true and rul predict
+            fig_val = self.plot_rul(rul=rul_val,true_label=true_label_val,FPT_val=FPT_val,loss_val=loss_val,score_val=score_val,iter=iter)
+            run["images/val"].append(fig_val,step=iter)
+            plt.close()
+            
+            #save the metrics
+            metric = {"loss tcc train":loss_total_train, "loss tcc val":loss_total_val, "accuracy train": accuracy_train, "accuracy val":accuracy_val, "loss val":loss_val,"score val": score_val}
             run["metrics"].append(metric,step=iter)  
             train_text = "epoch {} loss train {} accuracy train {} FPT train {} \n".format(iter,loss_total_train,accuracy_train,cycle_sequence_dict_train)  
-            #test_text = "epoch {} loss test {} accuracy test {} FPT train {} \n".format(iter,loss_total_val,accuracy_val,cycle_sequence_dict_val)
-            text_report =   train_text + text_report  #+ + test_text
-        
+            test_text = "epoch {} loss val {} accuracy val {} FPT val {} \n".format(iter,loss_total_val,accuracy_val,cycle_sequence_dict_val)
+            text_report =   train_text + text_report  + test_text
+            
+            #check pruned:
+            if N_JOBS_CV == 1:
+                self.trial.report(loss_val,iter + self.split*epochs) 
+                if self.trial.should_prune():
+                    run["status"] = "pruned"
+                    run.stop()
+                    raise optuna.exceptions.TrialPruned()
+                
         run["text"] = text_report
-              
-        return loss_total_train, loss_total_val, accuracy_train, accuracy_val
         
-    def cv_load_data_parallel (self,batch_size,w_stft:int, hop:int,val_bearing):
+        #save the model
+        model_path = os.path.join(self.dir,"t_{}_s_{}.pth".format(self.trial.number,self.split)) 
+        torch.save(model.state_dict(),model_path)
+            
+        return loss_val, score_val
+        
+    def cv_load_data_parallel (self,w_stft:int, hop:int,val_bearing):
         
         #train index and bearing train, val
         split, val_bearing = val_bearing
@@ -630,7 +647,6 @@ class CrossValidation:
         
         #load mode
         model = self.load_model(drop=drop,embedding_dim=embedding_dim)
-        model = model.to(self.device)
         if torch.cuda.device_count() > 1:
             model = nn.DataParallel(model)
         model = model.to(self.device)
@@ -650,16 +666,16 @@ class CrossValidation:
         run["fix_interval"] = stringify_unsupported(fix_interval) 
         
         #training loop
-        loss_train_this_split, score_train_this_split,loss_val_this_split,score_val_this_split = self.train_evaluate_loop(run=run,model=model,train_data=train_data,val_data=val_data,batch_size=batch_size,epochs=epochs,optimizer=optimizer,n_FPT=n_FPT,n_period=n_period)
+        loss_val_this_split, score_val_this_split = self.train_evaluate_loop(run=run,model=model,train_data=train_data,val_data=val_data,batch_size=batch_size,epochs=epochs,optimizer=optimizer,n_FPT=n_FPT,n_period=n_period)
         
         #tracking split score
-        print("Split {}, loss train {:.2f}, score train {:.2f}, loss val {:.2f} score val {:.2f}".format(split,loss_train_this_split,score_train_this_split,loss_val_this_split,score_val_this_split))    
+        print("Split {}, loss val {:.3f}, score val {:.3f}".format(split,loss_val_this_split,score_val_this_split))    
     
         run["status"] = "finished"
         run["runing_time"] = run["sys/running_time"]
         run.stop()
         
-        return loss_train_this_split, score_train_this_split,loss_val_this_split,score_val_this_split
+        return loss_val_this_split, score_val_this_split
              
     def cross_validation(self,trial:optuna.trial.Trial,drop:float, embedding_dim :int,w_stft:int, hop:int,optimizer_name:str,lr:float,batch_size:int,epochs:int,weight_decay:float,n_FPT:int, n_period:int):
         
@@ -668,15 +684,15 @@ class CrossValidation:
         self.trial_number = trial.number
          
         #params from load data 
-        load_data = Parallel(n_jobs=N_JOBS_LOAD_DATA)(delayed(self.cv_load_data_parallel)(batch_size,w_stft,hop,val_bearing) for val_bearing in enumerate(self.bearing_train_number))
+        load_data = Parallel(n_jobs=N_JOBS_LOAD_DATA)(delayed(self.cv_load_data_parallel)(w_stft,hop,val_bearing) for val_bearing in enumerate(self.bearing_train_number))
         
         #params from cross validation train and eval 
         result = Parallel(n_jobs = N_JOBS_CV)(delayed(self.cv_train_eval_parallel)(drop,embedding_dim,batch_size,optimizer_name,lr, epochs, weight_decay, n_FPT, n_period, params_load) for params_load in enumerate(load_data))
         result = np.array(result)
-        loss_train, score_train, loss_val, score_val =  result[:,0].mean(),result[:,1].mean(), result[:,2].mean(),result[:,3].mean()
+        loss_val, score_val =  result[:,0].mean(),result[:,1].mean()
     
         #tracking split score
-        print("trial {}, loss train mean {:.2f}, score train mean {:.2f}, loss val mean {:.2f}, score val mean {:.2f}\n\n".format(trial.number,loss_train,score_train,loss_val, score_val))  
+        print("trial {}, loss train mean {:.3f}, score train mean {:.3f}\n\n".format(trial.number,loss_val,score_val))  
     
         return loss_val
       
@@ -869,108 +885,38 @@ class CrossValidation:
             
         return tracking_dict
     
-    def plot_rul(self,kind_data , tracking_dict,iter = None):
+    def plot_rul(self, rul:dict, true_label:dict, FPT_val:dict=None, loss_val:float=None, score_val:float=None, iter = None, cv:bool = True):
         
-        if kind_data == "train" or kind_data == "test":
-            #create figure and axes
-            if kind_data == "train":
-                fig, ax_fig = plt.subplots(figsize = (17,13),nrows=2,ncols=3)
-                bearing_list = self.bearing_train_number
-                fig.suptitle("RUL of bearing train epoch {}".format(iter))
-                    
-            elif kind_data == "test":
-                fig,ax_fig = plt.subplots(figsize = (20,15),nrows=3,ncols=4)
-                bearing_list = self.bearing_test_number
-                if iter == None:
-                    fig.suptitle("RUL of bearing test best CV")
-                else:
-                    fig.suptitle("RUL of bearing test epoch {}".format(iter))
-                rul_last_predict = np.empty(shape=(len(bearing_list,)))
-                rul_last_true = np.empty(shape=(len(bearing_list,)))
-                loss_final = np.empty(shape=(len(bearing_list,)))
-            
-            axes = [item for sublist in ax_fig for item in sublist]
-                
-            for index, bearing in enumerate(bearing_list):
-                ax = axes[index]
-                #sort the index of the rul true
-                sort_index = np.argsort(tracking_dict[bearing][1]) #low to high
-                time_stamp = np.array(tracking_dict[bearing][1])[sort_index]
-                rul_true = np.array(tracking_dict[bearing][1])[np.flip(sort_index)] #high to low
-                rul_pred = np.array(tracking_dict[bearing][0])[np.flip(sort_index)]
-
-                if kind_data == "test":
-                    rul_last_true[index] = rul_true[self.lc_window_index[bearing]]
-                    rul_last_predict[index] = rul_pred[self.lc_window_index[bearing]]
-                    score_final = self.score(y_pred=torch.from_numpy(np.array(rul_pred[self.lc_window_index[bearing]])),
-                                            y_true=torch.from_numpy(np.array(rul_true[self.lc_window_index[bearing]])))
-                    
-                #calculate score and loss
-                loss = self.loss(torch.from_numpy(rul_pred),torch.from_numpy(rul_true))
-                score = self.score(y_pred=torch.from_numpy(rul_pred),y_true=torch.from_numpy(rul_true))
-                
-                ax.plot(time_stamp,rul_pred)
-                ax.plot(time_stamp,rul_true)
-                if kind_data == "test":
-                    ax.scatter(time_stamp[self.lc_window_index[bearing]],rul_pred[self.lc_window_index[bearing]],s = 30)
-                    ax.scatter(time_stamp[self.lc_window_index[bearing]],rul_true[self.lc_window_index[bearing]],s = 30)
-                ax.set_xlabel("time stamp")
-                ax.set_ylabel("RUL")
-                ax.legend(["RUL predict","RUL true"],loc="upper right")
-                
-                if kind_data == "train":
-                    ax.set_title("Bearing {}, loss {:.2f}, score {:.2f}".format(bearing,loss,score))
-                elif kind_data == "test":
-                    rul_true_bearing = self.inverse_transform(bearing=bearing,label=rul_true[self.lc_window_index[bearing]])
-                    rul_pred_bearing = self.inverse_transform(bearing=bearing,label=rul_pred[self.lc_window_index[bearing]])
-                    loss_final_bearing = self.loss(torch.tensor(rul_pred_bearing),torch.tensor(rul_true_bearing)).item()
-                    loss_final[index] = loss_final_bearing
-                    ax.set_title("Bearing {}, loss {:.2f}, score {:.2f}, loss final {}\nscore final {:.2f}, RUL true {}, RUL pred {}".format(bearing,loss,score,round(loss_final_bearing),score_final,round(rul_true_bearing),round(rul_pred_bearing)))
-            
-            if kind_data == "test":
-                loss_final = loss_final.mean()
-                score_final = self.score(y_pred=torch.from_numpy(rul_last_predict),y_true=torch.from_numpy(rul_last_true)).item()
-                
-                ax = axes[-1]
-                ax.axis("off")   
-                ax.text(0.2,0.5,"loss final = {}\nscore final = {:.2f}".format(round(loss_final),score_final),fontsize = 15)
-
-                fig.subplots_adjust(left=0.05,bottom=0.079,right=0.95,top=0.917,wspace=0.224,hspace=0.317)
-                
-                return fig,score_final
-                    
-            elif kind_data == "train":
-                return fig  
-
-        else:
+        #check if cv:
+        if cv:
             #create figure
-            fig, axes = plt.subplots(ncols=2,nrows=1,figsize = (17,5))
-            fig.suptitle("tracking RUL train/val split {} epoch {}".format(self.split,iter))
+            fig = plt.figure(figsize=(10,10))
+            bearing_val = list(true_label.keys())[0]
+            true_value = true_label[bearing_val].numpy()
+            plt.suptitle("RUL val bearing {} split {} epoch {}".format(bearing_val,self.split,iter))
             
-            for index, kind in enumerate(["train","val"]):
-                
-                #sort the index of rul train
-                samples = np.arange(0,len(tracking_dict[kind][0]))
-                sorted_index = np.argsort(tracking_dict[kind][1]) #low to high
-                
-                rul_true = np.array(tracking_dict[kind][1])[np.flip(sorted_index)]
-                rul_pred = np.array(tracking_dict[kind][0])[np.flip(sorted_index)]
-                
-                #calculate score and loss
-                loss = self.loss(torch.from_numpy(rul_pred),torch.from_numpy(rul_true))
-                score = self.score(y_pred=torch.from_numpy(rul_pred),y_true=torch.from_numpy(rul_true))
+            #plot the rul val
+            time_stamp = np.flip(true_value)
+            plt.plot(time_stamp,true_value)
             
-                #plot RUL
-                ax = axes[index]
-                ax.plot(samples,rul_pred)
-                ax.plot(samples,rul_true)
-                ax.set_xlabel("n_samples")
-                ax.set_ylabel("RUL scaled")
-                ax.legend(["RUL predict","RUL true"])
-                ax.set_title("RUL {}, loss {:.2f}, score {:.2f}".format(kind, loss, score))
+            if rul is None:
+                loss_val, score_val = "None", "None"
+                plt.legend(["RUL true"])
+                plt.title("loss {} score {}".format(loss_val,score_val))
+            else:
+                rul_value = rul[bearing_val]
+                rul_value = np.clip(rul_value,0,1)
+                FPT = round(np.mean(FPT_val[bearing_val]))
+                plt.plot(time_stamp,rul_value)
+                plt.scatter(time_stamp[FPT],true_value[FPT])
+                plt.legend(["RUL true", "RUL predict","FPT"])
+                plt.title("loss {:.3f} score {:.3f}".format(loss_val,score_val))
                 
-            return fig
-        
+            plt.xlabel("Timestamp")
+            plt.ylabel("Scaled RUL")
+            
+        return fig 
+    
     def rename_best_cv_file(self, best_trial_number):
         for file in sorted(os.listdir(self.dir)):
             if (file.startswith("t_{}_".format(best_trial_number))) and ("final" not in file) and ("best" not in file):
@@ -1111,9 +1057,9 @@ K = 6
 TOTAL_TRIALS = 100
 W_SIZE = 25600
 MODEL_NAME = "efficientnet_b0"
-BATCH_SIZE = [32]
-EPOCHS = [100]
-n_trials = 10
+BATCH_SIZE = [100]
+EPOCHS = [50]
+n_trials = 1
 
 fix_parameters = {"k":K,"seed":SEED,"model_name":MODEL_NAME,"w_size":W_SIZE,"n_trials":TOTAL_TRIALS,"batch_size":BATCH_SIZE,"epochs":EPOCHS}
 
@@ -1122,11 +1068,11 @@ W_STFT = (512,5120,128)
 HOP = (32,512,32)
 
 EMBEDDING_DIM = (32,720,8)
-N_FPT = (5,20,1)
-N_PERIOD = (0,40,1)
+N_FPT = (5,10,1)
+N_PERIOD = (0,25,1)
 DROP = (0.1,0.8,True)
 OPTIMIZER = ("Adam","SGD")
-LR = (0.0005,0.2,True)
+LR = (0.00001,0.2,True)
 WEIGHT_DECAY = (0.00001,0.1,True)
 fix_interval = {"w_stft":W_STFT,"hop":HOP,"optmizer":OPTIMIZER,"learning_rata":LR,"weight_decay":WEIGHT_DECAY,"embedding_dim":EMBEDDING_DIM, "n_FPT":N_FPT,"n_period":N_PERIOD}
 
@@ -1161,11 +1107,11 @@ storage_path = os.path.join(dir_name,"{}.db".format(METHOD))
 storage_name = "sqlite:///{}".format(storage_path)
 
 if not os.path.isfile(storage_path):
-    study = optuna.create_study(direction="minimize",sampler=optuna.samplers.TPESampler(seed=SEED),study_name=METHOD,storage=storage_name,pruner=optuna.pruners.MedianPruner(n_startup_trials=20, n_warmup_steps=5, interval_steps=1, n_min_trials=9))
+    study = optuna.create_study(direction="minimize",sampler=optuna.samplers.TPESampler(seed=SEED),study_name=METHOD,storage=storage_name,pruner=optuna.pruners.MedianPruner(n_warmup_steps=5, n_min_trials=4))
     study.optimize(objective,n_trials=n_trials)    
     
 else:
-    study = optuna.load_study(study_name=METHOD, storage=storage_name,sampler=optuna.samplers.TPESampler(seed = SEED),pruner=optuna.pruners.MedianPruner(n_startup_trials=20, n_warmup_steps=5, interval_steps=1, n_min_trials=9))
+    study = optuna.load_study(study_name=METHOD, storage=storage_name,sampler=optuna.samplers.TPESampler(seed = SEED),pruner=optuna.pruners.MedianPruner(n_warmup_steps=5, n_min_trials=4))
     
     #some information of the last trials and all runned trials
     trials_last = study.trials[-1]
