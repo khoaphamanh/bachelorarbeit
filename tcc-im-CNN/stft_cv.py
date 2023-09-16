@@ -16,7 +16,6 @@ import numpy as np
 import os
 import pickle
 import random
-#torch.cuda.empty_cache()
 
 class CrossValidation:
     def __init__(self,PROJECT:str,API_TOKEN:str,transformation:Transformation,K,W_SIZE,MODEL_NAME,MAE,CE,device):
