@@ -4,8 +4,8 @@
 #SBATCH --mail-type=ALL             
 #SBATCH --job-name=cwt_kf     
 #SBATCH --output=result/cwt/CWT-%j.txt   
-#SBATCH --time=1-0             
-#SBATCH --partition=gpu_normal_stud                                     
+#SBATCH --time=10-0             
+#SBATCH --partition=gpu_long_stud                                     
 #SBATCH --cpus-per-task=16        
 #SBATCH --mem=96G                  
 #SBATCH --gres=gpu:1
