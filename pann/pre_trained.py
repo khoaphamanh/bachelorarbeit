@@ -215,7 +215,7 @@ if __name__ == "__main__":
     out = model(input)
     print("out:", out['clipwise_output'])"""
     torch.manual_seed(1998)
-    model = Wavegram_Logmel_Cnn14(sample_rate=1000,window_size=1024,hop_size=320,mel_bins=64,classes_num=527,fmin=0,fmax=1000//2)
+    model = Wavegram_Logmel_Cnn14(sample_rate=1000,window_size=1024,hop_size=320,mel_bins=64,fmin=0,fmax=1000//2)
     #model = Cnn14(sample_rate=1000,window_size=1024,hop_size=320,mel_bins=64,classes_num=527,fmin=0,fmax=1000//2)
     state_dict = torch.load("Wavegram_Logmel_Cnn14_mAP=0.439.pth", map_location=torch.device('cpu'))
     #state_dict = torch.load("Cnn14_mAP=0.431.pth", map_location=torch.device('cpu'))
