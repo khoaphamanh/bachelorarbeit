@@ -4,8 +4,8 @@
 #SBATCH --mail-type=ALL             
 #SBATCH --job-name=tcc_rp
 #SBATCH --output=result/rp/RP-%j.txt   
-#SBATCH --time=1-0             
-#SBATCH --partition=gpu_normal_stud                                     
+#SBATCH --time=2-0             
+#SBATCH --partition=gpu_long_stud                                     
 #SBATCH --cpus-per-task=16        
 #SBATCH --mem=24G                  
 #SBATCH --gres=gpu:2
