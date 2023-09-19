@@ -227,7 +227,7 @@ class CrossValidation:
     def calulate_loss_and_score (self,rul:dict,true_label:dict):
         #check if rul None
         if rul is None:
-            return 0,0
+            return 5,0
         
         #calculate the score and 
         losses = []

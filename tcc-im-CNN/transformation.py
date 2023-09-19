@@ -613,8 +613,8 @@ if __name__ == "__main__":
     train_bearing = [12,21,22,31,32]
     val_bearing = 11
     
-    #true_label = tranformation.true_label(train_data)
-    #print("true_label", true_label)
+    true_label = tranformation.true_label(train_data)
+    print("true_label", true_label)
     
     train_data, test_data, _ = tranformation.normalize_raw(train_val_raw_data= train_data,train_bearing=train_bearing,val_bearing=val_bearing, min_max_scaler= True,clamp=True)
     
@@ -730,7 +730,7 @@ if __name__ == "__main__":
     y = inverse_transform(bearing,y_scaled)
     print(y)"""
 
-    STFT = tranformation.mtf(train_data)  
+    """STFT = tranformation.mtf(train_data)  
     print(STFT)
     print(len(STFT))
     tensor = STFT[12]
@@ -738,7 +738,7 @@ if __name__ == "__main__":
     print(feature.shape)
     print(label.shape)
     print(feature[0])
-    print()
+    print()"""
     
     """STFT_test = tranformation.stft(test_data)
     train_data, test_data, _ = tranformation.normalize_pixel(STFT, STFT_test)
