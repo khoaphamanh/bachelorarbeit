@@ -227,7 +227,7 @@ class CrossValidation:
     def calulate_loss_and_score (self,rul:dict,true_label:dict):
         #check if rul None
         if rul is None:
-            return 5,0
+            return 0,0
         
         #calculate the score and 
         losses = []
@@ -249,7 +249,8 @@ class CrossValidation:
         train_keys = train_data.keys()
         val_keys = val_data.keys()
         true_label_val = self.true_label(val_data)
-        text_report = ""
+        text_report = "trial {} split {}\n".format(self.trial_number,self.split)
+        score_split = 5
         
         #training loop
         for iter in range(epochs):
@@ -282,14 +283,14 @@ class CrossValidation:
                 
                     #create dataloader
                     if len(s_train) > batch_size:
-                        s_train = s_train[random.sample(range(len(s_train)),batch_size)]
+                        s_train = s_train[sorted(random.sample(range(len(s_train)),batch_size))]
                     else: 
-                        s_train = s_train[random.sample(range(len(s_train)),len(s_train))]
+                        s_train = s_train[sorted(random.sample(range(len(s_train)),len(s_train)))]
                     
                     if len(t_train) > batch_size:
-                        t_train = t_train[random.sample(range(len(t_train)),batch_size)]
+                        t_train = t_train[sorted(random.sample(range(len(t_train)),batch_size))]
                     else:
-                        t_train = t_train[random.sample(range(len(t_train)),len(t_train))]
+                        t_train = t_train[sorted(random.sample(range(len(t_train)),len(t_train)))]
                         
                     #load tensors to device
                     s_train = s_train.to(self.device)
@@ -584,7 +585,7 @@ class CrossValidation:
                 #calculate the loss of all pairs
                 loss_total_val = loss_total_val / len(val_pairs)
             
-            #calculate the loss and score:
+            #calculate the rul, loss and score of rul :
             #if iter == 0:
             #    FPT_train = {12: [20, 0,0,10], 21: [20, 10,5,0], 22: [30, 30,0,0],31:[10, 35,0,0],32:[0, 0,0,0]}
             #    FPT_val =  {11: [0, 0, 5,5]}
@@ -593,33 +594,38 @@ class CrossValidation:
             rul_val = self.RUL(FPT_train=FPT_train,FPT_val=FPT_val,neareast_neighbor_dict_val=nearest_neighbor_dict_val)
             loss_val, score_val = self.calulate_loss_and_score(rul_val,true_label_val)
             
+            #caluclate the score of the cycle split
+            score_split = score_split - score_val
+            if iter == epochs-1 and score_val == 0:
+                score_split = 5
+            
             #plot the rul true and rul predict
             fig_val = self.plot_rul(rul=rul_val,true_label=true_label_val,FPT_val=FPT_val,loss_val=loss_val,score_val=score_val,iter=iter)
             run["images/val"].append(fig_val,step=iter)
             plt.close()
             
             #save the metrics
-            metric = {"loss tcc train":loss_total_train, "loss tcc val":loss_total_val, "accuracy train": accuracy_train, "accuracy val":accuracy_val, "loss val":loss_val,"score val": score_val}
+            metric = {"loss tcc train":loss_total_train, "loss tcc val":loss_total_val, "accuracy train": accuracy_train, "accuracy val":accuracy_val, "loss val":loss_val,"score val": score_val,"score split": score_split}
             run["metrics"].append(metric,step=iter)  
-            train_text = "epoch {} loss train {} accuracy train {} FPT train {} \n".format(iter,loss_total_train,accuracy_train,cycle_sequence_dict_train)  
-            test_text = "epoch {} loss val {} accuracy val {} FPT val {} \n".format(iter,loss_total_val,accuracy_val,cycle_sequence_dict_val)
-            text_report =   train_text + text_report  + test_text
+            text_report = self.create_text(text_report=text_report,iter=iter,loss_total_train=loss_total_train,accuracy_train=accuracy_train, FPT_train=FPT_train,
+                                           loss_total_val=loss_total_val,accuracy_val=accuracy_val,FPT_val=FPT_val,nearest_neighbor_dict_val=nearest_neighbor_dict_val)
             
             #check pruned:
             if N_JOBS_CV == 1:
                 self.trial.report(loss_val,iter + self.split*epochs) 
-                if self.trial.should_prune():
+                if self.trial.should_prune() or (pruned_trials+complete_trials) in range(1,10):
                     run["status"] = "pruned"
                     run.stop()
                     raise optuna.exceptions.TrialPruned()
-                
-        run["text"] = text_report
         
         #save the model
         model_path = os.path.join(self.dir,"t_{}_s_{}.pth".format(self.trial.number,self.split)) 
         torch.save(model.state_dict(),model_path)
-            
-        return loss_val, score_val
+        
+        #print the result
+        print(text_report) 
+        
+        return score_split, loss_val, score_val
         
     def cv_load_data_parallel (self, b, fc, scale_min, scale_max, n_scales ,val_bearing):
         
@@ -665,16 +671,16 @@ class CrossValidation:
         run["fix_interval"] = stringify_unsupported(fix_interval) 
         
         #training loop
-        loss_val_this_split, score_val_this_split = self.train_evaluate_loop(run=run,model=model,train_data=train_data,val_data=val_data,batch_size=batch_size,epochs=epochs,optimizer=optimizer,n_FPT=n_FPT,n_period=n_period)
+        score_this_split, loss_val_this_split, score_val_this_split = self.train_evaluate_loop(run=run,model=model,train_data=train_data,val_data=val_data,batch_size=batch_size,epochs=epochs,optimizer=optimizer,n_FPT=n_FPT,n_period=n_period)
         
         #tracking split score
-        print("Split {}, loss val {:.3f}, score val {:.3f}".format(split,loss_val_this_split,score_val_this_split))    
+        print("Split {}, score_split {:.3f}, loss val {:.3f}, score val {:.3f}".format(split,score_this_split,loss_val_this_split,score_val_this_split))    
     
         run["status"] = "finished"
         run["runing_time"] = run["sys/running_time"]
         run.stop()
         
-        return loss_val_this_split, score_val_this_split
+        return score_this_split,loss_val_this_split, score_val_this_split
              
     def cross_validation(self,trial:optuna.trial.Trial,drop:float, embedding_dim :int, b , fc , scale_min, scale_max, n_scales, optimizer_name:str,lr:float,batch_size:int,epochs:int,weight_decay:float,n_FPT:int, n_period:int):
         
@@ -688,12 +694,12 @@ class CrossValidation:
         #params from cross validation train and eval 
         result = Parallel(n_jobs = N_JOBS_CV)(delayed(self.cv_train_eval_parallel)(drop,embedding_dim,batch_size,optimizer_name,lr, epochs, weight_decay, n_FPT, n_period, params_load) for params_load in enumerate(load_data))
         result = np.array(result)
-        loss_val, score_val =  result[:,0].mean(),result[:,1].mean()
+        score_split, loss_val, score_val =  result[:,0].mean(),result[:,1].mean(),result[:,2].mean()
     
         #tracking split score
-        print("trial {}, loss train mean {:.3f}, score train mean {:.3f}\n\n".format(trial.number,loss_val,score_val))  
+        print("trial {}, score split {:.3f}, loss train mean {:.3f}, score train mean {:.3f}\n\n".format(trial.number,score_split,loss_val,score_val))  
     
-        return loss_val
+        return score_split
       
     def visualize_transform_image(self,train_val_data):
         
@@ -884,6 +890,27 @@ class CrossValidation:
             
         return tracking_dict
     
+    def create_text (self, text_report:str, iter:int, loss_total_train:float, accuracy_train:float,FPT_train:dict,loss_total_val:float,accuracy_val:float, FPT_val:dict, nearest_neighbor_dict_val:dict):
+        train_text = "epoch {} loss train {} accuracy train {} FPT train {} \n".format(iter,loss_total_train,accuracy_train,FPT_train)  
+        test_text = "epoch {} loss val {} accuracy val {} FPT val {} \n".format(iter,loss_total_val,accuracy_val,FPT_val)
+        nearest_text = "epoch {} nearest neighbor dict val\n".format(iter)
+        test_text = test_text+nearest_text
+        
+        for i in nearest_neighbor_dict_val.keys():
+            for j in range(len(nearest_neighbor_dict_val[i])):
+                nearest_text = "{}:{}\n".format(i,nearest_neighbor_dict_val[i][j])
+                test_text = test_text+nearest_text
+        text_report = text_report + train_text + test_text + "\n"
+
+        return text_report
+     
+    def plot_text (self, text_report):
+        fig, ax = plt.subplots()
+        # Add text to the plot
+        ax.text(1, 1, text_report, fontsize=12)
+        ax.axis("off")
+        return fig
+    
     def plot_rul(self, rul:dict, true_label:dict, FPT_val:dict=None, loss_val:float=None, score_val:float=None, iter = None, cv:bool = True):
         
         #check if cv:
@@ -1035,9 +1062,9 @@ def objective(trial:optuna.trial.Trial):
     epochs = trial.suggest_categorical(name="epochs",choices=EPOCHS)
     
     #cross validation
-    loss_val = cross.cross_validation(trial=trial,drop=drop, b=b , fc=fc , scale_min=scale_min, scale_max = scale_max, n_scales= n_scales,optimizer_name=optimizer_name,lr=lr,batch_size=batch_size,epochs=epochs,weight_decay=weight_decay,embedding_dim=embedding_dim,n_FPT=n_FPT,n_period=n_period)
+    score_split = cross.cross_validation(trial=trial,drop=drop, b=b , fc=fc , scale_min=scale_min, scale_max = scale_max, n_scales= n_scales,optimizer_name=optimizer_name,lr=lr,batch_size=batch_size,epochs=epochs,weight_decay=weight_decay,embedding_dim=embedding_dim,n_FPT=n_FPT,n_period=n_period)
     
-    return loss_val
+    return score_split 
 
 #project 
 PROJECT = "ba-final/cwt-3"
@@ -1113,6 +1140,9 @@ storage_name = "sqlite:///{}".format(storage_path)
 
 if not os.path.isfile(storage_path):
     study = optuna.create_study(direction="minimize",sampler=optuna.samplers.TPESampler(seed=SEED),study_name=METHOD,storage=storage_name,pruner=optuna.pruners.MedianPruner(n_warmup_steps=5, n_min_trials=4))
+    pruned_trials = len(study.get_trials(deepcopy=False,states=[optuna.trial.TrialState.PRUNED]))
+    complete_trials = len(study.get_trials(deepcopy=False, states=[optuna.trial.TrialState.COMPLETE]))
+    running_trials = len(study.get_trials(deepcopy=False,states=[optuna.trial.TrialState.RUNNING]))
     study.optimize(objective,n_trials=n_trials)    
     
 else:
