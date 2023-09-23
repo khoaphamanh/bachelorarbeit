@@ -197,6 +197,7 @@ class Transformation:
 
     def merge_result (self,name_method):
         #merge all text file
+        name_method = name_method.lower()
         dir_text = "result/{}".format(name_method)
         file_names = sorted([ file for file in os.listdir(dir_text) if file.endswith(".txt") and not file.startswith("final")])
         
