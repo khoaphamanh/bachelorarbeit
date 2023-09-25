@@ -1,0 +1,265 @@
+Start Time : Mi 30. Aug 15:24:30 CEST 2023
+Job ID: 1152611
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 71680
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/im_CNN
+
+device: cuda
+
+
+Study statistics: 
+  Number of finished trials:  100
+  Number of pruned trials:  27
+  Number of complete trials:  73
+  Value:  0.07277937645607806
+  Params: 
+    batch_size: 32
+    dimension: 1
+    drop: 0.12436952332939032
+    epochs: 100
+    lr: 0.05801096066608666
+    optimizer: SGD
+    percentage: 60
+    threshold: None
+    time_delay: 1
+    weight_decay: 1.055376981507003e-05
+final test best model
+https://app.neptune.ai/ba-final/rp-1/e/RP1-571
+/home/phamanh/Schreibtisch/bachelorarbeit/im_CNN/rp_cv.py:731: NeptuneUnsupportedType: You're attempting to log a type that is not directly supported by Neptune (<class 'NoneType'>).
+        Convert the value to a supported type, such as a string or float, or use stringify_unsupported(obj)
+        for dictionaries or collections that contain unsupported values.
+        For more, see https://docs.neptune.ai/help/value_of_unsupported_type
+  run["hyperparameters"] = best_params
+/home/phamanh/Schreibtisch/bachelorarbeit/im_CNN/rp_cv.py:732: NeptuneUnsupportedType: You're attempting to log a type that is not directly supported by Neptune (<class 'list'>).
+        Convert the value to a supported type, such as a string or float, or use stringify_unsupported(obj)
+        for dictionaries or collections that contain unsupported values.
+        For more, see https://docs.neptune.ai/help/value_of_unsupported_type
+  run["fix_parameters"] = fix_parameters
+================================================================================
+Layer (type:depth-idx)                                  Param #
+================================================================================
+EfficientNet                                            --
+├─Sequential: 1-1                                       --
+│    └─Conv2dNormActivation: 2-1                        --
+│    │    └─Conv2d: 3-1                                 576
+│    │    └─BatchNorm2d: 3-2                            64
+│    │    └─SiLU: 3-3                                   --
+│    └─Sequential: 2-2                                  --
+│    │    └─MBConv: 3-4                                 1,448
+│    └─Sequential: 2-3                                  --
+│    │    └─MBConv: 3-5                                 6,004
+│    │    └─MBConv: 3-6                                 10,710
+│    └─Sequential: 2-4                                  --
+│    │    └─MBConv: 3-7                                 15,350
+│    │    └─MBConv: 3-8                                 31,290
+│    └─Sequential: 2-5                                  --
+│    │    └─MBConv: 3-9                                 37,130
+│    │    └─MBConv: 3-10                                102,900
+│    │    └─MBConv: 3-11                                102,900
+│    └─Sequential: 2-6                                  --
+│    │    └─MBConv: 3-12                                126,004
+│    │    └─MBConv: 3-13                                208,572
+│    │    └─MBConv: 3-14                                208,572
+│    └─Sequential: 2-7                                  --
+│    │    └─MBConv: 3-15                                262,492
+│    │    └─MBConv: 3-16                                587,952
+│    │    └─MBConv: 3-17                                587,952
+│    │    └─MBConv: 3-18                                587,952
+│    └─Sequential: 2-8                                  --
+│    │    └─MBConv: 3-19                                717,232
+│    └─Conv2dNormActivation: 2-9                        --
+│    │    └─Conv2d: 3-20                                409,600
+│    │    └─BatchNorm2d: 3-21                           2,560
+│    │    └─SiLU: 3-22                                  --
+├─AdaptiveAvgPool2d: 1-2                                --
+├─Sequential: 1-3                                       --
+│    └─Dropout: 2-10                                    --
+│    └─Linear: 2-11                                     1,281
+================================================================================
+Total params: 4,008,541
+Trainable params: 4,008,541
+Non-trainable params: 0
+================================================================================
+Warning: string series 'monitoring/46ba0e9c/stdout' value was longer than 1000 characters and was truncated. This warning is printed only once per series.
+Warning: string 'structure' value was longer than 16384 characters and was truncated. This warning is printed only once.
+epoch 0, loss train 0.35, loss test 98.00, score train 0.26, score test 0.22, score final 0.00
+epoch 1, loss train 0.23, loss test 6.34, score train 0.29, score test 0.17, score final 0.00
+epoch 2, loss train 0.18, loss test 13.74, score train 0.31, score test 0.15, score final 0.01
+epoch 3, loss train 0.16, loss test 2.06, score train 0.32, score test 0.21, score final 0.00
+epoch 4, loss train 0.14, loss test 1.64, score train 0.34, score test 0.12, score final 0.00
+epoch 5, loss train 0.13, loss test 7.93, score train 0.35, score test 0.24, score final 0.06
+epoch 6, loss train 0.12, loss test 1.48, score train 0.37, score test 0.18, score final 0.08
+epoch 7, loss train 0.11, loss test 2.08, score train 0.37, score test 0.20, score final 0.00
+epoch 8, loss train 0.11, loss test 1.49, score train 0.38, score test 0.20, score final 0.05
+epoch 9, loss train 0.10, loss test 0.95, score train 0.39, score test 0.11, score final 0.00
+epoch 10, loss train 0.10, loss test 1.43, score train 0.39, score test 0.19, score final 0.03
+epoch 11, loss train 0.10, loss test 1.38, score train 0.40, score test 0.18, score final 0.01
+epoch 12, loss train 0.10, loss test 1.70, score train 0.40, score test 0.17, score final 0.08
+epoch 13, loss train 0.09, loss test 0.81, score train 0.41, score test 0.12, score final 0.05
+epoch 14, loss train 0.09, loss test 0.56, score train 0.41, score test 0.16, score final 0.01
+epoch 15, loss train 0.09, loss test 0.94, score train 0.42, score test 0.17, score final 0.02
+epoch 16, loss train 0.09, loss test 0.89, score train 0.42, score test 0.19, score final 0.01
+epoch 17, loss train 0.09, loss test 1.07, score train 0.42, score test 0.21, score final 0.01
+epoch 18, loss train 0.08, loss test 1.58, score train 0.42, score test 0.20, score final 0.01
+epoch 19, loss train 0.08, loss test 0.47, score train 0.42, score test 0.20, score final 0.05
+epoch 20, loss train 0.08, loss test 0.81, score train 0.43, score test 0.20, score final 0.01
+epoch 21, loss train 0.08, loss test 1.16, score train 0.43, score test 0.17, score final 0.02
+epoch 22, loss train 0.08, loss test 0.79, score train 0.44, score test 0.16, score final 0.01
+epoch 23, loss train 0.08, loss test 0.84, score train 0.43, score test 0.17, score final 0.03
+epoch 24, loss train 0.08, loss test 0.45, score train 0.43, score test 0.17, score final 0.01
+epoch 25, loss train 0.08, loss test 0.56, score train 0.44, score test 0.17, score final 0.02
+epoch 26, loss train 0.08, loss test 0.60, score train 0.44, score test 0.17, score final 0.01
+epoch 27, loss train 0.07, loss test 0.51, score train 0.44, score test 0.19, score final 0.01
+epoch 28, loss train 0.07, loss test 1.12, score train 0.45, score test 0.20, score final 0.01
+epoch 29, loss train 0.07, loss test 1.20, score train 0.45, score test 0.15, score final 0.01
+epoch 30, loss train 0.07, loss test 0.56, score train 0.45, score test 0.18, score final 0.01
+epoch 31, loss train 0.07, loss test 0.58, score train 0.45, score test 0.20, score final 0.01
+epoch 32, loss train 0.07, loss test 0.74, score train 0.46, score test 0.18, score final 0.01
+epoch 33, loss train 0.07, loss test 0.51, score train 0.46, score test 0.17, score final 0.01
+epoch 34, loss train 0.07, loss test 0.57, score train 0.45, score test 0.17, score final 0.02
+epoch 35, loss train 0.07, loss test 0.87, score train 0.45, score test 0.18, score final 0.01
+epoch 36, loss train 0.07, loss test 0.42, score train 0.46, score test 0.20, score final 0.01
+epoch 37, loss train 0.07, loss test 0.95, score train 0.45, score test 0.20, score final 0.01
+epoch 38, loss train 0.07, loss test 0.68, score train 0.46, score test 0.20, score final 0.01
+epoch 39, loss train 0.06, loss test 0.44, score train 0.46, score test 0.14, score final 0.01
+epoch 40, loss train 0.06, loss test 0.91, score train 0.46, score test 0.18, score final 0.01
+epoch 41, loss train 0.07, loss test 0.64, score train 0.46, score test 0.20, score final 0.01
+epoch 42, loss train 0.07, loss test 0.57, score train 0.45, score test 0.19, score final 0.02
+epoch 43, loss train 0.07, loss test 0.39, score train 0.46, score test 0.20, score final 0.01
+epoch 44, loss train 0.06, loss test 0.56, score train 0.47, score test 0.18, score final 0.01
+epoch 45, loss train 0.07, loss test 0.46, score train 0.46, score test 0.17, score final 0.02
+epoch 46, loss train 0.06, loss test 0.45, score train 0.47, score test 0.20, score final 0.01
+epoch 47, loss train 0.06, loss test 0.41, score train 0.48, score test 0.19, score final 0.08
+epoch 48, loss train 0.06, loss test 0.43, score train 0.48, score test 0.17, score final 0.01
+epoch 49, loss train 0.06, loss test 0.42, score train 0.48, score test 0.16, score final 0.02
+epoch 50, loss train 0.06, loss test 0.49, score train 0.47, score test 0.20, score final 0.01
+epoch 51, loss train 0.06, loss test 0.62, score train 0.47, score test 0.16, score final 0.01
+epoch 52, loss train 0.06, loss test 0.52, score train 0.48, score test 0.17, score final 0.01
+epoch 53, loss train 0.06, loss test 0.48, score train 0.47, score test 0.19, score final 0.01
+epoch 54, loss train 0.06, loss test 0.74, score train 0.47, score test 0.19, score final 0.01
+epoch 55, loss train 0.06, loss test 0.49, score train 0.48, score test 0.15, score final 0.01
+epoch 56, loss train 0.06, loss test 0.58, score train 0.48, score test 0.18, score final 0.01
+epoch 57, loss train 0.06, loss test 0.42, score train 0.49, score test 0.17, score final 0.02
+epoch 58, loss train 0.06, loss test 0.39, score train 0.49, score test 0.18, score final 0.01
+epoch 59, loss train 0.06, loss test 0.38, score train 0.48, score test 0.19, score final 0.01
+epoch 60, loss train 0.06, loss test 0.40, score train 0.49, score test 0.19, score final 0.01
+epoch 61, loss train 0.06, loss test 0.53, score train 0.49, score test 0.18, score final 0.01
+epoch 62, loss train 0.05, loss test 0.53, score train 0.49, score test 0.16, score final 0.01
+epoch 63, loss train 0.06, loss test 0.44, score train 0.49, score test 0.19, score final 0.01
+epoch 64, loss train 0.05, loss test 0.35, score train 0.50, score test 0.21, score final 0.01
+epoch 65, loss train 0.05, loss test 0.38, score train 0.51, score test 0.16, score final 0.01
+epoch 66, loss train 0.05, loss test 0.48, score train 0.50, score test 0.20, score final 0.01
+epoch 67, loss train 0.05, loss test 0.42, score train 0.51, score test 0.16, score final 0.01
+epoch 68, loss train 0.05, loss test 0.40, score train 0.51, score test 0.18, score final 0.02
+epoch 69, loss train 0.05, loss test 0.42, score train 0.51, score test 0.20, score final 0.01
+epoch 70, loss train 0.05, loss test 0.49, score train 0.52, score test 0.13, score final 0.02
+epoch 71, loss train 0.05, loss test 0.38, score train 0.50, score test 0.17, score final 0.02
+epoch 72, loss train 0.05, loss test 0.42, score train 0.52, score test 0.19, score final 0.01
+epoch 73, loss train 0.05, loss test 0.37, score train 0.52, score test 0.21, score final 0.01
+epoch 74, loss train 0.05, loss test 0.46, score train 0.51, score test 0.18, score final 0.01
+epoch 75, loss train 0.05, loss test 0.42, score train 0.52, score test 0.20, score final 0.01
+epoch 76, loss train 0.05, loss test 0.49, score train 0.52, score test 0.18, score final 0.03
+epoch 77, loss train 0.05, loss test 0.65, score train 0.52, score test 0.21, score final 0.01
+epoch 78, loss train 0.05, loss test 0.54, score train 0.52, score test 0.19, score final 0.01
+epoch 79, loss train 0.04, loss test 0.38, score train 0.54, score test 0.20, score final 0.01
+epoch 80, loss train 0.05, loss test 0.42, score train 0.52, score test 0.16, score final 0.01
+epoch 81, loss train 0.05, loss test 0.38, score train 0.52, score test 0.19, score final 0.01
+epoch 82, loss train 0.05, loss test 0.44, score train 0.53, score test 0.19, score final 0.01
+epoch 83, loss train 0.04, loss test 0.42, score train 0.53, score test 0.20, score final 0.01
+epoch 84, loss train 0.05, loss test 0.36, score train 0.53, score test 0.19, score final 0.01
+epoch 85, loss train 0.04, loss test 0.33, score train 0.53, score test 0.20, score final 0.01
+epoch 86, loss train 0.04, loss test 0.38, score train 0.53, score test 0.17, score final 0.02
+epoch 87, loss train 0.05, loss test 0.42, score train 0.52, score test 0.18, score final 0.01
+epoch 88, loss train 0.04, loss test 0.38, score train 0.54, score test 0.20, score final 0.02
+epoch 89, loss train 0.05, loss test 0.36, score train 0.52, score test 0.21, score final 0.08
+epoch 90, loss train 0.04, loss test 0.35, score train 0.54, score test 0.20, score final 0.02
+epoch 91, loss train 0.04, loss test 0.36, score train 0.54, score test 0.19, score final 0.01
+epoch 92, loss train 0.04, loss test 0.37, score train 0.54, score test 0.17, score final 0.01
+epoch 93, loss train 0.04, loss test 0.36, score train 0.54, score test 0.18, score final 0.02
+epoch 94, loss train 0.04, loss test 0.41, score train 0.55, score test 0.15, score final 0.02
+epoch 95, loss train 0.04, loss test 0.33, score train 0.53, score test 0.21, score final 0.01
+epoch 96, loss train 0.04, loss test 0.35, score train 0.55, score test 0.18, score final 0.02
+epoch 97, loss train 0.04, loss test 0.35, score train 0.54, score test 0.20, score final 0.03
+epoch 98, loss train 0.04, loss test 0.37, score train 0.54, score test 0.20, score final 0.01
+epoch 99, loss train 0.04, loss test 0.40, score train 0.55, score test 0.15, score final 0.02
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 16 operations to synchronize with Neptune. Do not kill this process.
+All 16 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/rp-1/e/RP1-571/metadata
+https://app.neptune.ai/ba-final/rp-1/e/RP1-572
+================================================================================
+Layer (type:depth-idx)                                  Param #
+================================================================================
+EfficientNet                                            --
+├─Sequential: 1-1                                       --
+│    └─Conv2dNormActivation: 2-1                        --
+│    │    └─Conv2d: 3-1                                 576
+│    │    └─BatchNorm2d: 3-2                            64
+│    │    └─SiLU: 3-3                                   --
+│    └─Sequential: 2-2                                  --
+│    │    └─MBConv: 3-4                                 1,448
+│    └─Sequential: 2-3                                  --
+│    │    └─MBConv: 3-5                                 6,004
+│    │    └─MBConv: 3-6                                 10,710
+│    └─Sequential: 2-4                                  --
+│    │    └─MBConv: 3-7                                 15,350
+│    │    └─MBConv: 3-8                                 31,290
+│    └─Sequential: 2-5                                  --
+│    │    └─MBConv: 3-9                                 37,130
+│    │    └─MBConv: 3-10                                102,900
+│    │    └─MBConv: 3-11                                102,900
+│    └─Sequential: 2-6                                  --
+│    │    └─MBConv: 3-12                                126,004
+│    │    └─MBConv: 3-13                                208,572
+│    │    └─MBConv: 3-14                                208,572
+│    └─Sequential: 2-7                                  --
+│    │    └─MBConv: 3-15                                262,492
+│    │    └─MBConv: 3-16                                587,952
+│    │    └─MBConv: 3-17                                587,952
+│    │    └─MBConv: 3-18                                587,952
+│    └─Sequential: 2-8                                  --
+│    │    └─MBConv: 3-19                                717,232
+│    └─Conv2dNormActivation: 2-9                        --
+│    │    └─Conv2d: 3-20                                409,600
+│    │    └─BatchNorm2d: 3-21                           2,560
+│    │    └─SiLU: 3-22                                  --
+├─AdaptiveAvgPool2d: 1-2                                --
+├─Sequential: 1-3                                       --
+│    └─Dropout: 2-10                                    --
+│    └─Linear: 2-11                                     1,281
+================================================================================
+Total params: 4,008,541
+Trainable params: 4,008,541
+Non-trainable params: 0
+================================================================================
+Warning: string series 'monitoring/46ba0e9c/stdout' value was longer than 1000 characters and was truncated. This warning is printed only once per series.
+Warning: string 'structure' value was longer than 16384 characters and was truncated. This warning is printed only once.
+Tracking result from best trial in Cross Validation
+loss test 0.28, score test 0.21
+Bearing 13, RUL pred 4748, RUl true 5730
+Bearing 14, RUL pred 1662, RUl true 2890
+Bearing 15, RUL pred 19026, RUl true 1610
+Bearing 16, RUL pred 20160, RUl true 1460
+Bearing 17, RUL pred 17228, RUl true 7570
+Bearing 23, RUL pred 12585, RUl true 7530
+Bearing 24, RUL pred 3414, RUl true 1390
+Bearing 25, RUL pred 16336, RUl true 3090
+Bearing 26, RUL pred 5753, RUl true 1290
+Bearing 27, RUL pred 1354, RUl true 580
+Bearing 33, RUL pred 2902, RUl true 820
+score final 0.07
+loss final 6875.32
+
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 13 operations to synchronize with Neptune. Do not kill this process.
+All 13 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/rp-1/e/RP1-572/metadata
+

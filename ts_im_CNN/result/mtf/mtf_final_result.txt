@@ -1,0 +1,3864 @@
+Start Time : Di 29. Aug 09:30:12 CEST 2023
+Job ID: 1151320
+Node: cc1g01
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+[32m[I 2023-08-29 09:30:24,148][0m A new study created in RDB with name: MTF[0m
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-1
+Split 0, loss train 0.07, score train 0.45, loss val 0.25 score val 0.21
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-1/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-2
+Split 1, loss train 0.07, score train 0.45, loss val 0.07 score val 0.54
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 9 operations to synchronize with Neptune. Do not kill this process.
+All 9 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-2/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-3
+Split 2, loss train 0.07, score train 0.46, loss val 0.15 score val 0.20
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-3/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-4
+Split 3, loss train 0.07, score train 0.45, loss val 0.37 score val 0.11
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-4/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-5
+Split 4, loss train 0.07, score train 0.45, loss val 0.08 score val 0.31
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-5/metadata
+[32m[I 2023-08-29 12:46:05,420][0m Trial 0 finished with value: 0.1836291434917044 and parameters: {'n_bins': 25, 'strategy': 'normal', 'drop': 0.2089874406912787, 'optimizer': 'Adam', 'lr': 0.007144270901932136, 'weight_decay': 0.00016338581851493305, 'batch_size': 32, 'epochs': 100}. Best is trial 0 with value: 0.1836291434917044.[0m
+trial 0, loss train mean 0.07, score train mean 0.45, loss val mean 0.18, score val mean 0.28
+
+
+
+End Time   : Di 29. Aug 12:46:07 CEST 2023
+Duration   : 11754.985732865 seconds
+
+Start Time : Di 29. Aug 12:50:35 CEST 2023
+Job ID: 1151321
+Node: cc1g07
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-6
+Split 0, loss train 0.07, score train 0.45, loss val 0.25 score val 0.21
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-6/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-7
+Split 1, loss train 0.07, score train 0.45, loss val 0.07 score val 0.54
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-7/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-8
+Split 2, loss train 0.07, score train 0.46, loss val 0.15 score val 0.20
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-8/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-9
+Split 3, loss train 0.07, score train 0.45, loss val 0.37 score val 0.11
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-9/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-10
+Split 4, loss train 0.07, score train 0.45, loss val 0.08 score val 0.31
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-10/metadata
+[32m[I 2023-08-29 16:12:46,123][0m Trial 1 finished with value: 0.1836291434917044 and parameters: {'n_bins': 25, 'strategy': 'normal', 'drop': 0.2089874406912787, 'optimizer': 'Adam', 'lr': 0.007144270901932136, 'weight_decay': 0.00016338581851493305, 'batch_size': 32, 'epochs': 100}. Best is trial 0 with value: 0.1836291434917044.[0m
+trial 1, loss train mean 0.07, score train mean 0.45, loss val mean 0.18, score val mean 0.28
+
+
+
+End Time   : Di 29. Aug 16:12:48 CEST 2023
+Duration   : 12132.625091826 seconds
+
+Start Time : Di 29. Aug 16:12:49 CEST 2023
+Job ID: 1151322
+Node: cc1g07
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-11
+Split 0, loss train 0.07, score train 0.45, loss val 0.25 score val 0.21
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-11/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-12
+Split 1, loss train 0.07, score train 0.45, loss val 0.07 score val 0.54
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-12/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-13
+Split 2, loss train 0.07, score train 0.46, loss val 0.15 score val 0.20
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-13/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-14
+Split 3, loss train 0.07, score train 0.45, loss val 0.37 score val 0.11
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-14/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-15
+Split 4, loss train 0.07, score train 0.45, loss val 0.08 score val 0.31
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-15/metadata
+[32m[I 2023-08-29 19:34:26,082][0m Trial 2 finished with value: 0.1836291434917044 and parameters: {'n_bins': 25, 'strategy': 'normal', 'drop': 0.2089874406912787, 'optimizer': 'Adam', 'lr': 0.007144270901932136, 'weight_decay': 0.00016338581851493305, 'batch_size': 32, 'epochs': 100}. Best is trial 0 with value: 0.1836291434917044.[0m
+trial 2, loss train mean 0.07, score train mean 0.45, loss val mean 0.18, score val mean 0.28
+
+
+
+End Time   : Di 29. Aug 19:34:28 CEST 2023
+Duration   : 12098.681507558 seconds
+
+Start Time : Di 29. Aug 19:34:30 CEST 2023
+Job ID: 1151323
+Node: cc1g07
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-16
+Split 0, loss train 0.07, score train 0.45, loss val 0.25 score val 0.21
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-16/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-17
+Split 1, loss train 0.07, score train 0.45, loss val 0.07 score val 0.54
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-17/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-18
+Split 2, loss train 0.07, score train 0.46, loss val 0.15 score val 0.20
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-18/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-19
+Split 3, loss train 0.07, score train 0.45, loss val 0.37 score val 0.11
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-19/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-20
+Split 4, loss train 0.07, score train 0.45, loss val 0.08 score val 0.31
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-20/metadata
+[32m[I 2023-08-29 22:56:26,472][0m Trial 3 finished with value: 0.1836291434917044 and parameters: {'n_bins': 25, 'strategy': 'normal', 'drop': 0.2089874406912787, 'optimizer': 'Adam', 'lr': 0.007144270901932136, 'weight_decay': 0.00016338581851493305, 'batch_size': 32, 'epochs': 100}. Best is trial 0 with value: 0.1836291434917044.[0m
+trial 3, loss train mean 0.07, score train mean 0.45, loss val mean 0.18, score val mean 0.28
+
+
+
+End Time   : Di 29. Aug 22:56:28 CEST 2023
+Duration   : 12118.733777296 seconds
+
+Start Time : Di 29. Aug 22:56:30 CEST 2023
+Job ID: 1151324
+Node: cc1g07
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-21
+Split 0, loss train 0.07, score train 0.45, loss val 0.25 score val 0.21
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-21/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-22
+Split 1, loss train 0.07, score train 0.45, loss val 0.07 score val 0.54
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-22/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-23
+Split 2, loss train 0.07, score train 0.46, loss val 0.15 score val 0.20
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-23/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-24
+Split 3, loss train 0.07, score train 0.45, loss val 0.37 score val 0.11
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-24/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-25
+Split 4, loss train 0.07, score train 0.45, loss val 0.08 score val 0.31
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-25/metadata
+[32m[I 2023-08-30 02:18:35,850][0m Trial 4 finished with value: 0.1836291434917044 and parameters: {'n_bins': 25, 'strategy': 'normal', 'drop': 0.2089874406912787, 'optimizer': 'Adam', 'lr': 0.007144270901932136, 'weight_decay': 0.00016338581851493305, 'batch_size': 32, 'epochs': 100}. Best is trial 0 with value: 0.1836291434917044.[0m
+trial 4, loss train mean 0.07, score train mean 0.45, loss val mean 0.18, score val mean 0.28
+
+
+
+End Time   : Mi 30. Aug 02:18:38 CEST 2023
+Duration   : 12128.300253893 seconds
+
+Start Time : Mi 30. Aug 02:18:40 CEST 2023
+Job ID: 1151325
+Node: cc1g05
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-26
+Split 0, loss train 0.07, score train 0.45, loss val 0.25 score val 0.21
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-26/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-27
+Split 1, loss train 0.07, score train 0.45, loss val 0.07 score val 0.54
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-27/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-28
+Split 2, loss train 0.07, score train 0.46, loss val 0.15 score val 0.20
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-28/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-29
+Split 3, loss train 0.07, score train 0.45, loss val 0.37 score val 0.11
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-29/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-30
+Split 4, loss train 0.07, score train 0.45, loss val 0.08 score val 0.31
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-30/metadata
+[32m[I 2023-08-30 05:37:28,782][0m Trial 5 finished with value: 0.1836291434917044 and parameters: {'n_bins': 25, 'strategy': 'normal', 'drop': 0.2089874406912787, 'optimizer': 'Adam', 'lr': 0.007144270901932136, 'weight_decay': 0.00016338581851493305, 'batch_size': 32, 'epochs': 100}. Best is trial 0 with value: 0.1836291434917044.[0m
+trial 5, loss train mean 0.07, score train mean 0.45, loss val mean 0.18, score val mean 0.28
+
+
+
+End Time   : Mi 30. Aug 05:37:30 CEST 2023
+Duration   : 11930.020415702 seconds
+
+Start Time : Mi 30. Aug 05:37:33 CEST 2023
+Job ID: 1151326
+Node: cc1g05
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-31
+Split 0, loss train 0.07, score train 0.45, loss val 0.25 score val 0.21
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-31/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-32
+Split 1, loss train 0.07, score train 0.45, loss val 0.07 score val 0.54
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-32/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-33
+Split 2, loss train 0.07, score train 0.46, loss val 0.15 score val 0.20
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-33/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-34
+Split 3, loss train 0.07, score train 0.45, loss val 0.37 score val 0.11
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-34/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-35
+Split 4, loss train 0.07, score train 0.45, loss val 0.08 score val 0.31
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-35/metadata
+[32m[I 2023-08-30 08:57:33,598][0m Trial 6 finished with value: 0.1836291434917044 and parameters: {'n_bins': 25, 'strategy': 'normal', 'drop': 0.2089874406912787, 'optimizer': 'Adam', 'lr': 0.007144270901932136, 'weight_decay': 0.00016338581851493305, 'batch_size': 32, 'epochs': 100}. Best is trial 0 with value: 0.1836291434917044.[0m
+trial 6, loss train mean 0.07, score train mean 0.45, loss val mean 0.18, score val mean 0.28
+
+
+
+End Time   : Mi 30. Aug 08:57:35 CEST 2023
+Duration   : 12002.107703136 seconds
+
+Start Time : Mi 30. Aug 08:57:50 CEST 2023
+Job ID: 1151327
+Node: cc1g01
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-36
+Split 0, loss train 0.07, score train 0.45, loss val 0.25 score val 0.21
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-36/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-37
+Split 1, loss train 0.07, score train 0.45, loss val 0.07 score val 0.54
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-37/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-38
+Split 2, loss train 0.07, score train 0.46, loss val 0.15 score val 0.20
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-38/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-39
+Split 3, loss train 0.07, score train 0.45, loss val 0.37 score val 0.11
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-39/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-40
+Split 4, loss train 0.07, score train 0.45, loss val 0.08 score val 0.31
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-40/metadata
+[32m[I 2023-08-30 12:15:29,005][0m Trial 7 finished with value: 0.1836291434917044 and parameters: {'n_bins': 25, 'strategy': 'normal', 'drop': 0.2089874406912787, 'optimizer': 'Adam', 'lr': 0.007144270901932136, 'weight_decay': 0.00016338581851493305, 'batch_size': 32, 'epochs': 100}. Best is trial 0 with value: 0.1836291434917044.[0m
+trial 7, loss train mean 0.07, score train mean 0.45, loss val mean 0.18, score val mean 0.28
+
+
+
+End Time   : Mi 30. Aug 12:15:31 CEST 2023
+Duration   : 11861.021674204 seconds
+
+Start Time : Mi 30. Aug 12:15:35 CEST 2023
+Job ID: 1151328
+Node: cc1g01
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-41
+Split 0, loss train 0.07, score train 0.45, loss val 0.25 score val 0.21
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-41/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-42
+Split 1, loss train 0.07, score train 0.45, loss val 0.07 score val 0.54
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-42/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-43
+Split 2, loss train 0.07, score train 0.46, loss val 0.15 score val 0.20
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-43/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-44
+Split 3, loss train 0.07, score train 0.45, loss val 0.37 score val 0.11
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-44/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-45
+Split 4, loss train 0.07, score train 0.45, loss val 0.08 score val 0.31
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-45/metadata
+[32m[I 2023-08-30 15:34:21,985][0m Trial 8 finished with value: 0.1836291434917044 and parameters: {'n_bins': 25, 'strategy': 'normal', 'drop': 0.2089874406912787, 'optimizer': 'Adam', 'lr': 0.007144270901932136, 'weight_decay': 0.00016338581851493305, 'batch_size': 32, 'epochs': 100}. Best is trial 0 with value: 0.1836291434917044.[0m
+trial 8, loss train mean 0.07, score train mean 0.45, loss val mean 0.18, score val mean 0.28
+
+
+
+End Time   : Mi 30. Aug 15:34:24 CEST 2023
+Duration   : 11928.335976045 seconds
+
+Start Time : Mi 30. Aug 15:34:25 CEST 2023
+Job ID: 1151329
+Node: cc1g01
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-46
+Split 0, loss train 0.07, score train 0.45, loss val 0.25 score val 0.21
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-46/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-47
+Split 1, loss train 0.07, score train 0.45, loss val 0.07 score val 0.54
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-47/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-48
+Split 2, loss train 0.07, score train 0.46, loss val 0.15 score val 0.20
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-48/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-49
+Split 3, loss train 0.07, score train 0.45, loss val 0.37 score val 0.11
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-49/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-50
+Split 4, loss train 0.07, score train 0.45, loss val 0.08 score val 0.31
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-50/metadata
+[32m[I 2023-08-30 18:52:22,025][0m Trial 9 finished with value: 0.1836291434917044 and parameters: {'n_bins': 25, 'strategy': 'normal', 'drop': 0.2089874406912787, 'optimizer': 'Adam', 'lr': 0.007144270901932136, 'weight_decay': 0.00016338581851493305, 'batch_size': 32, 'epochs': 100}. Best is trial 0 with value: 0.1836291434917044.[0m
+trial 9, loss train mean 0.07, score train mean 0.45, loss val mean 0.18, score val mean 0.28
+
+
+
+End Time   : Mi 30. Aug 18:52:24 CEST 2023
+Duration   : 11878.325099724 seconds
+
+Start Time : Mi 30. Aug 22:39:53 CEST 2023
+Job ID: 1152946
+Node: cc1g01
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-51
+Split 0, loss train 0.06, score train 0.50, loss val 0.06 score val 0.62
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-51/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-52
+Split 1, loss train 0.06, score train 0.49, loss val 0.04 score val 0.47
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-52/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-53
+Split 2, loss train 0.06, score train 0.48, loss val 0.04 score val 0.42
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-53/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-54
+Split 3, loss train 0.05, score train 0.52, loss val 0.04 score val 0.66
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-54/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-55
+Split 4, loss train 0.06, score train 0.50, loss val 0.04 score val 0.45
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-55/metadata
+[32m[I 2023-08-31 02:04:31,064][0m Trial 10 finished with value: 0.04385469162717779 and parameters: {'n_bins': 37, 'strategy': 'quantile', 'drop': 0.10242177597914666, 'optimizer': 'SGD', 'lr': 0.0012858884255290807, 'weight_decay': 0.004067950836384999, 'batch_size': 32, 'epochs': 100}. Best is trial 10 with value: 0.04385469162717779.[0m
+trial 10, loss train mean 0.06, score train mean 0.50, loss val mean 0.04, score val mean 0.52
+
+
+
+End Time   : Do 31. Aug 02:04:33 CEST 2023
+Duration   : 12279.988231050 seconds
+
+Start Time : Do 31. Aug 02:04:34 CEST 2023
+Job ID: 1152947
+Node: cc1g01
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-56
+Split 0, loss train 0.05, score train 0.50, loss val 0.06 score val 0.69
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-56/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-57
+Split 1, loss train 0.06, score train 0.50, loss val 0.04 score val 0.44
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-57/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-58
+Split 2, loss train 0.06, score train 0.49, loss val 0.06 score val 0.44
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-58/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-59
+Split 3, loss train 0.05, score train 0.51, loss val 0.02 score val 0.69
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-59/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-60
+Split 4, loss train 0.05, score train 0.51, loss val 0.06 score val 0.32
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-60/metadata
+[32m[I 2023-08-31 05:26:47,321][0m Trial 11 finished with value: 0.047587981883515706 and parameters: {'n_bins': 38, 'strategy': 'quantile', 'drop': 0.10238730692527104, 'optimizer': 'SGD', 'lr': 0.0011755434007626971, 'weight_decay': 0.00495245964013512, 'batch_size': 32, 'epochs': 100}. Best is trial 10 with value: 0.04385469162717779.[0m
+trial 11, loss train mean 0.06, score train mean 0.50, loss val mean 0.05, score val mean 0.52
+
+
+
+End Time   : Do 31. Aug 05:26:49 CEST 2023
+Duration   : 12134.823672355 seconds
+
+Start Time : Do 31. Aug 05:26:51 CEST 2023
+Job ID: 1152948
+Node: cc1g01
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-61
+Split 0, loss train 0.05, score train 0.52, loss val 0.05 score val 0.63
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-61/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-62
+Split 1, loss train 0.05, score train 0.52, loss val 0.06 score val 0.36
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-62/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-63
+Split 2, loss train 0.06, score train 0.51, loss val 0.03 score val 0.67
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-63/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-64
+Split 3, loss train 0.05, score train 0.53, loss val 0.07 score val 0.18
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-64/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-65
+Split 4, loss train 0.05, score train 0.52, loss val 0.05 score val 0.32
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-65/metadata
+[32m[I 2023-08-31 08:49:16,173][0m Trial 12 finished with value: 0.051023562918318076 and parameters: {'n_bins': 39, 'strategy': 'quantile', 'drop': 0.10120022511124113, 'optimizer': 'SGD', 'lr': 0.001000006703135974, 'weight_decay': 0.008675758020157676, 'batch_size': 32, 'epochs': 100}. Best is trial 10 with value: 0.04385469162717779.[0m
+trial 12, loss train mean 0.05, score train mean 0.52, loss val mean 0.05, score val mean 0.43
+
+
+
+End Time   : Do 31. Aug 08:49:18 CEST 2023
+Duration   : 12147.254800913 seconds
+
+Start Time : Do 31. Aug 08:49:33 CEST 2023
+Job ID: 1152949
+Node: cc1g07
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-66
+Split 0, loss train 0.06, score train 0.50, loss val 0.03 score val 0.65
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-66/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-67
+Split 1, loss train 0.06, score train 0.50, loss val 0.03 score val 0.57
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-67/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-68
+Split 2, loss train 0.06, score train 0.48, loss val 0.03 score val 0.62
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 9 operations to synchronize with Neptune. Do not kill this process.
+All 9 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-68/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-69
+Split 3, loss train 0.05, score train 0.51, loss val 0.04 score val 0.49
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-69/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-70
+Split 4, loss train 0.06, score train 0.49, loss val 0.03 score val 0.63
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-70/metadata
+[32m[I 2023-08-31 12:24:12,213][0m Trial 13 finished with value: 0.028287377763301768 and parameters: {'n_bins': 40, 'strategy': 'quantile', 'drop': 0.10120022511124113, 'optimizer': 'SGD', 'lr': 0.0006199025250705184, 'weight_decay': 0.005110046692809584, 'batch_size': 32, 'epochs': 100}. Best is trial 13 with value: 0.028287377763301768.[0m
+trial 13, loss train mean 0.06, score train mean 0.50, loss val mean 0.03, score val mean 0.59
+
+
+
+End Time   : Do 31. Aug 12:24:15 CEST 2023
+Duration   : 12881.310749032 seconds
+
+Start Time : Do 31. Aug 12:24:16 CEST 2023
+Job ID: 1152950
+Node: cc1g07
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-71
+Split 0, loss train 0.03, score train 0.59, loss val 0.04 score val 0.69
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-71/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-72
+Split 1, loss train 0.04, score train 0.59, loss val 0.02 score val 0.74
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-72/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-73
+Split 2, loss train 0.03, score train 0.59, loss val 0.03 score val 0.52
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-73/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-74
+Split 3, loss train 0.03, score train 0.59, loss val 0.03 score val 0.47
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-74/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-75
+Split 4, loss train 0.03, score train 0.59, loss val 0.02 score val 0.61
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-75/metadata
+[32m[I 2023-08-31 15:53:23,775][0m Trial 14 finished with value: 0.028759271794177116 and parameters: {'n_bins': 33, 'strategy': 'quantile', 'drop': 0.13277656843600044, 'optimizer': 'SGD', 'lr': 0.0006199025250705184, 'weight_decay': 0.06900151356961098, 'batch_size': 32, 'epochs': 100}. Best is trial 13 with value: 0.028287377763301768.[0m
+trial 14, loss train mean 0.03, score train mean 0.59, loss val mean 0.03, score val mean 0.60
+
+
+
+End Time   : Do 31. Aug 15:53:26 CEST 2023
+Duration   : 12549.853246879 seconds
+
+Start Time : Do 31. Aug 15:53:47 CEST 2023
+Job ID: 1152951
+Node: hades
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-76
+Split 0, loss train 0.03, score train 0.60, loss val 0.02 score val 0.76
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-76/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-77
+Split 1, loss train 0.03, score train 0.60, loss val 0.04 score val 0.47
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-77/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-78
+Split 2, loss train 0.03, score train 0.60, loss val 0.13 score val 0.74
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-78/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-79
+Split 3, loss train 0.03, score train 0.61, loss val 0.07 score val 0.30
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-79/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-80
+Experiencing connection interruptions. Will try to reestablish communication with Neptune. Internal exception was: RequestsFutureAdapterConnectionError
+Communication with Neptune restored!
+Unexpected error occurred in Neptune background thread: Killing Neptune asynchronous thread. All data is safe on disk and can be later synced manually using `neptune sync` command.
+Exception in thread NeptuneAsyncOpProcessor:
+Traceback (most recent call last):
+  File "/home/phamanh/anaconda3/envs/khoa/lib/python3.10/site-packages/neptune/internal/backends/swagger_client_wrapper.py", line 97, in __call__
+    return FinishedApiResponseFuture(future.response())  # wait synchronously
+  File "/home/phamanh/anaconda3/envs/khoa/lib/python3.10/site-packages/bravado/http_future.py", line 200, in response
+    swagger_result = self._get_swagger_result(incoming_response)
+  File "/home/phamanh/anaconda3/envs/khoa/lib/python3.10/site-packages/bravado/http_future.py", line 124, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/phamanh/anaconda3/envs/khoa/lib/python3.10/site-packages/bravado/http_future.py", line 300, in _get_swagger_result
+    unmarshal_response(
+  File "/home/phamanh/anaconda3/envs/khoa/lib/python3.10/site-packages/bravado/http_future.py", line 353, in unmarshal_response
+    raise_on_expected(incoming_response)
+  File "/home/phamanh/anaconda3/envs/khoa/lib/python3.10/site-packages/bravado/http_future.py", line 420, in raise_on_expected
+    raise make_http_exception(
+bravado.exception.HTTPUnauthorized: 401 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/phamanh/anaconda3/envs/khoa/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/home/phamanh/anaconda3/envs/khoa/lib/python3.10/site-packages/neptune/internal/operation_processors/async_operation_processor.py", line 230, in run
+    super().run()
+  File "/home/phamanh/anaconda3/envs/khoa/lib/python3.10/site-packages/neptune/internal/threading/daemon.py", line 53, in run
+    self.work()
+  File "/home/phamanh/anaconda3/envs/khoa/lib/python3.10/site-packages/neptune/internal/operation_processors/async_operation_processor.py", line 246, in work
+    self.process_batch([element.obj for element in batch], batch[-1].ver)
+  File "/home/phamanh/anaconda3/envs/khoa/lib/python3.10/site-packages/neptune/internal/threading/daemon.py", line 76, in wrapper
+    result = func(self_, *args, **kwargs)
+  File "/home/phamanh/anaconda3/envs/khoa/lib/python3.10/site-packages/neptune/internal/operation_processors/async_operation_processor.py", line 259, in process_batch
+    processed_count, errors = self._processor._backend.execute_operations(
+  File "/home/phamanh/anaconda3/envs/khoa/lib/python3.10/site-packages/neptune/internal/backends/hosted_neptune_backend.py", line 484, in execute_operations
+    self._execute_operations(
+  File "/home/phamanh/anaconda3/envs/khoa/lib/python3.10/site-packages/neptune/common/backends/utils.py", line 65, in wrapper
+    return func(*args, **kwargs)
+  File "/home/phamanh/anaconda3/envs/khoa/lib/python3.10/site-packages/neptune/internal/backends/hosted_neptune_backend.py", line 642, in _execute_operations
+    result = self.leaderboard_client.api.executeOperations(**kwargs).response().result
+  File "/home/phamanh/anaconda3/envs/khoa/lib/python3.10/site-packages/neptune/internal/backends/swagger_client_wrapper.py", line 99, in __call__
+    self.handle_neptune_http_errors(e.response, exception=e)
+  File "/home/phamanh/anaconda3/envs/khoa/lib/python3.10/site-packages/neptune/internal/backends/swagger_client_wrapper.py", line 59, in handle_neptune_http_errors
+    raise NeptuneAuthTokenExpired() from exception
+  File "/home/phamanh/anaconda3/envs/khoa/lib/python3.10/site-packages/neptune/common/exceptions.py", line 219, in __init__
+    super().__init__("Authorization token expired")
+TypeError: Unauthorized.__init__() takes 1 positional argument but 2 were given
+Split 4, loss train 0.03, score train 0.60, loss val 0.04 score val 0.53
+Shutting down background jobs, please wait a moment...
+Done!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-80/metadata
+[32m[I 2023-08-31 19:21:26,063][0m Trial 15 finished with value: 0.059124223222123816 and parameters: {'n_bins': 33, 'strategy': 'uniform', 'drop': 0.13277656843600044, 'optimizer': 'SGD', 'lr': 0.000564091784028925, 'weight_decay': 0.09240399818376391, 'batch_size': 32, 'epochs': 100}. Best is trial 13 with value: 0.028287377763301768.[0m
+trial 15, loss train mean 0.03, score train mean 0.60, loss val mean 0.06, score val mean 0.56
+
+
+
+End Time   : Do 31. Aug 19:21:27 CEST 2023
+Duration   : 12460.224582973 seconds
+
+Start Time : Do 31. Aug 21:24:07 CEST 2023
+Job ID: 1152952
+Node: hades
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-81
+Split 0, loss train 0.25, score train 0.22, loss val 0.25 score val 0.21
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-81/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-82
+Split 1, loss train 0.25, score train 0.22, loss val 0.26 score val 0.22
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-82/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-83
+Split 2, loss train 0.25, score train 0.23, loss val 0.27 score val 0.20
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-83/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-84
+Split 3, loss train 0.25, score train 0.23, loss val 0.25 score val 0.23
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-84/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-85
+Split 4, loss train 0.25, score train 0.23, loss val 0.26 score val 0.22
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-85/metadata
+[32m[I 2023-09-01 00:52:19,933][0m Trial 16 finished with value: 0.2562656686661091 and parameters: {'n_bins': 9, 'strategy': 'quantile', 'drop': 0.39619939744346777, 'optimizer': 'SGD', 'lr': 0.19285724464694887, 'weight_decay': 0.09240399818376391, 'batch_size': 32, 'epochs': 100}. Best is trial 13 with value: 0.028287377763301768.[0m
+trial 16, loss train mean 0.25, score train mean 0.22, loss val mean 0.26, score val mean 0.22
+
+
+
+End Time   : Fr 1. Sep 00:52:22 CEST 2023
+Duration   : 12495.266814752 seconds
+
+Start Time : Fr 1. Sep 02:39:27 CEST 2023
+Job ID: 1152953
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-86
+Split 0, loss train 0.04, score train 0.54, loss val 0.04 score val 0.67
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-86/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-87
+Split 1, loss train 0.05, score train 0.53, loss val 0.02 score val 0.60
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-87/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-88
+Split 2, loss train 0.05, score train 0.53, loss val 0.03 score val 0.54
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-88/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-89
+Split 3, loss train 0.05, score train 0.54, loss val 0.04 score val 0.42
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-89/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-90
+Split 4, loss train 0.05, score train 0.53, loss val 0.05 score val 0.34
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-90/metadata
+[32m[I 2023-09-01 05:55:56,646][0m Trial 17 finished with value: 0.035533185208097416 and parameters: {'n_bins': 33, 'strategy': 'quantile', 'drop': 0.13277656843600044, 'optimizer': 'SGD', 'lr': 0.000564091784028925, 'weight_decay': 0.028387676084470626, 'batch_size': 32, 'epochs': 100}. Best is trial 13 with value: 0.028287377763301768.[0m
+trial 17, loss train mean 0.05, score train mean 0.53, loss val mean 0.04, score val mean 0.52
+
+
+
+End Time   : Fr 1. Sep 05:55:58 CEST 2023
+Duration   : 11791.450362546 seconds
+
+Start Time : Fr 1. Sep 05:56:01 CEST 2023
+Job ID: 1152954
+Node: cc1g03
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-91
+Split 0, loss train 0.05, score train 0.55, loss val 0.05 score val 0.61
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-91/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-92
+Split 1, loss train 0.06, score train 0.52, loss val 0.04 score val 0.67
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-92/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-93
+Split 2, loss train 0.06, score train 0.52, loss val 0.11 score val 0.57
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-93/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-94
+Split 3, loss train 0.05, score train 0.55, loss val 0.17 score val 0.58
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-94/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-95
+Split 4, loss train 0.05, score train 0.54, loss val 0.14 score val 0.70
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-95/metadata
+[32m[I 2023-09-01 09:15:54,476][0m Trial 18 finished with value: 0.10360215927692171 and parameters: {'n_bins': 33, 'strategy': 'uniform', 'drop': 0.13277656843600044, 'optimizer': 'SGD', 'lr': 0.0019941627417146526, 'weight_decay': 0.0008902775524873089, 'batch_size': 32, 'epochs': 100}. Best is trial 13 with value: 0.028287377763301768.[0m
+trial 18, loss train mean 0.06, score train mean 0.54, loss val mean 0.10, score val mean 0.62
+
+
+
+End Time   : Fr 1. Sep 09:15:56 CEST 2023
+Duration   : 11994.963967107 seconds
+
+Start Time : Fr 1. Sep 09:16:02 CEST 2023
+Job ID: 1152955
+Node: cc1g03
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-96
+Split 0, loss train 0.06, score train 0.51, loss val 0.04 score val 0.73
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-96/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-97
+Split 1, loss train 0.06, score train 0.50, loss val 0.06 score val 0.33
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-97/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-98
+Split 2, loss train 0.07, score train 0.50, loss val 0.09 score val 0.73
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-98/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-99
+Split 3, loss train 0.05, score train 0.53, loss val 0.07 score val 0.61
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-99/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-100
+Split 4, loss train 0.06, score train 0.51, loss val 0.07 score val 0.64
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-100/metadata
+[32m[I 2023-09-01 12:44:32,688][0m Trial 19 finished with value: 0.0666926566590654 and parameters: {'n_bins': 13, 'strategy': 'quantile', 'drop': 0.39619939744346777, 'optimizer': 'SGD', 'lr': 0.0019941627417146526, 'weight_decay': 2.019868208335995e-05, 'batch_size': 32, 'epochs': 100}. Best is trial 13 with value: 0.028287377763301768.[0m
+trial 19, loss train mean 0.06, score train mean 0.51, loss val mean 0.07, score val mean 0.61
+
+
+
+End Time   : Fr 1. Sep 12:44:35 CEST 2023
+Duration   : 12512.903489452 seconds
+
+Start Time : Fr 1. Sep 15:54:31 CEST 2023
+Job ID: 1154145
+Node: cc1g05
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-101
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-101/metadata
+[32m[I 2023-09-01 15:59:18,555][0m Trial 20 pruned. [0m
+
+End Time   : Fr 1. Sep 15:59:22 CEST 2023
+Duration   : 290.472515924 seconds
+
+Start Time : Fr 1. Sep 16:33:07 CEST 2023
+Job ID: 1154146
+Node: persephone
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-102
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 7 operations to synchronize with Neptune. Do not kill this process.
+All 7 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-102/metadata
+[32m[I 2023-09-01 16:39:56,024][0m Trial 21 pruned. [0m
+
+End Time   : Fr 1. Sep 16:40:00 CEST 2023
+Duration   : 412.924015019 seconds
+
+Start Time : Fr 1. Sep 17:12:42 CEST 2023
+Job ID: 1154147
+Node: cc1g05
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-103
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-103/metadata
+[32m[I 2023-09-01 17:17:38,520][0m Trial 22 pruned. [0m
+
+End Time   : Fr 1. Sep 17:17:42 CEST 2023
+Duration   : 300.246997559 seconds
+
+Start Time : Fr 1. Sep 17:25:42 CEST 2023
+Job ID: 1154148
+Node: cc1g01
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-104
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-104/metadata
+[32m[I 2023-09-01 17:34:45,804][0m Trial 23 pruned. [0m
+
+End Time   : Fr 1. Sep 17:34:48 CEST 2023
+Duration   : 546.102172746 seconds
+
+Start Time : Fr 1. Sep 17:35:13 CEST 2023
+Job ID: 1154149
+Node: cc1g01
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-105
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-105/metadata
+[32m[I 2023-09-01 17:39:58,953][0m Trial 24 pruned. [0m
+
+End Time   : Fr 1. Sep 17:40:03 CEST 2023
+Duration   : 289.633950431 seconds
+
+Start Time : Fr 1. Sep 17:40:13 CEST 2023
+Job ID: 1154150
+Node: cc1g01
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-106
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-106/metadata
+[32m[I 2023-09-01 17:44:52,002][0m Trial 25 pruned. [0m
+
+End Time   : Fr 1. Sep 17:44:56 CEST 2023
+Duration   : 282.720065360 seconds
+
+Start Time : Fr 1. Sep 17:45:14 CEST 2023
+Job ID: 1154151
+Node: cc1g01
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-107
+Split 0, loss train 0.03, score train 0.63, loss val 0.02 score val 0.73
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-107/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-108
+Split 1, loss train 0.03, score train 0.63, loss val 0.02 score val 0.69
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-108/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-109
+Split 2, loss train 0.03, score train 0.62, loss val 0.03 score val 0.51
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-109/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-110
+Split 3, loss train 0.03, score train 0.64, loss val 0.04 score val 0.34
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-110/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-111
+Split 4, loss train 0.03, score train 0.62, loss val 0.02 score val 0.62
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-111/metadata
+[32m[I 2023-09-01 21:03:55,299][0m Trial 26 finished with value: 0.02648705675246868 and parameters: {'n_bins': 36, 'strategy': 'quantile', 'drop': 0.11810533976709445, 'optimizer': 'SGD', 'lr': 0.0008308478049143635, 'weight_decay': 0.08157390924876708, 'batch_size': 32, 'epochs': 100}. Best is trial 26 with value: 0.02648705675246868.[0m
+trial 26, loss train mean 0.03, score train mean 0.63, loss val mean 0.03, score val mean 0.58
+
+
+
+End Time   : Fr 1. Sep 21:03:57 CEST 2023
+Duration   : 11922.974875246 seconds
+
+Start Time : Fr 1. Sep 21:03:58 CEST 2023
+Job ID: 1154152
+Node: cc1g01
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-112
+Split 0, loss train 0.03, score train 0.65, loss val 0.04 score val 0.69
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-112/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-113
+Split 1, loss train 0.03, score train 0.64, loss val 0.02 score val 0.66
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-113/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-114
+Split 2, loss train 0.03, score train 0.64, loss val 0.03 score val 0.72
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-114/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-115
+Split 3, loss train 0.02, score train 0.65, loss val 0.05 score val 0.28
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-115/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-116
+Split 4, loss train 0.02, score train 0.65, loss val 0.04 score val 0.53
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-116/metadata
+[32m[I 2023-09-02 00:22:11,793][0m Trial 27 finished with value: 0.03693902847614693 and parameters: {'n_bins': 36, 'strategy': 'quantile', 'drop': 0.11354265772641338, 'optimizer': 'SGD', 'lr': 0.000935180100681973, 'weight_decay': 0.09240399818376391, 'batch_size': 32, 'epochs': 100}. Best is trial 26 with value: 0.02648705675246868.[0m
+trial 27, loss train mean 0.03, score train mean 0.65, loss val mean 0.04, score val mean 0.58
+
+
+
+End Time   : Sa 2. Sep 00:22:13 CEST 2023
+Duration   : 11895.087311300 seconds
+
+Start Time : Sa 2. Sep 00:22:15 CEST 2023
+Job ID: 1154153
+Node: cc1g01
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-117
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-117/metadata
+[32m[I 2023-09-02 00:26:53,579][0m Trial 28 pruned. [0m
+
+End Time   : Sa 2. Sep 00:26:57 CEST 2023
+Duration   : 282.477768934 seconds
+
+Start Time : Sa 2. Sep 00:26:59 CEST 2023
+Job ID: 1154154
+Node: cc1g01
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-118
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-118/metadata
+[32m[I 2023-09-02 00:31:39,023][0m Trial 29 pruned. [0m
+
+End Time   : Sa 2. Sep 00:31:43 CEST 2023
+Duration   : 284.051956787 seconds
+
+Start Time : Sa 2. Sep 14:46:09 CEST 2023
+Job ID: 1154396
+Node: cc1g05
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-119
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 7 operations to synchronize with Neptune. Do not kill this process.
+All 7 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-119/metadata
+[32m[I 2023-09-02 14:50:44,812][0m Trial 30 pruned. [0m
+
+End Time   : Sa 2. Sep 14:50:48 CEST 2023
+Duration   : 279.164559923 seconds
+
+Start Time : Sa 2. Sep 14:50:49 CEST 2023
+Job ID: 1154397
+Node: cc1g04
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-120
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-120/metadata
+[32m[I 2023-09-02 14:55:28,404][0m Trial 31 pruned. [0m
+
+End Time   : Sa 2. Sep 14:55:32 CEST 2023
+Duration   : 282.293701869 seconds
+
+Start Time : Sa 2. Sep 14:55:54 CEST 2023
+Job ID: 1154398
+Node: cc1g04
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-121
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 7 operations to synchronize with Neptune. Do not kill this process.
+All 7 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-121/metadata
+[32m[I 2023-09-02 15:00:31,161][0m Trial 32 pruned. [0m
+
+End Time   : Sa 2. Sep 15:00:34 CEST 2023
+Duration   : 280.589785401 seconds
+
+Start Time : Sa 2. Sep 15:00:36 CEST 2023
+Job ID: 1154399
+Node: cc1g04
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-122
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 7 operations to synchronize with Neptune. Do not kill this process.
+All 7 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-122/metadata
+[32m[I 2023-09-02 15:05:12,028][0m Trial 33 pruned. [0m
+
+End Time   : Sa 2. Sep 15:05:15 CEST 2023
+Duration   : 279.297733672 seconds
+
+Start Time : Sa 2. Sep 15:05:16 CEST 2023
+Job ID: 1154400
+Node: cc1g04
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-123
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-123/metadata
+[32m[I 2023-09-02 15:21:15,070][0m Trial 34 pruned. [0m
+
+End Time   : Sa 2. Sep 15:21:17 CEST 2023
+Duration   : 960.594684202 seconds
+
+Start Time : Sa 2. Sep 15:21:19 CEST 2023
+Job ID: 1154401
+Node: cc1g04
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-124
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 7 operations to synchronize with Neptune. Do not kill this process.
+All 7 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-124/metadata
+[32m[I 2023-09-02 15:25:54,507][0m Trial 35 pruned. [0m
+
+End Time   : Sa 2. Sep 15:25:58 CEST 2023
+Duration   : 279.136898104 seconds
+
+Start Time : Sa 2. Sep 15:22:23 CEST 2023
+Job ID: 1154402
+Node: cc1g02
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-125
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-125/metadata
+[32m[I 2023-09-02 15:27:06,931][0m Trial 36 pruned. [0m
+
+End Time   : Sa 2. Sep 15:27:11 CEST 2023
+Duration   : 287.744042066 seconds
+
+Start Time : Sa 2. Sep 15:27:18 CEST 2023
+Job ID: 1154403
+Node: cc1g02
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-126
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-126/metadata
+[32m[I 2023-09-02 15:32:01,085][0m Trial 37 pruned. [0m
+
+End Time   : Sa 2. Sep 15:32:04 CEST 2023
+Duration   : 286.507424601 seconds
+
+Start Time : Sa 2. Sep 15:32:18 CEST 2023
+Job ID: 1154404
+Node: cc1g02
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-127
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-127/metadata
+[32m[I 2023-09-02 15:36:58,391][0m Trial 38 pruned. [0m
+
+End Time   : Sa 2. Sep 15:37:02 CEST 2023
+Duration   : 283.821074181 seconds
+
+Start Time : Sa 2. Sep 15:37:03 CEST 2023
+Job ID: 1154405
+Node: cc1g02
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-128
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-128/metadata
+[32m[I 2023-09-02 15:46:08,131][0m Trial 39 pruned. [0m
+
+End Time   : Sa 2. Sep 15:46:10 CEST 2023
+Duration   : 546.961476224 seconds
+
+Start Time : Sa 2. Sep 16:59:38 CEST 2023
+Job ID: 1154460
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-129
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 7 operations to synchronize with Neptune. Do not kill this process.
+All 7 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-129/metadata
+[32m[I 2023-09-02 17:04:29,316][0m Trial 40 pruned. [0m
+
+End Time   : Sa 2. Sep 17:04:33 CEST 2023
+Duration   : 295.845008009 seconds
+
+Start Time : Sa 2. Sep 17:04:35 CEST 2023
+Job ID: 1154461
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-130
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-130/metadata
+[32m[I 2023-09-02 17:09:12,722][0m Trial 41 pruned. [0m
+
+End Time   : Sa 2. Sep 17:09:16 CEST 2023
+Duration   : 281.241269554 seconds
+
+Start Time : Sa 2. Sep 17:09:18 CEST 2023
+Job ID: 1154462
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-131
+Split 0, loss train 0.03, score train 0.65, loss val 0.03 score val 0.75
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-131/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-132
+Split 1, loss train 0.03, score train 0.65, loss val 0.02 score val 0.61
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-132/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-133
+Split 2, loss train 0.03, score train 0.64, loss val 0.02 score val 0.74
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-133/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-134
+Split 3, loss train 0.02, score train 0.66, loss val 0.03 score val 0.45
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-134/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-135
+Split 4, loss train 0.03, score train 0.64, loss val 0.04 score val 0.44
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-135/metadata
+[32m[I 2023-09-02 20:27:35,832][0m Trial 42 finished with value: 0.02745163897250561 and parameters: {'n_bins': 36, 'strategy': 'quantile', 'drop': 0.11081049747569871, 'optimizer': 'SGD', 'lr': 0.0013907555239036668, 'weight_decay': 0.05974524280382648, 'batch_size': 32, 'epochs': 100}. Best is trial 26 with value: 0.02648705675246868.[0m
+trial 42, loss train mean 0.03, score train mean 0.65, loss val mean 0.03, score val mean 0.60
+
+
+
+End Time   : Sa 2. Sep 20:27:37 CEST 2023
+Duration   : 11899.682048319 seconds
+
+Start Time : Sa 2. Sep 20:27:57 CEST 2023
+Job ID: 1154463
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-136
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-136/metadata
+[32m[I 2023-09-02 20:32:35,716][0m Trial 43 pruned. [0m
+
+End Time   : Sa 2. Sep 20:32:39 CEST 2023
+Duration   : 281.664353089 seconds
+
+Start Time : Sa 2. Sep 20:32:57 CEST 2023
+Job ID: 1154464
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-137
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-137/metadata
+[32m[I 2023-09-02 20:37:32,107][0m Trial 44 pruned. [0m
+
+End Time   : Sa 2. Sep 20:37:36 CEST 2023
+Duration   : 278.477238423 seconds
+
+Start Time : Sa 2. Sep 20:37:57 CEST 2023
+Job ID: 1154465
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-138
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-138/metadata
+[32m[I 2023-09-02 20:42:40,003][0m Trial 45 pruned. [0m
+
+End Time   : Sa 2. Sep 20:42:43 CEST 2023
+Duration   : 286.348101625 seconds
+
+Start Time : Sa 2. Sep 20:42:45 CEST 2023
+Job ID: 1154466
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-139
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-139/metadata
+[32m[I 2023-09-02 20:47:23,940][0m Trial 46 pruned. [0m
+
+End Time   : Sa 2. Sep 20:47:28 CEST 2023
+Duration   : 282.796123579 seconds
+
+Start Time : Sa 2. Sep 20:47:29 CEST 2023
+Job ID: 1154467
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-140
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-140/metadata
+[32m[I 2023-09-02 20:52:12,956][0m Trial 47 pruned. [0m
+
+End Time   : Sa 2. Sep 20:52:17 CEST 2023
+Duration   : 287.282910829 seconds
+
+Start Time : Sa 2. Sep 20:52:18 CEST 2023
+Job ID: 1154468
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-141
+Split 0, loss train 0.02, score train 0.68, loss val 0.03 score val 0.69
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-141/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-142
+Split 1, loss train 0.02, score train 0.69, loss val 0.02 score val 0.65
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-142/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-143
+Split 2, loss train 0.02, score train 0.68, loss val 0.02 score val 0.76
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-143/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-144
+Split 3, loss train 0.02, score train 0.68, loss val 0.02 score val 0.68
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-144/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-145
+Split 4, loss train 0.02, score train 0.71, loss val 0.02 score val 0.62
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-145/metadata
+[32m[I 2023-09-03 00:14:10,277][0m Trial 48 finished with value: 0.020988546026513934 and parameters: {'n_bins': 33, 'strategy': 'quantile', 'drop': 0.11012090479561593, 'optimizer': 'SGD', 'lr': 0.0013907555239036668, 'weight_decay': 0.09818605423084127, 'batch_size': 32, 'epochs': 100}. Best is trial 48 with value: 0.020988546026513934.[0m
+trial 48, loss train mean 0.02, score train mean 0.69, loss val mean 0.02, score val mean 0.68
+
+
+
+End Time   : So 3. Sep 00:14:12 CEST 2023
+Duration   : 12114.015984126 seconds
+
+Start Time : So 3. Sep 00:14:30 CEST 2023
+Job ID: 1154469
+Node: cc1g05
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-146
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-146/metadata
+[32m[I 2023-09-03 00:19:07,728][0m Trial 49 pruned. [0m
+
+End Time   : So 3. Sep 00:19:11 CEST 2023
+Duration   : 281.339094981 seconds
+
+Start Time : So 3. Sep 07:54:20 CEST 2023
+Job ID: 1154594
+Node: cc1g07
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-147
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-147/metadata
+[32m[I 2023-09-03 07:59:17,147][0m Trial 50 pruned. [0m
+
+End Time   : So 3. Sep 07:59:21 CEST 2023
+Duration   : 300.736480733 seconds
+
+Start Time : So 3. Sep 07:59:34 CEST 2023
+Job ID: 1154595
+Node: cc1g07
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-148
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-148/metadata
+[32m[I 2023-09-03 08:04:15,213][0m Trial 51 pruned. [0m
+
+End Time   : So 3. Sep 08:04:19 CEST 2023
+Duration   : 284.957331119 seconds
+
+Start Time : So 3. Sep 08:04:20 CEST 2023
+Job ID: 1154596
+Node: cc1g07
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-149
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-149/metadata
+[32m[I 2023-09-03 08:09:02,596][0m Trial 52 pruned. [0m
+
+End Time   : So 3. Sep 08:09:06 CEST 2023
+Duration   : 285.962858940 seconds
+
+Start Time : So 3. Sep 08:09:34 CEST 2023
+Job ID: 1154597
+Node: cc1g04
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-150
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-150/metadata
+[32m[I 2023-09-03 08:14:17,270][0m Trial 53 pruned. [0m
+
+End Time   : So 3. Sep 08:14:20 CEST 2023
+Duration   : 286.306062271 seconds
+
+Start Time : So 3. Sep 08:14:22 CEST 2023
+Job ID: 1154598
+Node: cc1g04
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-151
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 7 operations to synchronize with Neptune. Do not kill this process.
+All 7 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-151/metadata
+[32m[I 2023-09-03 08:19:02,471][0m Trial 54 pruned. [0m
+
+End Time   : So 3. Sep 08:19:06 CEST 2023
+Duration   : 283.861263833 seconds
+
+Start Time : So 3. Sep 08:19:07 CEST 2023
+Job ID: 1154599
+Node: cc1g04
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-152
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 2 operations to synchronize with Neptune. Do not kill this process.
+All 2 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-152/metadata
+[32m[I 2023-09-03 08:23:51,028][0m Trial 55 pruned. [0m
+
+End Time   : So 3. Sep 08:23:54 CEST 2023
+Duration   : 287.033141691 seconds
+
+Start Time : So 3. Sep 08:23:56 CEST 2023
+Job ID: 1154600
+Node: cc1g04
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-153
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-153/metadata
+[32m[I 2023-09-03 08:33:00,175][0m Trial 56 pruned. [0m
+
+End Time   : So 3. Sep 08:33:02 CEST 2023
+Duration   : 546.304752459 seconds
+
+Start Time : So 3. Sep 08:33:04 CEST 2023
+Job ID: 1154601
+Node: cc1g04
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-154
+Split 0, loss train 0.03, score train 0.63, loss val 0.03 score val 0.75
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-154/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-155
+Split 1, loss train 0.03, score train 0.61, loss val 0.02 score val 0.56
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 27 operations to synchronize with Neptune. Do not kill this process.
+All 27 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-155/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-156
+Split 2, loss train 0.03, score train 0.62, loss val 0.02 score val 0.64
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-156/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-157
+Split 3, loss train 0.03, score train 0.63, loss val 0.05 score val 0.35
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-157/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-158
+Split 4, loss train 0.03, score train 0.62, loss val 0.04 score val 0.42
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-158/metadata
+[32m[I 2023-09-03 11:51:27,644][0m Trial 57 finished with value: 0.03162673103048446 and parameters: {'n_bins': 36, 'strategy': 'quantile', 'drop': 0.13746039510035318, 'optimizer': 'SGD', 'lr': 0.0006638977587731507, 'weight_decay': 0.09885176800982834, 'batch_size': 32, 'epochs': 100}. Best is trial 48 with value: 0.020988546026513934.[0m
+trial 57, loss train mean 0.03, score train mean 0.62, loss val mean 0.03, score val mean 0.54
+
+
+
+End Time   : So 3. Sep 11:51:29 CEST 2023
+Duration   : 11905.284265795 seconds
+
+Start Time : So 3. Sep 11:51:31 CEST 2023
+Job ID: 1154602
+Node: cc1g04
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-159
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-159/metadata
+[32m[I 2023-09-03 11:56:14,610][0m Trial 58 pruned. [0m
+
+End Time   : So 3. Sep 11:56:18 CEST 2023
+Duration   : 287.321628084 seconds
+
+Start Time : So 3. Sep 11:56:19 CEST 2023
+Job ID: 1154603
+Node: cc1g01
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-160
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 7 operations to synchronize with Neptune. Do not kill this process.
+All 7 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-160/metadata
+[32m[I 2023-09-03 12:02:04,070][0m Trial 59 pruned. [0m
+
+End Time   : So 3. Sep 12:02:09 CEST 2023
+Duration   : 349.227563665 seconds
+
+Start Time : So 3. Sep 18:02:35 CEST 2023
+Job ID: 1154801
+Node: cc1g04
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-161
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-161/metadata
+[32m[I 2023-09-03 18:07:25,035][0m Trial 60 pruned. [0m
+
+End Time   : So 3. Sep 18:07:28 CEST 2023
+Duration   : 293.536643270 seconds
+
+Start Time : So 3. Sep 21:21:57 CEST 2023
+Job ID: 1154802
+Node: cc1g07
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-162
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-162/metadata
+[32m[I 2023-09-03 21:26:50,866][0m Trial 61 pruned. [0m
+
+End Time   : So 3. Sep 21:26:55 CEST 2023
+Duration   : 297.864766825 seconds
+
+Start Time : So 3. Sep 21:26:58 CEST 2023
+Job ID: 1154803
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-163
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-163/metadata
+[32m[I 2023-09-03 21:31:40,971][0m Trial 62 pruned. [0m
+
+End Time   : So 3. Sep 21:31:45 CEST 2023
+Duration   : 286.415838733 seconds
+
+Start Time : So 3. Sep 21:31:58 CEST 2023
+Job ID: 1154804
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-164
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-164/metadata
+[32m[I 2023-09-03 21:36:40,360][0m Trial 63 pruned. [0m
+
+End Time   : So 3. Sep 21:36:44 CEST 2023
+Duration   : 286.193017450 seconds
+
+Start Time : So 3. Sep 21:36:57 CEST 2023
+Job ID: 1154805
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-165
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-165/metadata
+[32m[I 2023-09-03 21:41:40,348][0m Trial 64 pruned. [0m
+
+End Time   : So 3. Sep 21:41:44 CEST 2023
+Duration   : 287.174306595 seconds
+
+Start Time : So 3. Sep 21:41:54 CEST 2023
+Job ID: 1154806
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-166
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-166/metadata
+[32m[I 2023-09-03 21:46:37,492][0m Trial 65 pruned. [0m
+
+End Time   : So 3. Sep 21:46:41 CEST 2023
+Duration   : 286.684273022 seconds
+
+Start Time : So 3. Sep 21:46:45 CEST 2023
+Job ID: 1154807
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-167
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-167/metadata
+[32m[I 2023-09-03 21:51:24,835][0m Trial 66 pruned. [0m
+
+End Time   : So 3. Sep 21:51:29 CEST 2023
+Duration   : 283.957808683 seconds
+
+Start Time : So 3. Sep 21:51:45 CEST 2023
+Job ID: 1154808
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-168
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-168/metadata
+[32m[I 2023-09-03 21:56:28,758][0m Trial 67 pruned. [0m
+
+End Time   : So 3. Sep 21:56:32 CEST 2023
+Duration   : 287.658732144 seconds
+
+Start Time : So 3. Sep 21:56:35 CEST 2023
+Job ID: 1154809
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-169
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-169/metadata
+[32m[I 2023-09-03 22:01:20,054][0m Trial 68 pruned. [0m
+
+End Time   : So 3. Sep 22:01:24 CEST 2023
+Duration   : 289.166327172 seconds
+
+Start Time : So 3. Sep 22:01:25 CEST 2023
+Job ID: 1154810
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-170
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-170/metadata
+[32m[I 2023-09-03 22:06:06,932][0m Trial 69 pruned. [0m
+
+End Time   : So 3. Sep 22:06:11 CEST 2023
+Duration   : 285.275626955 seconds
+
+Start Time : So 3. Sep 23:19:22 CEST 2023
+Job ID: 1155547
+Node: persephone
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-171
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-171/metadata
+[32m[I 2023-09-03 23:26:04,441][0m Trial 70 pruned. [0m
+
+End Time   : So 3. Sep 23:26:08 CEST 2023
+Duration   : 406.261942139 seconds
+
+Start Time : So 3. Sep 23:26:44 CEST 2023
+Job ID: 1155548
+Node: erebos
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-172
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-172/metadata
+[32m[I 2023-09-03 23:32:56,713][0m Trial 71 pruned. [0m
+
+End Time   : So 3. Sep 23:33:01 CEST 2023
+Duration   : 376.396558783 seconds
+
+Start Time : So 3. Sep 23:33:23 CEST 2023
+Job ID: 1155549
+Node: erebos
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-173
+Split 0, loss train 0.03, score train 0.64, loss val 0.02 score val 0.77
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-173/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-174
+Split 1, loss train 0.03, score train 0.64, loss val 0.04 score val 0.36
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-174/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-175
+Split 2, loss train 0.03, score train 0.63, loss val 0.03 score val 0.49
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-175/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-176
+Split 3, loss train 0.03, score train 0.64, loss val 0.03 score val 0.44
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-176/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-177
+Split 4, loss train 0.03, score train 0.64, loss val 0.04 score val 0.40
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-177/metadata
+[32m[I 2023-09-04 02:54:10,483][0m Trial 72 finished with value: 0.03137341610928799 and parameters: {'n_bins': 38, 'strategy': 'quantile', 'drop': 0.11601212087625512, 'optimizer': 'SGD', 'lr': 0.0015513805846518703, 'weight_decay': 0.042544537016584415, 'batch_size': 32, 'epochs': 100}. Best is trial 48 with value: 0.020988546026513934.[0m
+trial 72, loss train mean 0.03, score train mean 0.64, loss val mean 0.03, score val mean 0.49
+
+
+
+End Time   : Mo 4. Sep 02:54:12 CEST 2023
+Duration   : 12048.411236699 seconds
+
+Start Time : Mo 4. Sep 02:54:14 CEST 2023
+Job ID: 1155550
+Node: cc1g05
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-178
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-178/metadata
+[32m[I 2023-09-04 03:03:24,889][0m Trial 73 pruned. [0m
+
+End Time   : Mo 4. Sep 03:03:27 CEST 2023
+Duration   : 553.751928290 seconds
+
+Start Time : Mo 4. Sep 03:03:29 CEST 2023
+Job ID: 1155551
+Node: cc1g05
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-179
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-179/metadata
+[32m[I 2023-09-04 03:19:59,644][0m Trial 74 pruned. [0m
+
+End Time   : Mo 4. Sep 03:20:02 CEST 2023
+Duration   : 992.992457339 seconds
+
+Start Time : Mo 4. Sep 03:20:03 CEST 2023
+Job ID: 1155552
+Node: cc1g05
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-180
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-180/metadata
+[32m[I 2023-09-04 03:24:50,504][0m Trial 75 pruned. [0m
+
+End Time   : Mo 4. Sep 03:24:54 CEST 2023
+Duration   : 290.993719829 seconds
+
+Start Time : Mo 4. Sep 03:24:56 CEST 2023
+Job ID: 1155553
+Node: cc1g05
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-181
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-181/metadata
+[32m[I 2023-09-04 03:29:44,923][0m Trial 76 pruned. [0m
+
+End Time   : Mo 4. Sep 03:29:49 CEST 2023
+Duration   : 292.909091421 seconds
+
+Start Time : Mo 4. Sep 03:29:57 CEST 2023
+Job ID: 1155554
+Node: cc1g05
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-182
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-182/metadata
+[32m[I 2023-09-04 03:34:43,855][0m Trial 77 pruned. [0m
+
+End Time   : Mo 4. Sep 03:34:47 CEST 2023
+Duration   : 290.186612391 seconds
+
+Start Time : Mo 4. Sep 03:34:54 CEST 2023
+Job ID: 1155555
+Node: cc1g05
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-183
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-183/metadata
+[32m[I 2023-09-04 03:39:40,547][0m Trial 78 pruned. [0m
+
+End Time   : Mo 4. Sep 03:39:44 CEST 2023
+Duration   : 290.044096264 seconds
+
+Start Time : Mo 4. Sep 03:39:46 CEST 2023
+Job ID: 1155556
+Node: cc1g05
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-184
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-184/metadata
+[32m[I 2023-09-04 03:44:35,694][0m Trial 79 pruned. [0m
+
+End Time   : Mo 4. Sep 03:44:39 CEST 2023
+Duration   : 293.653227331 seconds
+
+Start Time : Mo 4. Sep 08:43:37 CEST 2023
+Job ID: 1155700
+Node: cc1g04
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-185
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-185/metadata
+[32m[I 2023-09-04 08:48:25,529][0m Trial 80 pruned. [0m
+
+End Time   : Mo 4. Sep 08:48:29 CEST 2023
+Duration   : 291.721109736 seconds
+
+Start Time : Mo 4. Sep 08:48:30 CEST 2023
+Job ID: 1155701
+Node: cc1g04
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-186
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-186/metadata
+[32m[I 2023-09-04 08:57:43,018][0m Trial 81 pruned. [0m
+
+End Time   : Mo 4. Sep 08:57:45 CEST 2023
+Duration   : 554.738620002 seconds
+
+Start Time : Mo 4. Sep 08:57:57 CEST 2023
+Job ID: 1155702
+Node: cc1g04
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-187
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-187/metadata
+[32m[I 2023-09-04 09:02:39,806][0m Trial 82 pruned. [0m
+
+End Time   : Mo 4. Sep 09:02:43 CEST 2023
+Duration   : 285.868770184 seconds
+
+Start Time : Mo 4. Sep 09:02:45 CEST 2023
+Job ID: 1155703
+Node: cc1g04
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-188
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-188/metadata
+[32m[I 2023-09-04 09:07:32,255][0m Trial 83 pruned. [0m
+
+End Time   : Mo 4. Sep 09:07:36 CEST 2023
+Duration   : 290.981015596 seconds
+
+Start Time : Mo 4. Sep 09:07:45 CEST 2023
+Job ID: 1155704
+Node: cc1g04
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-189
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-189/metadata
+[32m[I 2023-09-04 09:12:30,731][0m Trial 84 pruned. [0m
+
+End Time   : Mo 4. Sep 09:12:34 CEST 2023
+Duration   : 289.427750949 seconds
+
+Start Time : Mo 4. Sep 09:12:36 CEST 2023
+Job ID: 1155705
+Node: cc1g04
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-190
+Split 0, loss train 0.02, score train 0.68, loss val 0.03 score val 0.67
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-190/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-191
+Split 1, loss train 0.02, score train 0.67, loss val 0.03 score val 0.52
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-191/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-192
+Split 2, loss train 0.02, score train 0.68, loss val 0.02 score val 0.77
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+Still waiting for the remaining 14 operations (0.00% done). Please wait.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-192/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-193
+Split 3, loss train 0.02, score train 0.69, loss val 0.03 score val 0.47
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-193/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-194
+Split 4, loss train 0.02, score train 0.70, loss val 0.03 score val 0.49
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-194/metadata
+[32m[I 2023-09-04 12:33:47,428][0m Trial 85 finished with value: 0.02704360992350477 and parameters: {'n_bins': 37, 'strategy': 'quantile', 'drop': 0.12772164844527978, 'optimizer': 'SGD', 'lr': 0.0014101278962336953, 'weight_decay': 0.08578366738204689, 'batch_size': 32, 'epochs': 100}. Best is trial 48 with value: 0.020988546026513934.[0m
+trial 85, loss train mean 0.02, score train mean 0.68, loss val mean 0.03, score val mean 0.58
+
+
+
+End Time   : Mo 4. Sep 12:33:49 CEST 2023
+Duration   : 12072.990839643 seconds
+
+Start Time : Mo 4. Sep 12:33:59 CEST 2023
+Job ID: 1155706
+Node: cc1g05
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-195
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-195/metadata
+[32m[I 2023-09-04 12:39:24,954][0m Trial 86 pruned. [0m
+
+End Time   : Mo 4. Sep 12:39:28 CEST 2023
+Duration   : 329.392892926 seconds
+
+Start Time : Mo 4. Sep 12:39:29 CEST 2023
+Job ID: 1155707
+Node: cc1g05
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-196
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-196/metadata
+[32m[I 2023-09-04 12:44:11,650][0m Trial 87 pruned. [0m
+
+End Time   : Mo 4. Sep 12:44:16 CEST 2023
+Duration   : 287.000541681 seconds
+
+Start Time : Mo 4. Sep 12:44:27 CEST 2023
+Job ID: 1155708
+Node: cc1g05
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-197
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-197/metadata
+[32m[I 2023-09-04 13:00:53,102][0m Trial 88 pruned. [0m
+
+End Time   : Mo 4. Sep 13:00:55 CEST 2023
+Duration   : 987.731961028 seconds
+
+Start Time : Mo 4. Sep 13:00:57 CEST 2023
+Job ID: 1155709
+Node: cc1g05
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-198
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-198/metadata
+[32m[I 2023-09-04 13:05:41,568][0m Trial 89 pruned. [0m
+
+End Time   : Mo 4. Sep 13:05:45 CEST 2023
+Duration   : 287.759202421 seconds
+
+Start Time : Mo 4. Sep 14:28:00 CEST 2023
+Job ID: 1155901
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-199
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 7 operations to synchronize with Neptune. Do not kill this process.
+All 7 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-199/metadata
+[32m[I 2023-09-04 14:32:34,268][0m Trial 90 pruned. [0m
+
+End Time   : Mo 4. Sep 14:32:38 CEST 2023
+Duration   : 277.902060239 seconds
+
+Start Time : Mo 4. Sep 14:32:41 CEST 2023
+Job ID: 1155902
+Node: cc1g06
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-200
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-200/metadata
+[32m[I 2023-09-04 14:48:56,622][0m Trial 91 pruned. [0m
+
+End Time   : Mo 4. Sep 14:48:59 CEST 2023
+Duration   : 977.464692896 seconds
+
+Start Time : Mo 4. Sep 14:49:00 CEST 2023
+Job ID: 1155903
+Node: erebos
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-201
+Split 0, loss train 0.03, score train 0.62, loss val 0.03 score val 0.70
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 14 operations to synchronize with Neptune. Do not kill this process.
+All 14 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-201/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-202
+Split 1, loss train 0.03, score train 0.62, loss val 0.03 score val 0.57
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-202/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-203
+Split 2, loss train 0.03, score train 0.62, loss val 0.03 score val 0.46
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-203/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-204
+Split 3, loss train 0.03, score train 0.63, loss val 0.04 score val 0.31
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-204/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-205
+Split 4, loss train 0.03, score train 0.62, loss val 0.03 score val 0.49
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 10 operations to synchronize with Neptune. Do not kill this process.
+All 10 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-205/metadata
+[32m[I 2023-09-04 18:07:57,458][0m Trial 92 finished with value: 0.034493882605370056 and parameters: {'n_bins': 38, 'strategy': 'quantile', 'drop': 0.10516450895965473, 'optimizer': 'SGD', 'lr': 0.0007232444132064503, 'weight_decay': 0.08645258823396393, 'batch_size': 32, 'epochs': 100}. Best is trial 48 with value: 0.020988546026513934.[0m
+trial 92, loss train mean 0.03, score train mean 0.62, loss val mean 0.03, score val mean 0.51
+
+
+
+End Time   : Mo 4. Sep 18:07:59 CEST 2023
+Duration   : 11938.731606881 seconds
+
+Start Time : Mo 4. Sep 18:36:58 CEST 2023
+Job ID: 1155904
+Node: erebos
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-206
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-206/metadata
+[32m[I 2023-09-04 18:42:12,495][0m Trial 93 pruned. [0m
+
+End Time   : Mo 4. Sep 18:42:16 CEST 2023
+Duration   : 318.562268569 seconds
+
+Start Time : Mo 4. Sep 18:42:29 CEST 2023
+Job ID: 1155905
+Node: erebos
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-207
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-207/metadata
+[32m[I 2023-09-04 18:47:38,696][0m Trial 94 pruned. [0m
+
+End Time   : Mo 4. Sep 18:47:43 CEST 2023
+Duration   : 314.026316864 seconds
+
+Start Time : Mo 4. Sep 18:48:00 CEST 2023
+Job ID: 1155906
+Node: erebos
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-208
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-208/metadata
+[32m[I 2023-09-04 18:52:59,223][0m Trial 95 pruned. [0m
+
+End Time   : Mo 4. Sep 18:53:04 CEST 2023
+Duration   : 303.756445428 seconds
+
+Start Time : Mo 4. Sep 18:53:31 CEST 2023
+Job ID: 1155907
+Node: erebos
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-209
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-209/metadata
+[32m[I 2023-09-04 18:58:44,134][0m Trial 96 pruned. [0m
+
+End Time   : Mo 4. Sep 18:58:48 CEST 2023
+Duration   : 316.702491555 seconds
+
+Start Time : Mo 4. Sep 18:59:02 CEST 2023
+Job ID: 1155908
+Node: erebos
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-210
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-210/metadata
+[32m[I 2023-09-04 19:04:07,277][0m Trial 97 pruned. [0m
+
+End Time   : Mo 4. Sep 19:04:11 CEST 2023
+Duration   : 308.888976444 seconds
+
+Start Time : Mo 4. Sep 19:04:34 CEST 2023
+Job ID: 1155909
+Node: erebos
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-211
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 3 operations to synchronize with Neptune. Do not kill this process.
+All 3 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-211/metadata
+[32m[I 2023-09-04 19:09:47,382][0m Trial 98 pruned. [0m
+
+End Time   : Mo 4. Sep 19:09:52 CEST 2023
+Duration   : 318.065085539 seconds
+
+Start Time : Mo 4. Sep 19:10:00 CEST 2023
+Job ID: 1155910
+Node: erebos
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-212
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 7 operations to synchronize with Neptune. Do not kill this process.
+All 7 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-212/metadata
+[32m[I 2023-09-04 19:19:32,916][0m Trial 99 pruned. [0m
+
+End Time   : Mo 4. Sep 19:19:35 CEST 2023
+Duration   : 575.659531592 seconds
+
+Start Time : Di 5. Sep 16:29:09 CEST 2023
+Job ID: 1156949
+Node: cc1g02
+Partition: gpu_normal_stud
+CPU cores: 16
+Memory: 98304
+GPUs: 0
+Python environment: khoa                  *  /home/phamanh/anaconda3/envs/khoa
+Current work directory: /home/phamanh/Schreibtisch/bachelorarbeit/ts_im_CNN
+
+device: cuda
+
+
+Study statistics: 
+  Number of finished trials:  100
+  Number of pruned trials:  72
+  Number of complete trials:  28
+  Value:  0.020988546026513934
+  Params: 
+    batch_size: 32
+    drop: 0.11012090479561593
+    epochs: 100
+    lr: 0.0013907555239036668
+    n_bins: 33
+    optimizer: SGD
+    strategy: quantile
+    weight_decay: 0.09818605423084127
+final test best model
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-215
+=====================================================================================
+Layer (type:depth-idx)                                       Param #
+=====================================================================================
+ConcatModel                                                  --
+├─EfficientNet: 1-1                                          --
+│    └─Sequential: 2-1                                       --
+│    │    └─Conv2dNormActivation: 3-1                        640
+│    │    └─Sequential: 3-2                                  1,448
+│    │    └─Sequential: 3-3                                  16,714
+│    │    └─Sequential: 3-4                                  46,640
+│    │    └─Sequential: 3-5                                  242,930
+│    │    └─Sequential: 3-6                                  543,148
+│    │    └─Sequential: 3-7                                  2,026,348
+│    │    └─Sequential: 3-8                                  717,232
+│    │    └─Conv2dNormActivation: 3-9                        412,160
+│    └─AdaptiveAvgPool2d: 2-2                                --
+│    └─Identity: 2-3                                         --
+├─Conv1dNeuralNetwork: 1-2                                   --
+│    └─Conv1DBlock_1: 2-4                                    --
+│    │    └─Conv1d: 3-10                                     2,944
+│    │    └─BatchNorm1d: 3-11                                256
+│    │    └─ReLU: 3-12                                       --
+│    └─Sequential: 2-5                                       --
+│    │    └─Conv1DBlock_2: 3-13                              99,072
+│    │    └─Conv1DBlock_2: 3-14                              99,072
+│    └─Conv1DBlock_2: 2-6                                    --
+│    │    └─Conv1d: 3-15                                     49,280
+│    │    └─BatchNorm1d: 3-16                                256
+│    │    └─ReLU: 3-17                                       --
+│    │    └─Conv1d: 3-18                                     49,280
+│    │    └─BatchNorm1d: 3-19                                256
+│    │    └─ReLU: 3-20                                       --
+│    │    └─MaxPool1d: 3-21                                  --
+│    └─Conv2DBlock: 2-7                                      --
+│    │    └─Conv2d: 3-22                                     4,736
+│    │    └─BatchNorm2d: 3-23                                256
+│    │    └─ReLU: 3-24                                       --
+│    │    └─Conv2d: 3-25                                     147,584
+│    │    └─BatchNorm2d: 3-26                                256
+│    │    └─ReLU: 3-27                                       --
+│    │    └─MaxPool2d: 3-28                                  --
+│    └─Conv2DBlock: 2-8                                      --
+│    │    └─Conv2d: 3-29                                     147,584
+│    │    └─BatchNorm2d: 3-30                                256
+│    │    └─ReLU: 3-31                                       --
+│    │    └─Conv2d: 3-32                                     147,584
+│    │    └─BatchNorm2d: 3-33                                256
+│    │    └─ReLU: 3-34                                       --
+│    │    └─MaxPool2d: 3-35                                  --
+│    └─Conv2DBlock: 2-9                                      --
+│    │    └─Conv2d: 3-36                                     147,584
+│    │    └─BatchNorm2d: 3-37                                256
+│    │    └─ReLU: 3-38                                       --
+│    │    └─Conv2d: 3-39                                     147,584
+│    │    └─BatchNorm2d: 3-40                                256
+│    │    └─ReLU: 3-41                                       --
+│    │    └─MaxPool2d: 3-42                                  --
+│    └─Conv2DBlock: 2-10                                     --
+│    │    └─Conv2d: 3-43                                     147,584
+│    │    └─BatchNorm2d: 3-44                                256
+│    │    └─ReLU: 3-45                                       --
+│    │    └─Conv2d: 3-46                                     147,584
+│    │    └─BatchNorm2d: 3-47                                256
+│    │    └─ReLU: 3-48                                       --
+│    │    └─MaxPool2d: 3-49                                  --
+│    └─Flatten: 2-11                                         --
+├─Dropout: 1-3                                               --
+├─Linear: 1-4                                                2,561
+=====================================================================================
+Total params: 5,350,109
+Trainable params: 5,350,109
+Non-trainable params: 0
+=====================================================================================
+Warning: string series 'monitoring/44ae5db2/stdout' value was longer than 1000 characters and was truncated. This warning is printed only once per series.
+Warning: string 'structure' value was longer than 16384 characters and was truncated. This warning is printed only once.
+epoch 0, loss train 0.31, loss test 0.37, score train 0.23, score test 0.17, score final 0.00
+epoch 1, loss train 0.23, loss test 0.55, score train 0.28, score test 0.30, score final 0.05
+epoch 2, loss train 0.20, loss test 0.51, score train 0.29, score test 0.27, score final 0.26
+epoch 3, loss train 0.17, loss test 0.17, score train 0.32, score test 0.36, score final 0.01
+epoch 4, loss train 0.16, loss test 0.16, score train 0.32, score test 0.36, score final 0.15
+epoch 5, loss train 0.15, loss test 0.25, score train 0.33, score test 0.29, score final 0.06
+epoch 6, loss train 0.14, loss test 0.21, score train 0.34, score test 0.36, score final 0.03
+epoch 7, loss train 0.14, loss test 0.28, score train 0.35, score test 0.32, score final 0.12
+epoch 8, loss train 0.13, loss test 0.30, score train 0.36, score test 0.37, score final 0.02
+epoch 9, loss train 0.13, loss test 0.39, score train 0.37, score test 0.32, score final 0.16
+epoch 10, loss train 0.12, loss test 0.21, score train 0.37, score test 0.30, score final 0.08
+epoch 11, loss train 0.12, loss test 0.41, score train 0.38, score test 0.30, score final 0.03
+epoch 12, loss train 0.12, loss test 0.39, score train 0.37, score test 0.31, score final 0.14
+epoch 13, loss train 0.11, loss test 0.18, score train 0.39, score test 0.32, score final 0.03
+epoch 14, loss train 0.12, loss test 0.23, score train 0.38, score test 0.33, score final 0.02
+epoch 15, loss train 0.11, loss test 0.31, score train 0.38, score test 0.32, score final 0.02
+epoch 16, loss train 0.11, loss test 0.36, score train 0.38, score test 0.34, score final 0.02
+epoch 17, loss train 0.11, loss test 0.33, score train 0.39, score test 0.29, score final 0.02
+epoch 18, loss train 0.11, loss test 0.30, score train 0.39, score test 0.29, score final 0.09
+epoch 19, loss train 0.11, loss test 0.21, score train 0.38, score test 0.31, score final 0.13
+epoch 20, loss train 0.10, loss test 0.28, score train 0.40, score test 0.32, score final 0.01
+epoch 21, loss train 0.10, loss test 0.26, score train 0.40, score test 0.30, score final 0.15
+epoch 22, loss train 0.10, loss test 0.50, score train 0.39, score test 0.28, score final 0.11
+epoch 23, loss train 0.10, loss test 0.62, score train 0.40, score test 0.25, score final 0.09
+epoch 24, loss train 0.10, loss test 0.35, score train 0.41, score test 0.33, score final 0.01
+epoch 25, loss train 0.10, loss test 0.29, score train 0.39, score test 0.34, score final 0.02
+epoch 26, loss train 0.10, loss test 0.29, score train 0.40, score test 0.30, score final 0.09
+epoch 27, loss train 0.10, loss test 0.25, score train 0.41, score test 0.31, score final 0.02
+epoch 28, loss train 0.09, loss test 0.20, score train 0.42, score test 0.33, score final 0.02
+epoch 29, loss train 0.09, loss test 0.49, score train 0.43, score test 0.30, score final 0.07
+epoch 30, loss train 0.09, loss test 0.27, score train 0.41, score test 0.30, score final 0.06
+epoch 31, loss train 0.09, loss test 0.35, score train 0.42, score test 0.32, score final 0.02
+epoch 32, loss train 0.09, loss test 0.40, score train 0.42, score test 0.30, score final 0.04
+epoch 33, loss train 0.09, loss test 0.26, score train 0.43, score test 0.32, score final 0.01
+epoch 34, loss train 0.08, loss test 0.38, score train 0.43, score test 0.28, score final 0.02
+epoch 35, loss train 0.09, loss test 0.38, score train 0.42, score test 0.29, score final 0.01
+epoch 36, loss train 0.08, loss test 0.27, score train 0.43, score test 0.29, score final 0.09
+epoch 37, loss train 0.08, loss test 0.32, score train 0.44, score test 0.32, score final 0.04
+epoch 38, loss train 0.08, loss test 0.29, score train 0.43, score test 0.31, score final 0.07
+epoch 39, loss train 0.08, loss test 0.37, score train 0.44, score test 0.29, score final 0.12
+epoch 40, loss train 0.08, loss test 0.29, score train 0.43, score test 0.28, score final 0.19
+epoch 41, loss train 0.09, loss test 0.47, score train 0.43, score test 0.29, score final 0.08
+epoch 42, loss train 0.08, loss test 0.19, score train 0.43, score test 0.29, score final 0.08
+epoch 43, loss train 0.08, loss test 0.39, score train 0.44, score test 0.31, score final 0.02
+epoch 44, loss train 0.08, loss test 0.31, score train 0.45, score test 0.29, score final 0.03
+epoch 45, loss train 0.08, loss test 0.40, score train 0.44, score test 0.28, score final 0.12
+epoch 46, loss train 0.07, loss test 0.30, score train 0.46, score test 0.28, score final 0.16
+epoch 47, loss train 0.08, loss test 0.38, score train 0.45, score test 0.29, score final 0.01
+epoch 48, loss train 0.08, loss test 0.25, score train 0.45, score test 0.30, score final 0.02
+epoch 49, loss train 0.08, loss test 0.26, score train 0.45, score test 0.31, score final 0.04
+epoch 50, loss train 0.07, loss test 0.20, score train 0.45, score test 0.29, score final 0.01
+epoch 51, loss train 0.08, loss test 0.35, score train 0.45, score test 0.29, score final 0.02
+epoch 52, loss train 0.07, loss test 0.26, score train 0.46, score test 0.31, score final 0.02
+epoch 53, loss train 0.07, loss test 0.33, score train 0.46, score test 0.34, score final 0.01
+epoch 54, loss train 0.07, loss test 0.24, score train 0.46, score test 0.29, score final 0.01
+epoch 55, loss train 0.07, loss test 0.18, score train 0.46, score test 0.32, score final 0.02
+epoch 56, loss train 0.07, loss test 0.30, score train 0.46, score test 0.27, score final 0.01
+epoch 57, loss train 0.07, loss test 0.36, score train 0.46, score test 0.32, score final 0.01
+epoch 58, loss train 0.07, loss test 0.46, score train 0.46, score test 0.29, score final 0.02
+epoch 59, loss train 0.07, loss test 0.41, score train 0.47, score test 0.30, score final 0.02
+epoch 60, loss train 0.07, loss test 0.35, score train 0.47, score test 0.30, score final 0.01
+epoch 61, loss train 0.07, loss test 0.37, score train 0.48, score test 0.30, score final 0.12
+epoch 62, loss train 0.07, loss test 0.41, score train 0.47, score test 0.30, score final 0.01
+epoch 63, loss train 0.07, loss test 0.29, score train 0.46, score test 0.29, score final 0.02
+epoch 64, loss train 0.07, loss test 0.50, score train 0.48, score test 0.28, score final 0.15
+epoch 65, loss train 0.07, loss test 0.34, score train 0.48, score test 0.32, score final 0.01
+epoch 66, loss train 0.06, loss test 0.25, score train 0.49, score test 0.32, score final 0.01
+epoch 67, loss train 0.07, loss test 0.20, score train 0.49, score test 0.31, score final 0.02
+epoch 68, loss train 0.06, loss test 0.37, score train 0.50, score test 0.29, score final 0.01
+epoch 69, loss train 0.07, loss test 0.18, score train 0.48, score test 0.36, score final 0.07
+epoch 70, loss train 0.07, loss test 0.20, score train 0.48, score test 0.32, score final 0.02
+epoch 71, loss train 0.06, loss test 0.32, score train 0.49, score test 0.30, score final 0.12
+epoch 72, loss train 0.07, loss test 0.27, score train 0.48, score test 0.32, score final 0.09
+epoch 73, loss train 0.06, loss test 0.18, score train 0.49, score test 0.34, score final 0.01
+epoch 74, loss train 0.06, loss test 0.24, score train 0.50, score test 0.29, score final 0.01
+epoch 75, loss train 0.06, loss test 0.27, score train 0.49, score test 0.31, score final 0.01
+epoch 76, loss train 0.06, loss test 0.22, score train 0.48, score test 0.30, score final 0.02
+epoch 77, loss train 0.06, loss test 0.29, score train 0.49, score test 0.34, score final 0.01
+epoch 78, loss train 0.06, loss test 0.32, score train 0.50, score test 0.31, score final 0.01
+epoch 79, loss train 0.06, loss test 0.31, score train 0.50, score test 0.31, score final 0.01
+epoch 80, loss train 0.06, loss test 0.25, score train 0.49, score test 0.33, score final 0.01
+epoch 81, loss train 0.06, loss test 0.41, score train 0.50, score test 0.31, score final 0.02
+epoch 82, loss train 0.06, loss test 0.32, score train 0.50, score test 0.34, score final 0.02
+epoch 83, loss train 0.06, loss test 0.36, score train 0.50, score test 0.30, score final 0.02
+epoch 84, loss train 0.06, loss test 0.17, score train 0.52, score test 0.33, score final 0.06
+epoch 85, loss train 0.06, loss test 0.22, score train 0.50, score test 0.33, score final 0.01
+epoch 86, loss train 0.06, loss test 0.25, score train 0.52, score test 0.30, score final 0.01
+epoch 87, loss train 0.06, loss test 0.28, score train 0.51, score test 0.29, score final 0.01
+epoch 88, loss train 0.06, loss test 0.22, score train 0.50, score test 0.28, score final 0.01
+epoch 89, loss train 0.06, loss test 0.30, score train 0.52, score test 0.30, score final 0.01
+epoch 90, loss train 0.06, loss test 0.30, score train 0.51, score test 0.29, score final 0.10
+epoch 91, loss train 0.06, loss test 0.28, score train 0.51, score test 0.32, score final 0.02
+epoch 92, loss train 0.06, loss test 0.38, score train 0.51, score test 0.32, score final 0.01
+epoch 93, loss train 0.06, loss test 0.22, score train 0.51, score test 0.31, score final 0.01
+epoch 94, loss train 0.06, loss test 0.35, score train 0.50, score test 0.35, score final 0.01
+epoch 95, loss train 0.05, loss test 0.33, score train 0.52, score test 0.33, score final 0.01
+epoch 96, loss train 0.05, loss test 0.19, score train 0.54, score test 0.34, score final 0.01
+epoch 97, loss train 0.05, loss test 0.33, score train 0.53, score test 0.31, score final 0.02
+epoch 98, loss train 0.05, loss test 0.28, score train 0.53, score test 0.28, score final 0.02
+epoch 99, loss train 0.05, loss test 0.25, score train 0.52, score test 0.32, score final 0.03
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 16 operations to synchronize with Neptune. Do not kill this process.
+All 16 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-215/metadata
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-216
+=====================================================================================
+Layer (type:depth-idx)                                       Param #
+=====================================================================================
+ConcatModel                                                  --
+├─EfficientNet: 1-1                                          --
+│    └─Sequential: 2-1                                       --
+│    │    └─Conv2dNormActivation: 3-1                        640
+│    │    └─Sequential: 3-2                                  1,448
+│    │    └─Sequential: 3-3                                  16,714
+│    │    └─Sequential: 3-4                                  46,640
+│    │    └─Sequential: 3-5                                  242,930
+│    │    └─Sequential: 3-6                                  543,148
+│    │    └─Sequential: 3-7                                  2,026,348
+│    │    └─Sequential: 3-8                                  717,232
+│    │    └─Conv2dNormActivation: 3-9                        412,160
+│    └─AdaptiveAvgPool2d: 2-2                                --
+│    └─Identity: 2-3                                         --
+├─Conv1dNeuralNetwork: 1-2                                   --
+│    └─Conv1DBlock_1: 2-4                                    --
+│    │    └─Conv1d: 3-10                                     2,944
+│    │    └─BatchNorm1d: 3-11                                256
+│    │    └─ReLU: 3-12                                       --
+│    └─Sequential: 2-5                                       --
+│    │    └─Conv1DBlock_2: 3-13                              99,072
+│    │    └─Conv1DBlock_2: 3-14                              99,072
+│    └─Conv1DBlock_2: 2-6                                    --
+│    │    └─Conv1d: 3-15                                     49,280
+│    │    └─BatchNorm1d: 3-16                                256
+│    │    └─ReLU: 3-17                                       --
+│    │    └─Conv1d: 3-18                                     49,280
+│    │    └─BatchNorm1d: 3-19                                256
+│    │    └─ReLU: 3-20                                       --
+│    │    └─MaxPool1d: 3-21                                  --
+│    └─Conv2DBlock: 2-7                                      --
+│    │    └─Conv2d: 3-22                                     4,736
+│    │    └─BatchNorm2d: 3-23                                256
+│    │    └─ReLU: 3-24                                       --
+│    │    └─Conv2d: 3-25                                     147,584
+│    │    └─BatchNorm2d: 3-26                                256
+│    │    └─ReLU: 3-27                                       --
+│    │    └─MaxPool2d: 3-28                                  --
+│    └─Conv2DBlock: 2-8                                      --
+│    │    └─Conv2d: 3-29                                     147,584
+│    │    └─BatchNorm2d: 3-30                                256
+│    │    └─ReLU: 3-31                                       --
+│    │    └─Conv2d: 3-32                                     147,584
+│    │    └─BatchNorm2d: 3-33                                256
+│    │    └─ReLU: 3-34                                       --
+│    │    └─MaxPool2d: 3-35                                  --
+│    └─Conv2DBlock: 2-9                                      --
+│    │    └─Conv2d: 3-36                                     147,584
+│    │    └─BatchNorm2d: 3-37                                256
+│    │    └─ReLU: 3-38                                       --
+│    │    └─Conv2d: 3-39                                     147,584
+│    │    └─BatchNorm2d: 3-40                                256
+│    │    └─ReLU: 3-41                                       --
+│    │    └─MaxPool2d: 3-42                                  --
+│    └─Conv2DBlock: 2-10                                     --
+│    │    └─Conv2d: 3-43                                     147,584
+│    │    └─BatchNorm2d: 3-44                                256
+│    │    └─ReLU: 3-45                                       --
+│    │    └─Conv2d: 3-46                                     147,584
+│    │    └─BatchNorm2d: 3-47                                256
+│    │    └─ReLU: 3-48                                       --
+│    │    └─MaxPool2d: 3-49                                  --
+│    └─Flatten: 2-11                                         --
+├─Dropout: 1-3                                               --
+├─Linear: 1-4                                                2,561
+=====================================================================================
+Total params: 5,350,109
+Trainable params: 5,350,109
+Non-trainable params: 0
+=====================================================================================
+Warning: string series 'monitoring/44ae5db2/stdout' value was longer than 1000 characters and was truncated. This warning is printed only once per series.
+Warning: string 'structure' value was longer than 16384 characters and was truncated. This warning is printed only once.
+Tracking result from best trial in Cross Validation
+loss test 0.15, score test 0.34
+Bearing 13, RUL pred 5227, RUl true 5730
+Bearing 14, RUL pred 191, RUl true 2890
+Bearing 15, RUL pred 2893, RUl true 1610
+Bearing 16, RUL pred 5046, RUl true 1460
+Bearing 17, RUL pred 2396, RUl true 7570
+Bearing 23, RUL pred 12413, RUl true 7530
+Bearing 24, RUL pred 5171, RUl true 1390
+Bearing 25, RUL pred 10582, RUl true 3090
+Bearing 26, RUL pred 2267, RUl true 1290
+Bearing 27, RUL pred 1868, RUl true 580
+Bearing 33, RUL pred 1217, RUl true 820
+score final 0.08
+loss final 2914.66
+
+Shutting down background jobs, please wait a moment...
+Done!
+Waiting for the remaining 13 operations to synchronize with Neptune. Do not kill this process.
+All 13 operations synced, thanks for waiting!
+Explore the metadata in the Neptune app:
+https://app.neptune.ai/ba-final/mtf-2/e/MTF2-216/metadata
+
