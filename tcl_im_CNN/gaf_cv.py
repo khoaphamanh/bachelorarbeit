@@ -275,7 +275,7 @@ class CrossValidation:
                 seq_len = max(len(s_train),len(t_train))
                 
                 #do a loop for each iteration
-                for _ in range(int(np.ceil(seq_len // batch_size))):
+                for _ in range(int(np.ceil(seq_len / batch_size))):
                     
                     #loss of u and v each pair
                     loss_pair_u_train = 0
@@ -392,8 +392,8 @@ class CrossValidation:
                     t_train,_ = t_train.tensors
                     
                     #create dataloader
-                    s_train = DataLoader(s_train,shuffle=False)
-                    t_train = DataLoader(t_train,shuffle=False)
+                    s_train = DataLoader(s_train,shuffle=False,batch_size=BATCH_SIZE_BASE)
+                    t_train = DataLoader(t_train,shuffle=False,batch_size=BATCH_SIZE_BASE)
                     
                     #create feature map from data laoder and concat it
                     u_train = []
@@ -613,7 +613,7 @@ class CrossValidation:
             #check pruned:
             if N_JOBS_CV == 1:
                 self.trial.report(loss_val,iter + self.split*epochs) 
-                if self.trial.should_prune() or (pruned_trials+complete_trials) in range(1,10):
+                if self.trial.should_prune():
                     run["status"] = "pruned"
                     run.stop()
                     raise optuna.exceptions.TrialPruned()
@@ -1082,7 +1082,8 @@ K = 6
 TOTAL_TRIALS = 100
 W_SIZE = 25600
 MODEL_NAME = "efficientnet_b0"
-BATCH_SIZE = [100]
+BATCH_SIZE = [250]
+BATCH_SIZE_BASE = 32
 EPOCHS = [50]
 n_trials = 1
 

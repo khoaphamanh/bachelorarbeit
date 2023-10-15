@@ -8,7 +8,7 @@
 #SBATCH --partition=gpu_normal_stud                                     
 #SBATCH --cpus-per-task=16        
 #SBATCH --mem=24G                  
-#SBATCH --gres=gpu:2
+#SBATCH --gres=gpu:5
 # #SBATCH --array=0-0
 
 source /home/phamanh/anaconda3/bin/activate /home/phamanh/anaconda3/envs/khoa
