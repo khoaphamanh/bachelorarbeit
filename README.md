@@ -13,12 +13,18 @@ Data can be downloaded at this [link](https://seafile.cloud.uni-hannover.de/d/18
 Otherwise you can download the entire work including code, data and pretrained model via the [link](https://seafile.cloud.uni-hannover.de/d/2d9dec930be54e4b9ba5/).
 ## Visualize
 The visualization folder is where data can be displayed. The file raw.ipynb is the raw data as a time series and is scaled.ipynb is the normalized time series. The remaining files represent each time series-to-image Encoding corresponding to each time window on the run to failure time series with window_size equal to 25600 and hop_size equal to 2560. Specifically:
-- stft.ipynb: Visualize Short-time Fourier transform.
-- lms.ipynb: Visualize the Log Mel Spectrogram.
-- cwt.ipynb: Visualize Continuous wavelet transform.
-- rp.ipynb: Visualize Recurrence plot.
-- gaf.ipynb: Visualize Gramian angular fields.
-- mtf.ipynb: Visualize Markov transition field.
+- stft.ipynb: Visualize of Short-time Fourier transform.
+- lms.ipynb: Visualize of the Log Mel Spectrogram.
+- cwt.ipynb: Visualize of Continuous wavelet transform.
+- rp.ipynb: Visualize of Recurrence plot.
+- gaf.ipynb: Visualize of Gramian angular fields.
+- mtf.ipynb: Visualize of Markov transition field.
+- helper.py: Function to read data.
 ## Approaches
-In this work, four approaches have been proposed, which include:
+In this study, four approaches were proposed, including im_CNN, ts_CNN, Pann, and tcl_CNN. In each folder of the same name there will be the following files with the functions listed:
+- Short-time Fourier transform
+    - Short-time Fourier transform
+    - stft_cv.py: The time series will be converted to images using the Short-time Fourier transform method and will become the input for the model. This file includes cross validation, training on the training data set and testing on the test data set.
+    - short.sh: Job script to Slurm to run stft_cv.py.
+    - STFT_bash.sh: Bash shell script to run multiple short.sh one after another. Each run represents a trial in the parameter optimization process.
 ### im_CNN
