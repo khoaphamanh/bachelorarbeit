@@ -24,8 +24,8 @@ The visualization folder is where data can be displayed. The file raw.ipynb is t
 - mtf.ipynb: Visualize of Markov transition field.
 - helper.py: Function to read data
 ## Approaches
-In this study, four approaches were proposed, including im_CNN, ts_im_CNN, pann, and tcl_CNN, each in its name directory.
-### im_CNN, ts_im_CNN and tcl_CNN
+In this study, four approaches were proposed, including im_CNN, ts_im_CNN, pann, and tcl_im_CNN, each in its name directory.
+### im_CNN, ts_im_CNN and tcl_im_CNN
 In each folder of the approaches there will be the following files with the functions listed:
 - Short-time Fourier transform
     - stft_cv.py: The time series will be converted to images using the Short-time Fourier transform method and will become the input for the model. This file includes cross validation with 100 trials, training on the training data set and testing on the test data set.
@@ -95,3 +95,5 @@ If you want to have a closer look at each trial in each method as well as charts
 Username: anh-khoa
 
 Password: khoa9898
+
+Select workspace ba_final in the upper left corner of the screen. Projects named stft-1, lms-1, cwt-1, rp-1, gaf-1, mtf-1 belong to the im_CNN approach, while projects stft-2, lms-2, cwt-2, rp- 2, gaf-2, mtf-2 are ts_im_CNN approach and projects stft-3, lms-3, cwt-3, rp-3, gaf-3, mtf-3 come from tcl_im_CNN approach. Finally pann-2 belongs to the pann approach. 
