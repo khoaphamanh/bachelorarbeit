@@ -24,7 +24,7 @@ The visualization folder is where data can be displayed. The file raw.ipynb is t
 - mtf.ipynb: Visualize of Markov transition field.
 - helper.py: Function to read data
 ## Approaches
-In this study, four approaches were proposed, including im_CNN, ts_im_CNN, Pann, and tcl_CNN, each in its name directory.
+In this study, four approaches were proposed, including im_CNN, ts_im_CNN, pann, and tcl_CNN, each in its name directory.
 ### im_CNN, ts_im_CNN and tcl_CNN
 In each folder of the approaches there will be the following files with the functions listed:
 - Short-time Fourier transform
@@ -58,10 +58,40 @@ In each folder of the approaches there will be the following files with the func
 To rerun the code for training training and testing, it is necessary to run this command line in the terminal, where *method.sh* could be short.sh, logmel.sh, conwave, recurrence.sh, gramian.sh or markov.sh depends on the method of converting time series to images. _approach_ represents the approach, which can be im_CNN, ts_im_CNN or tcl_CNN.
 ```bash
 cd path/to/bachelorarbeit/approach/
+```
+```bash
 sbatch method.sh 
 ```
-If you want to run code for both training and testing cross validation, the model_pretrained folder needs to be deleted and run this command in terminal, where METHOD_bash.sh can be STFT_bash.sh, LMS_bash.sh, CWT_bash.sh, RP_bash.sh, GAF_bash.sh or MTF_bash.sh depends on the method of converting time series to images.
+If you want to run code for both training and testing cross validation, the model_pretrained folder needs to be deleted and run this command in terminal, where *METHOD_bash.sh* can be STFT_bash.sh, LMS_bash.sh, CWT_bash.sh, RP_bash.sh, GAF_bash.sh or MTF_bash.sh depends on the method of converting time series to images.
 ```bash
 cd path/to/bachelorarbeit/approach/
+```
+```bash
 bash METHOD_bash.sh 
 ```
+### pann
+In this folder there will be the following files with the functions listed:
+- pann.py: The time series will be converted to images using the Log Mel Spectrogram in model. This file includes cross validation with 100 trials, training on the training data set and testing on the test data set.
+- pnn.sh: Job script to Slurm to run pann.py. Each run represents a trial in the hyperparameter tunning process.
+- PANN.sh: Bash shell script to run multiple pnn.sh one after another. 
+
+Same as above, to rerun the code for training training and testing, you need to enter the following command line into the terminal:
+```bash
+cd path/to/bachelorarbeit/pann/
+```
+```bash
+sbatch pnn.sh 
+```
+If you want to run code for both training and testing cross validation, the model_pretrained folder needs to be deleted and run this command in terminal:
+```bash
+cd path/to/bachelorarbeit/pann/
+```
+```bash
+bash PANN.sh 
+```
+## Experiment tracking
+If you want to have a closer look at each trial in each method as well as charts of metrics, you can access this project's experiment tracking through [neptune](https://ui.neptune.ai/auth/realms/neptune/protocol/openid-connect/auth?client_id=neptune-frontend&redirect_uri=https%3A%2F%2Fapp.neptune.ai&state=82f29ed0-7cf1-4cc1-b98e-6f3b9e664623&response_mode=fragment&response_type=code&scope=openid&nonce=bf90715e-8faf-4544-8f0c-5193e1388d9d) by logging in to account:
+
+Username: anh-khoa
+
+Password: khoa9898
