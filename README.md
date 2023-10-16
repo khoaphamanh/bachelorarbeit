@@ -54,6 +54,7 @@ In each folder of the approaches there will be the following files with the func
 - tranformation.py: Funtion to transform time series to images and build the model
 - model_pretrained: Directory to store the trained model
 - result: Directory to store the result of the cross validation, training and testing processes
+
 To rerun the code for training training and testing, it is necessary to run this command line in the terminal, where method.sh is short.sh, logmel.sh, conwave, recurrence.sh, gramian.sh or markov.sh.
 ```bash
 sbatch method.sh 
