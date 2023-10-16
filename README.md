@@ -15,7 +15,7 @@ Data can be downloaded at this [link](https://seafile.cloud.uni-hannover.de/d/18
 
 Otherwise you can download the entire work including code, data and pretrained model via the [link](https://seafile.cloud.uni-hannover.de/d/2d9dec930be54e4b9ba5/).
 ## Visualize
-The visualization folder is where data can be displayed. The file raw.ipynb is the raw data as a time series and is scaled.ipynb is the normalized time series. The remaining files represent each time series-to-image Encoding corresponding to each time window on the run to failure time series with window_size equal to 25600 and hop_size equal to 2560. Specifically:
+The visualization folder is where data can be displayed. The file raw.ipynb is the raw data as a time series and is scaled.ipynb is the normalized time series. The remaining files represent each time series-to-image Encoding corresponding to each time window on the run to failure time series with *window_size* equal to 25600 and *hop_size* equal to 2560. Specifically:
 - stft.ipynb: Visualize of Short-time Fourier transform.
 - lms.ipynb: Visualize of the Log Mel Spectrogram.
 - cwt.ipynb: Visualize of Continuous wavelet transform.
@@ -55,7 +55,13 @@ In each folder of the approaches there will be the following files with the func
 - model_pretrained: Directory to store the trained model
 - result: Directory to store the result of the cross validation, training and testing processes
 
-To rerun the code for training training and testing, it is necessary to run this command line in the terminal, where method.sh is short.sh, logmel.sh, conwave, recurrence.sh, gramian.sh or markov.sh.
+To rerun the code for training training and testing, it is necessary to run this command line in the terminal, where *method.sh* could be short.sh, logmel.sh, conwave, recurrence.sh, gramian.sh or markov.sh depends on the method of converting time series to images. _approach_ represents the approach, which can be im_CNN, ts_im_CNN or tcl_CNN.
 ```bash
+cd path/to/bachelorarbeit/approach/
 sbatch method.sh 
+```
+If you want to run code for both training and testing cross validation, the model_pretrained folder needs to be deleted and run this command in terminal, where METHOD_bash.sh can be STFT_bash.sh, LMS_bash.sh, CWT_bash.sh, RP_bash.sh, GAF_bash.sh or MTF_bash.sh depends on the method of converting time series to images.
+```bash
+cd path/to/bachelorarbeit/approach/
+bash METHOD_bash.sh 
 ```
