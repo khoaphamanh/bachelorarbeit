@@ -14,6 +14,15 @@ conda install --file requirements.txt
 Data can be downloaded at this [link](https://seafile.cloud.uni-hannover.de/d/18bc6da305bd46fca62e/) and should be located right in this directory, only if you pull the code from gitea.
 
 Otherwise you can download the entire work including code, data and pretrained model via the [link](https://seafile.cloud.uni-hannover.de/d/2d9dec930be54e4b9ba5/).
+
+Each folder containing data will be annotated as follows:
+- data_2560: Folder containing time series cut into each time window with *window_size* equal to 2560 and *hop_size* equal to 2560.
+- data_25600: Folder containing time series cut into each time window with *window_size* equal to 25600 and *hop_size* equal to 2560.
+- data_tcl: Folder containing time series cut into each time window with *window_size* equal to 25600 and *hop_size* equal to 25600.
+- train: Run to failure time series of all train bearings.
+- full: Run to failure time series of all test bearings.
+- test: Time series has been randomly cut off in the middle of all test bearings.
+- windowing: folder containing files that read data from the train and full folders to create time windows in the data_2560, data_25600 and data_tcl folders.
 ## Visualize
 The visualization folder is where data can be displayed. The file raw.ipynb is the raw data as a time series and is scaled.ipynb is the normalized time series. The remaining files represent each time series-to-image Encoding corresponding to each time window on the run to failure time series with *window_size* equal to 25600 and *hop_size* equal to 2560. Specifically:
 - stft.ipynb: Visualize of Short-time Fourier transform.
