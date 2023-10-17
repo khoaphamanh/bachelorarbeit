@@ -22,7 +22,7 @@ Each folder containing data will be annotated as follows:
 - train: Run to failure time series of all train bearings.
 - full: Run to failure time series of all test bearings.
 - test: Time series has been randomly cut off in the middle of all test bearings.
-- windowing: folder containing files that read data from the train and full folders to create time windows in the data_2560, data_25600 and data_tcl folders.
+- windowing: Folder containing files that read data from the train and full folders to create time windows in the data_2560, data_25600 and data_tcl folders.
 ## Visualize
 The visualization folder is where data can be displayed. The file raw.ipynb is the raw data as a time series and is scaled.ipynb is the normalized time series. The remaining files represent each time series-to-image Encoding corresponding to each time window on the run to failure time series with *window_size* equal to 25600 and *hop_size* equal to 2560. Specifically:
 - stft.ipynb: Visualize of Short-time Fourier transform.
