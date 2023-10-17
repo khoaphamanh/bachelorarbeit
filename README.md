@@ -105,4 +105,4 @@ Username: anh-khoa
 
 Password: khoa9898
 
-Select workspace ba_final in the upper left corner of the screen. Projects named stft-1, lms-1, cwt-1, rp-1, gaf-1, mtf-1 belong to the im_CNN approach, while projects stft-2, lms-2, cwt-2, rp- 2, gaf-2, mtf-2 are ts_im_CNN approach and projects stft-3, lms-3, cwt-3, rp-3, gaf-3, mtf-3 come from tcl_im_CNN approach. Finally pann-2 belongs to the pann approach. 
+Select workspace ba_final in the upper left corner of the screen. Projects named stft-1, lms-1, cwt-1, rp-1, gaf-1, mtf-1 belong to the im_CNN approach, while projects stft-2, lms-2, cwt-2, rp- 2, gaf-2, mtf-2 are ts_im_CNN approach and projects stft-3, lms-3, cwt-3, rp-3, gaf-3, mtf-3 come from tcl_im_CNN approach. Finally pann-2 belongs to the pann approach. The best_results directory contains visualizations of the best results of each approach.
