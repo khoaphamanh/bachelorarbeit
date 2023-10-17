@@ -12,7 +12,8 @@ class DataPreprocessing:
         self.hop = 2560
         self.window_size_stft = 25600
         self.window_size_gaf = 2560
-
+        self.image_size = 224
+        
     def load_name_file(self):
         name_file = sorted(os.listdir(self.data_dir))
         if ".DS_Store" in name_file:
