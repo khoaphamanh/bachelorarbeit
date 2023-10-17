@@ -13,7 +13,7 @@ conda install --file requirements.txt
 ## Download datasets
 Data can be downloaded at this [link](https://seafile.cloud.uni-hannover.de/d/18bc6da305bd46fca62e/) and should be located right in this directory, only if you pull the code from gitea.
 
-Otherwise you can download the entire work including code, data and pretrained model via the [link](https://seafile.cloud.uni-hannover.de/d/2d9dec930be54e4b9ba5/).
+Otherwise you can download the entire work including code, data and pretrained model via the [link](https://seafile.cloud.uni-hannover.de/d/2d9dec930be54e4b9ba5/). All this data takes up about 30 GB on the hard drive.
 
 Each folder containing data will be annotated as follows:
 - data_2560: Folder containing time series cut into each time window with *window_size* equal to 2560 and *hop_size* equal to 2560.
