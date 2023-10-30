@@ -37,46 +37,61 @@ In this study, four approaches were proposed, including im_CNN, ts_im_CNN, pann,
 ### im_CNN, ts_im_CNN and tcl_im_CNN
 In each folder of the approaches there will be the following files with the functions listed:
 - Short-time Fourier transform
-    - stft_cv.py: The time series will be converted to images using the Short-time Fourier transform method and will become the input for the model. This file includes cross validation with 100 trials, training on the training data set and testing on the test data set.
-    - short.sh: Job script to Slurm to run stft_cv.py. Each run represents a trial in the hyperparameter tunning process.
-    - STFT_bash.sh: Bash shell script to run multiple short.sh one after another. 
+    + stft_cv.py: The time series will be converted to images using the Short-time Fourier transform method and will become the input for the model. This file includes cross validation with 100 trials, training on the training data set and testing on the test data set.
+    + short.sh: Job script to Slurm to run stft_cv.py. Each run represents a trial in the hyperparameter tunning process.
+    + STFT_bash.sh: Bash shell script to run multiple short.sh one after another. 
 - Log Mel Spectrogram
-    - lms_cv.py: The time series will be converted to images using the Log Mel Spectrogram method and will become the input for the model. This file includes cross validation with 100 trials, training on the training data set and testing on the test data set.
-    - logmel.sh: Job script to Slurm to run lms_cv.py. Each run represents a trial in the hyperparameter tunning process.
-    - LMS_bash.sh: Bash shell script to run multiple logmel.sh one after another. 
+    + lms_cv.py: The time series will be converted to images using the Log Mel Spectrogram method and will become the input for the model. This file includes cross validation with 100 trials, training on the training data set and testing on the test data set.
+    + logmel.sh: Job script to Slurm to run lms_cv.py. Each run represents a trial in the hyperparameter tunning process.
+    + LMS_bash.sh: Bash shell script to run multiple logmel.sh one after another. 
 - Continuous wavelet transform
-    - cwt_cv.py: The time series will be converted to images using the Continuous wavelet transform method and will become the input for the model. This file includes cross validation with 100 trials, training on the training data set and testing on the test data set.
-    - conwave.sh: Job script to Slurm to run cwt_cv.py. Each run represents a trial in the hyperparameter tunning process.
-    - CWT_bash.sh: Bash shell script to run multiple conwave.sh one after another. 
+    + cwt_cv.py: The time series will be converted to images using the Continuous wavelet transform method and will become the input for the model. This file includes cross validation with 100 trials, training on the training data set and testing on the test data set.
+    + conwave.sh: Job script to Slurm to run cwt_cv.py. Each run represents a trial in the hyperparameter tunning process.
+    + CWT_bash.sh: Bash shell script to run multiple conwave.sh one after another. 
 - Recurrence plot
-    - rp_cv.py: The time series will be converted to images using the Recurrence plot method and will become the input for the model. This file includes cross validation with 100 trials, training on the training data set and testing on the test data set.
-    - recurrence.sh: Job script to Slurm to run rp_cv.py. Each run represents a trial in the hyperparameter tunning process.
-    - RP_bash.sh: Bash shell script to run multiple recurrence.sh one after another. 
+    + rp_cv.py: The time series will be converted to images using the Recurrence plot method and will become the input for the model. This file includes cross validation with 100 trials, training on the training data set and testing on the test data set.
+    + recurrence.sh: Job script to Slurm to run rp_cv.py. Each run represents a trial in the hyperparameter tunning process.
+    + RP_bash.sh: Bash shell script to run multiple recurrence.sh one after another. 
 - Gramian angular field
-    - gaf_cv.py: The time series will be converted to images using the Gramian angular fields method and will become the input for the model. This file includes cross validation with 100 trials, training on the training data set and testing on the test data set.
-    - gramian.sh: Job script to Slurm to run gaf_cv.py. Each run represents a trial in the hyperparameter tunning process.
-    - GAF_bash.sh: Bash shell script to run multiple gramian.sh one after another. 
+    + gaf_cv.py: The time series will be converted to images using the Gramian angular fields method and will become the input for the model. This file includes cross validation with 100 trials, training on the training data set and testing on the test data set.
+    + gramian.sh: Job script to Slurm to run gaf_cv.py. Each run represents a trial in the hyperparameter tunning process.
+    + GAF_bash.sh: Bash shell script to run multiple gramian.sh one after another. 
 - Markov transition field
-    - mtf_cv.py: The time series will be converted to images using the Markov transition field method and will become the input for the model. This file includes cross validation with 100 trials, training on the training data set and testing on the test data set.
-    - markov.sh: Job script to Slurm to run mtf_cv.py. Each run represents a trial in the hyperparameter tunning process.
-    - MTF_bash.sh: Bash shell script to run multiple markov.sh one after another. 
+    + mtf_cv.py: The time series will be converted to images using the Markov transition field method and will become the input for the model. This file includes cross validation with 100 trials, training on the training data set and testing on the test data set.
+    + markov.sh: Job script to Slurm to run mtf_cv.py. Each run represents a trial in the hyperparameter tunning process.
+    + MTF_bash.sh: Bash shell script to run multiple markov.sh one after another. 
 - tranformation.py: Funtion to transform time series to images and build the model
 - model_pretrained: Directory to store the trained model
 - result: Directory to store the result of the cross validation, training and testing processes
 
-To rerun the code for training training and testing, it is necessary to run this command line in the terminal, where *method.sh* could be short.sh, logmel.sh, conwave, recurrence.sh, gramian.sh or markov.sh depends on the method of converting time series to images. _approach_ represents the approach, which can be im_CNN, ts_im_CNN or tcl_CNN.
+For convenience of testers who want to run the code and compare with our results, they can use arguments:
+- "-d" represents the name of the directory where you want to save the pretrained models, the database file that stores trials and scalers. The default value of this argument and also the default directory we use in this work is "model_pretrained". This folder contains:
+    + METHOD.db is a database file containing trials including hyperparameters tested during cross validation and their results. METHOD is the abbreviation for the image transfer methods used in this work, for example STFT.db.
+    + t_i_s_j.pth is the pretrained model of trial i split j. Once 100 trials have been run, these files will be deleted, keeping only the files with the best performance and renamed to t_i_s_j_best.pth.
+    + t_i_s_j_best.pth is the pretrained model with hyperparameters of trial i split j that has the best performance on the validation set during cross validation. These models will be evaluated directly on the test set during testing.
+    + t_i_final.pth is a pretrained model with hyperparameters of trial i, which has achieved the best performance in cross validation, retrained from scratch on the training data set and validated and evaluated on the test set.
+    + scaler_raw_cv.pkl is the scaler of time series during cross validation.
+    + scaler_pixel_cv.pkl is the scaler of images during cross validation.
+- "-m" is run mode, you can only choose between "optimizer" or "evaluate". "optimizer" will try to create a database file that stores trials in the directory in argument -d. If you already have a database file, you will try to run it for 100 trials, and then train the model again from scratch with the best hyperparameters. "optimizer" is also the default value of this argument. "evaluate" will use the pretrained models with "final" and "best" in the folder to evaluate on the test data set. If pretrained models are not available or trials are less than 100, "optimizer" will be used.
+
+To rerun the code it is necessary to run this command line in the terminal, where *method.sh* could be short.sh, logmel.sh, conwave, recurrence.sh, gramian.sh or markov.sh depends on the method of converting time series to images. _approach_ represents the approach, which can be im_CNN, ts_im_CNN or tcl_CNN. *method_cv.py* could be stft_cv.py, lms_cv.py, cwt_cv.py, rp_cv.py, gaf_cv.py or mtf_cv.py. The commands below will try to check in the your_directory_name directory to see if there is a database file to save the trails. If not, it will create a new database file. If this file is available, it will see if 100 trails have been run enough, if not, it will run for 100 trials and find the best hyperparameter. The commands below will try to check in the your_directory_name directory to see if there is a database file to save the trails. If not, it will create a new database file. If this file is available, it will see if 100 trails have been run enough, if not, it will run for 100 trials and find the best hyperparameter.
+```bash
+cd path/to/bachelorarbeit/approach/
+```
+if you use slurm to test the code.
+```bash
+sbatch method.sh -d your_directory_name -m optimize_or_evaluate
+```
+or if you use your local machine.
+```bash
+python3 method_cv.py -d your_directory_name -m optimize_or_evaluate
+```
+Since the command above only runs for one trial, this command can be used in the terminal for all 100 trials and for the final test. Note that this command line only supports slurm usage, where *METHOD_bash.sh* can be STFT_bash.sh, LMS_bash.sh, CWT_bash.sh, RP_bash.sh, GAF_bash.sh or MTF_bash.sh depends on the method of converting time series to images.
 ```bash
 cd path/to/bachelorarbeit/approach/
 ```
 ```bash
-sbatch method.sh 
-```
-If you want to run code for both training and testing cross validation, the model_pretrained folder needs to be deleted and run this command in terminal, where *METHOD_bash.sh* can be STFT_bash.sh, LMS_bash.sh, CWT_bash.sh, RP_bash.sh, GAF_bash.sh or MTF_bash.sh depends on the method of converting time series to images.
-```bash
-cd path/to/bachelorarbeit/approach/
-```
-```bash
-bash METHOD_bash.sh 
+bash METHOD_bash.sh -d your_directory_name -m optimize_or_evaluate
 ```
 ### pann
 In this folder there will be the following files with the functions listed:
@@ -84,19 +99,19 @@ In this folder there will be the following files with the functions listed:
 - pnn.sh: Job script to Slurm to run pann.py. Each run represents a trial in the hyperparameter tunning process.
 - PANN.sh: Bash shell script to run multiple pnn.sh one after another. 
 
-Same as above, to rerun the code for training training and testing, you need to enter the following command line into the terminal:
+Same as above, to rerun the code, you need to enter the following command line into the terminal, two arguments -d and -m have the same function as mentioned above.
 ```bash
 cd path/to/bachelorarbeit/pann/
 ```
 ```bash
-sbatch pnn.sh 
+sbatch pnn.sh -d your_directory_name -m optimize_or_evaluate
 ```
-If you want to run code for both training and testing cross validation, the model_pretrained folder needs to be deleted and run this command in terminal:
+If you want to run code for both training and testing cross validation, run this command in terminal, this only supports for running in slurm.
 ```bash
 cd path/to/bachelorarbeit/pann/
 ```
 ```bash
-bash PANN.sh 
+bash PANN.sh -d your_directory_name -m optimize_or_evaluate
 ```
 ## Experiment tracking
 If you want to have a closer look at each trial in each method as well as charts of metrics, you can access this project's experiment tracking through [neptune](https://ui.neptune.ai/auth/realms/neptune/protocol/openid-connect/auth?client_id=neptune-frontend&redirect_uri=https%3A%2F%2Fapp.neptune.ai&state=82f29ed0-7cf1-4cc1-b98e-6f3b9e664623&response_mode=fragment&response_type=code&scope=openid&nonce=bf90715e-8faf-4544-8f0c-5193e1388d9d) by logging in to account:
