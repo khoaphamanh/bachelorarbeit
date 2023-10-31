@@ -26,7 +26,7 @@ echo "Python environment: $(conda info --envs | grep '*' | sed -e 's/^[ \t*]*//'
 echo "Current work directory: ${PWD}"
 echo 
 
-python3 gaf_cv.py 
+python3 gaf_cv.py "$@"
 
 echo
 
