@@ -96,6 +96,7 @@ bash METHOD_bash.sh -d your_directory_name -m optimize_or_evaluate
 For convenience of testers who want to run the code and compare with our results, can use arguments:
 - "-d" represents the name of the directory where you want to save the pretrained models, the database file that stores trials and scalers. The default value of this argument and also the default directory we use in this work is "model_pretrained". This folder contains:
     + METHOD.db is a database file containing trials including hyperparameters tested during cross validation and their results. METHOD is the abbreviation for the time sereries-to-image methods used in this work, for example STFT.db.
+    + trials_data.csv is same as METHOD.db but in .csv
     + t_i_s_j.pth is the pretrained model of trial i split j. Once 100 trials have been run, these files will be deleted, keeping only the files with the best performance and renamed to t_i_s_j_best.pth. i in range from 0 to 99 and j in range from 0 to 4.
     + t_i_s_j_best.pth is the pretrained model with hyperparameters of trial i split j that has the best performance on the validation set during cross validation. These models will be evaluated directly on the test set during testing.
     + t_i_final.pth is a pretrained model with hyperparameters of trial i, which has achieved the best performance in cross validation, retrained from scratch on the training and validation data set and evaluated on the test set.
