@@ -5,6 +5,7 @@ from torch.utils.data import DataLoader, TensorDataset
 from neptune.utils import stringify_unsupported
 from joblib import Parallel, delayed
 from multiprocessing import Manager
+from timeit import default_timer
 
 import torch
 import torch.nn as nn
@@ -16,6 +17,7 @@ import numpy as np
 import os
 import pickle
 import random
+import argparse
 
 class CrossValidation:
     def __init__(self,PROJECT:str,API_TOKEN:str,transformation:Transformation,K,W_SIZE,MODEL_NAME,MAE,CE,device):
@@ -243,8 +245,15 @@ class CrossValidation:
             
         return np.mean(losses),np.mean(scores)
 
-    def train_evaluate_loop(self,run:neptune.init_run,model:nn.Module,train_data:dict,val_data:dict,batch_size:int,epochs,optimizer:torch.optim,n_FPT:int,n_period:int,cv:bool=True):
+    def train_evaluate_loop(self,run:neptune.init_run,model:nn.Module,train_data:dict,val_data:dict,batch_size:int,epochs,optimizer:torch.optim,n_FPT:int,n_period:int,cv:bool=True,evaluate:bool = False):
         
+        #check if evaluate
+        if evaluate:
+            epochs = 1
+            model_path = os.path.join(self.dir,"t_{}_final.pth".format(self.best_trial_number))
+            state_dict = torch.load(model_path,map_location=self.device)
+            model.load_state_dict(state_dict)
+            
         #keys of the data
         train_keys = train_data.keys()
         val_keys = val_data.keys()
@@ -255,102 +264,104 @@ class CrossValidation:
         #training loop
         for iter in range(epochs):
             
-            #shuffle and create pairs
-            train_pairs = self.create_pairs(train_data=train_data,shuffle=True)
-            val_pairs = self.create_pairs(train_data=train_data,test_data=val_data,shuffle=True)
-            
-            #training mode:
-            model.train()
-            
-            #loop through each pair to select u and v from train data
-            for pair in train_pairs:
+            if not evaluate:
                 
-                #select u and v from train data
-                s_train = train_data[pair[0]]
-                t_train = train_data[pair[1]]
-                s_train,_ = s_train.tensors
-                t_train,_ = t_train.tensors
+                #shuffle and create pairs
+                train_pairs = self.create_pairs(train_data=train_data,shuffle=True)
+                val_pairs = self.create_pairs(train_data=train_data,test_data=val_data,shuffle=True)
                 
-                #print the max sequence length
-                seq_len = max(len(s_train),len(t_train))
+                #training mode:
+                model.train()
                 
-                #do a loop for each iteration
-                for _ in range(int(np.ceil(seq_len / batch_size))):
+                #loop through each pair to select u and v from train data
+                for pair in train_pairs:
                     
-                    #loss of u and v each pair
-                    loss_pair_u_train = 0
-                    loss_pair_v_train = 0
-                
-                    #create dataloader
-                    if len(s_train) > batch_size:
-                        s_train = s_train[sorted(random.sample(range(len(s_train)),batch_size))]
-                    else: 
-                        s_train = s_train[sorted(random.sample(range(len(s_train)),len(s_train)))]
+                    #select u and v from train data
+                    s_train = train_data[pair[0]]
+                    t_train = train_data[pair[1]]
+                    s_train,_ = s_train.tensors
+                    t_train,_ = t_train.tensors
                     
-                    if len(t_train) > batch_size:
-                        t_train = t_train[sorted(random.sample(range(len(t_train)),batch_size))]
-                    else:
-                        t_train = t_train[sorted(random.sample(range(len(t_train)),len(t_train)))]
-                        
-                    #load tensors to device
-                    s_train = s_train.to(self.device)
-                    t_train = t_train.to(self.device)
+                    #print the max sequence length
+                    seq_len = max(len(s_train),len(t_train))
                     
-                    #forward pass u and v
-                    u_train = model(s_train)
-                    v_train = model(t_train)
+                    #do a loop for each iteration
+                    for _ in range(int(np.ceil(seq_len / batch_size))):
+                        
+                        #loss of u and v each pair
+                        loss_pair_u_train = 0
+                        loss_pair_v_train = 0
                     
-                    #loop through index of every u to find soft nearest neighbor in v
-                    for index in range(len(u_train)):
+                        #create dataloader
+                        if len(s_train) > batch_size:
+                            s_train = s_train[sorted(random.sample(range(len(s_train)),batch_size))]
+                        else: 
+                            s_train = s_train[sorted(random.sample(range(len(s_train)),len(s_train)))]
                         
-                        #choose u_i in u and repeat as length of v
-                        u_i_train = u_train[index]
-                        u_i_train = u_i_train.repeat(len(v_train),1)
+                        if len(t_train) > batch_size:
+                            t_train = t_train[sorted(random.sample(range(len(t_train)),batch_size))]
+                        else:
+                            t_train = t_train[sorted(random.sample(range(len(t_train)),len(t_train)))]
+                            
+                        #load tensors to device
+                        s_train = s_train.to(self.device)
+                        t_train = t_train.to(self.device)
                         
-                        #calculate alpha, v tilde and beta
-                        alpha_train = torch.softmax(-torch.sqrt(torch.sum((u_i_train-v_train)**2,dim = 1,keepdim=True)),dim = 0)
-                        v_t_train = torch.sum(alpha_train*v_train,dim = 0)
-                        beta_train = -torch.sqrt(torch.sum((v_t_train-u_train)**2,dim = 1)).unsqueeze(0)
+                        #forward pass u and v
+                        u_train = model(s_train)
+                        v_train = model(t_train)
                         
-                        #calculate the loss
-                        loss_u_train = self.ce(beta_train,torch.tensor([index]).to(self.device))
-                        loss_pair_u_train = loss_pair_u_train + loss_u_train
+                        #loop through index of every u to find soft nearest neighbor in v
+                        for index in range(len(u_train)):
+                            
+                            #choose u_i in u and repeat as length of v
+                            u_i_train = u_train[index]
+                            u_i_train = u_i_train.repeat(len(v_train),1)
+                            
+                            #calculate alpha, v tilde and beta
+                            alpha_train = torch.softmax(-torch.sqrt(torch.sum((u_i_train-v_train)**2,dim = 1,keepdim=True)),dim = 0)
+                            v_t_train = torch.sum(alpha_train*v_train,dim = 0)
+                            beta_train = -torch.sqrt(torch.sum((v_t_train-u_train)**2,dim = 1)).unsqueeze(0)
+                            
+                            #calculate the loss
+                            loss_u_train = self.ce(beta_train,torch.tensor([index]).to(self.device))
+                            loss_pair_u_train = loss_pair_u_train + loss_u_train
+                            
+                        #normalize the loss
+                        loss_pair_u_train = loss_pair_u_train / len(u_train)
                         
-                    #normalize the loss
-                    loss_pair_u_train = loss_pair_u_train / len(u_train)
-                    
-                    #update the gradient 
-                    optimizer.zero_grad()
-                    loss_pair_u_train.backward()
-                    optimizer.step()
+                        #update the gradient 
+                        optimizer.zero_grad()
+                        loss_pair_u_train.backward()
+                        optimizer.step()
 
-                    #forward pass u and v
-                    u_train = model(s_train)
-                    v_train = model(t_train)
-                    
-                    #loop through idnex of every v to find soft nearest neighbor in u
-                    for index in range(len(v_train)):
+                        #forward pass u and v
+                        u_train = model(s_train)
+                        v_train = model(t_train)
                         
-                        #choose v_i in v and repeat it as length of u
-                        v_i_train = v_train[index]
-                        v_i_train = v_i_train.repeat(len(u_train),1)
+                        #loop through idnex of every v to find soft nearest neighbor in u
+                        for index in range(len(v_train)):
+                            
+                            #choose v_i in v and repeat it as length of u
+                            v_i_train = v_train[index]
+                            v_i_train = v_i_train.repeat(len(u_train),1)
+                            
+                            #calculate alpha, v tilde and beta
+                            alpha_train = torch.softmax(-torch.sqrt(torch.sum((v_i_train-u_train)**2,dim=1,keepdim=True)),dim = 0)
+                            u_t_train = torch.sum(alpha_train*u_train,dim = 0)
+                            beta_train = -torch.sqrt(torch.sum((u_t_train-v_train)**2,dim=1)).unsqueeze(0)
+                            
+                            #calculate the loss
+                            loss_v_train = self.ce(beta_train,torch.tensor([index]).to(self.device))
+                            loss_pair_v_train = loss_pair_v_train + loss_v_train
                         
-                        #calculate alpha, v tilde and beta
-                        alpha_train = torch.softmax(-torch.sqrt(torch.sum((v_i_train-u_train)**2,dim=1,keepdim=True)),dim = 0)
-                        u_t_train = torch.sum(alpha_train*u_train,dim = 0)
-                        beta_train = -torch.sqrt(torch.sum((u_t_train-v_train)**2,dim=1)).unsqueeze(0)
-                        
-                        #calculate the loss
-                        loss_v_train = self.ce(beta_train,torch.tensor([index]).to(self.device))
-                        loss_pair_v_train = loss_pair_v_train + loss_v_train
-                    
-                    #normalize the loss
-                    loss_pair_v_train = loss_pair_v_train / len(v_train)
+                        #normalize the loss
+                        loss_pair_v_train = loss_pair_v_train / len(v_train)
 
-                    #update the gradient 
-                    optimizer.zero_grad()
-                    loss_pair_v_train.backward()
-                    optimizer.step()
+                        #update the gradient 
+                        optimizer.zero_grad()
+                        loss_pair_v_train.backward()
+                        optimizer.step()
             
             #evaluating
             model.eval()
@@ -947,8 +958,22 @@ class CrossValidation:
                 old_name = os.path.join(self.dir,file)
                 new_name = os.path.join(self.dir,file.replace(".pth","_best.pth"))
                 os.rename(old_name,new_name)
-                                        
-    def final_test (self,best_params:dict,best_trial_number):
+    
+    def database_to_csv(self,name_method:str, storage_name:str):
+        #turn database to csv file
+        study = optuna.load_study(study_name=name_method,storage=storage_name)   
+        df = study.trials_dataframe()
+        name_file = os.path.join(self.dir,"trials_data.csv")
+        df.to_csv(name_file, index=False)
+                                            
+    def final_test (self,best_params:dict,best_trial_number, evaluate = False):
+        
+        #print the test
+        if evaluate == False:
+            print("\nTrain model with best hyperparameters on train data and evaluate on test data.\n")
+        else:
+            print("\nEvaluate model with best hyperparameters on train data and on test data.\n")
+        start = default_timer()
         
         #load hyperparamters
         w_stft, hop = best_params["w_stft"], best_params["hop"]
@@ -1103,8 +1128,6 @@ fix_interval = {"w_stft":W_STFT,"hop":HOP,"optmizer":OPTIMIZER,"learning_rata":L
 
 #check device
 torch.manual_seed(SEED)
-np.random.seed(SEED)
-random.seed(SEED)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("device:", device)
 print("\n")
@@ -1119,27 +1142,35 @@ transform_custom = transforms.Compose([
     transforms.Resize(size=(224,224),interpolation=transforms.InterpolationMode.BICUBIC,antialias=True),
 ])
 transformation = Transformation(transform=transform_custom)
-mae = nn.L1Loss()
-ce = nn.CrossEntropyLoss()
+loss = nn.L1Loss()
+
+#argparse
+parse = argparse.ArgumentParser(description="this file is using method {} as preprocessing and try to find the best hyperparameter by using cross validation on train and validation data. Finaly train the model on train and validation data with best hyperparameters and evaluate on test data. To run this file, please use python3 {}_cv.py -d dir_name -m run_mode. More details about the arguments can be seen below. ".format(METHOD, METHOD.lower()))
+parse.add_argument("-d","--dir_name",type=str, default="model_pretrained",
+                   help='name of the directory store of pretrained models, database file of the trials and the scalers. Default is "model_pretrained".')
+parse.add_argument("-m","--run_mode",type=str, default="optimize", choices=["optimize","evaluate"],
+                   help='choose a mode to run.\n "optimize" is trying to optimize the hyperparameter with 100 trials by using cross validation, if already a database file to store the trials exsist, try to run until 100 trials and choose the best trial with best hyperparameter to train a new model on train data and evaluate on test data, else create a new database file and run from trial 0. "evaluate" is trying to evaluate a pretrained model on test data. If a pretrained model is not available, "optimize" is choosen. Default is "optimize".')
+
+args = parse.parse_args()
 
 #cross validation
-cross = CrossValidation(PROJECT=PROJECT,API_TOKEN=API_TOKEN,transformation=transformation,K = K,W_SIZE=W_SIZE,MODEL_NAME=MODEL_NAME,CE=ce,MAE=mae,device=device)
-dir_name = cross.dir
+cross = CrossValidation(PROJECT=PROJECT,API_TOKEN=API_TOKEN,transformation=transformation,K = K,W_SIZE=W_SIZE,MODEL_NAME=MODEL_NAME,LOSS=loss,device=device)
+dir_name = args.dir_name
+dir_name = cross.dir = "{}/{}".format(dir_name,METHOD.lower())
 os.makedirs(dir_name,exist_ok=True)
+print("The pretrained models are saved at {}.\n\n".format(dir_name))
 
 #create study
 storage_path = os.path.join(dir_name,"{}.db".format(METHOD))
 storage_name = "sqlite:///{}".format(storage_path)
 
 if not os.path.isfile(storage_path):
-    study = optuna.create_study(direction="minimize",sampler=optuna.samplers.TPESampler(seed=SEED),study_name=METHOD,storage=storage_name,pruner=optuna.pruners.MedianPruner(n_warmup_steps=5, n_min_trials=4))
-    pruned_trials = len(study.get_trials(deepcopy=False,states=[optuna.trial.TrialState.PRUNED]))
-    complete_trials = len(study.get_trials(deepcopy=False, states=[optuna.trial.TrialState.COMPLETE]))
-    running_trials = len(study.get_trials(deepcopy=False,states=[optuna.trial.TrialState.RUNNING]))
+    study = optuna.create_study(direction="minimize",sampler=optuna.samplers.TPESampler(seed=SEED),study_name=METHOD,storage=storage_name,pruner=optuna.pruners.MedianPruner(n_startup_trials=20, n_warmup_steps=5, interval_steps=1, n_min_trials=9))
     study.optimize(objective,n_trials=n_trials)    
+    print('\nRun mode: "optimize".\n')
     
 else:
-    study = optuna.load_study(study_name=METHOD, storage=storage_name,sampler=optuna.samplers.TPESampler(seed = SEED),pruner=optuna.pruners.MedianPruner(n_warmup_steps=5, n_min_trials=4))
+    study = optuna.load_study(study_name=METHOD, storage=storage_name,sampler=optuna.samplers.TPESampler(seed = SEED),pruner=optuna.pruners.MedianPruner(n_startup_trials=20, n_warmup_steps=5, interval_steps=1, n_min_trials=9))
     
     #some information of the last trials and all runned trials
     trials_last = study.trials[-1]
@@ -1159,26 +1190,35 @@ else:
                 
         #load the previous study
         study.optimize(objective, n_trials=n_trials)
+        print('\nRun mode: "optimize".\n')
         
     else: 
+        #find the best hyperparameters
+        best_trial_score = study.best_trial
+        best_trial_params = best_trial_score.params
+        
+        #check argument and model path 
+        run_mode = args.run_mode
+        model_path = os.path.join(dir_name,"t_{}_final.pth".format(best_trial_score.number))
+        evaluate = True if (run_mode == "evaluate" and os.path.exists(model_path)) else False
+        run_mode = "evaluate" if evaluate == True else "optimize"
+        print('\nRun mode: {}.\n'.format(run_mode))
+        
         print("Study statistics: ")
         print("  Number of finished trials: ", pruned_trials + complete_trials)
         print("  Number of pruned trials: ", pruned_trials)
         print("  Number of complete trials: ", complete_trials)
 
-        best_trial_score = study.best_trial
-        best_trial_params = best_trial_score.params
-
         print("  Value: ", best_trial_score.value)
-
+        print("  Trial number: ", best_trial_score.number)
         print("  Params: ")
         for key, value in best_trial_params.items():
             print("    {}: {}".format(key, value))
-    
-        #best_trial_params = {'w_stft': 4224, 'hop': 288, 'drop': 0.11783486538870204, 'optimizer': 'SGD', 'lr': 0.0059512475955207835, 'batch_size': 32, 'epochs': 1,"weight_decay":0.0023062583173487318}
-        print("final test best model")
-        loss_train, score_train, loss_test, score_test, score_final = cross.final_test(best_trial_params,best_trial_score.number) #22best_trial_score.number
+
+        loss_train, score_train, loss_test, score_test, score_final = cross.final_test(best_trial_params,best_trial_score.number,evaluate) #22best_trial_score.number
 
         #merge all the result text file
         transformation.merge_result(METHOD)
         
+        #turn database to csv file
+        cross.database_to_csv(name_method=METHOD,storage_name=storage_name)
