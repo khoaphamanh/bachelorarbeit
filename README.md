@@ -108,13 +108,17 @@ To rerun the code it is necessary to run this command line in the terminal, wher
 ```bash
 cd path/to/bachelorarbeit/approach/
 ```
-if you use slurm to test the code.
+If you use slurm to test the code, the output will be saved in directory result/method
 ```bash
 sbatch method.sh -d your_directory_name -m optimize_or_evaluate
 ```
-or if you use your local machine.
+Or if you use your local machine.
 ```bash
 python3 method_cv.py -d your_directory_name -m optimize_or_evaluate
+```
+Or if you want to output as a text file, you can use the command.
+```bash
+python3 method_cv.py -d your_directory_name -m optimize_or_evaluate > out.txt
 ```
 Since the command above only runs for one trial, this command can be used in the terminal for all 100 trials and for the final test. Note that this command line only supports slurm usage, where *METHOD_bash.sh* can be STFT_bash.sh, LMS_bash.sh, CWT_bash.sh, RP_bash.sh, GAF_bash.sh or MTF_bash.sh depends on the method of converting time series to images.
 ```bash
@@ -133,10 +137,19 @@ Same as above, to rerun the code, you need to enter the following command line i
 ```bash
 cd path/to/bachelorarbeit/pann/
 ```
+If you use slurm to test the code, the output will be saved in directory result/pann
 ```bash
 sbatch pnn.sh -d your_directory_name -m optimize_or_evaluate
 ```
-If you want to run code for both training and testing cross validation, run this command in terminal, this only supports for running in slurm.
+Or if you use your local machine.
+```bash
+python3 pann.py -d your_directory_name -m optimize_or_evaluate
+```
+Or if you want to output as a text file, you can use the command.
+```bash
+python3 pann.py -d your_directory_name -m optimize_or_evaluate > out.txt
+```
+Since the command above only runs for one trial, this command can be used in the terminal for all 100 trials and for the final test. Note that this command line only supports slurm usage.
 ```bash
 cd path/to/bachelorarbeit/pann/
 ```
@@ -151,3 +164,21 @@ Username: anh-khoa
 Password: khoa9898
 
 Select workspace ba_final in the upper left corner of the screen. Projects named stft-1, lms-1, cwt-1, rp-1, gaf-1, mtf-1 belong to the im_CNN approach, while projects stft-2, lms-2, cwt-2, rp- 2, gaf-2, mtf-2 are ts_im_CNN approach and projects stft-3, lms-3, cwt-3, rp-3, gaf-3, mtf-3 come from tcl_im_CNN approach. Finally pann-2 belongs to the pann approach. The best_results directory contains visualizations of the best results of each approach.
+
+## Conclusion
+The table below shows the processing time from time series-to-image. In this work, we consider that STFT is the method with the best performance.
++--------+-----------------+-----------------+
+| Method | Time Processing | Best score test |
++--------+-----------------+-----------------+
+|  STFT  |      1h 15 m    |       0.37      |
++--------+-----------------+-----------------+
+|   LMS  |     1 h 41 m    |       0.32      |
++--------+-----------------+-----------------+
+|   CWT  |     7 h 25 m    |       0.34      |
++--------+-----------------+-----------------+
+|   RP   |       45 s      |       0.34      |
++--------+-----------------+-----------------+
+|   GAF  |       59 s      |       0.29      |
++--------+-----------------+-----------------+
+|   MTF  |       63 s      |       0.34      |
++--------+-----------------+-----------------+
