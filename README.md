@@ -103,7 +103,8 @@ In this folder there will be the following files with the functions listed:
 - pann.py: The time series will be converted to images using the Log Mel Spectrogram in model. This file includes cross validation with 100 trials, training on the training data set and testing on the test data set.
 - pnn.sh: Job script to Slurm to run pann.py. Each run represents a trial in the hyperparameter tunning process.
 - PANN.sh: Bash shell script to run multiple pnn.sh one after another. 
-
+- tranformation.py: Funtion to transform time series to images and build the model
+- pre_trained.py: Model archietechtur of PANN
 Same as above, to rerun the code, you need to enter the following command line into the terminal, two arguments -d and -m have the same function as mentioned above.
 ```bash
 cd path/to/bachelorarbeit/pann/
