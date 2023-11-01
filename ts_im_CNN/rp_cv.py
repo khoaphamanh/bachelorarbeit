@@ -6,6 +6,7 @@ from neptune.utils import stringify_unsupported
 from joblib import Parallel, delayed
 from multiprocessing import Manager
 from sklearn.model_selection import KFold
+from timeit import default_timer
 
 import torch
 import torch.nn as nn
@@ -15,6 +16,7 @@ import optuna
 import numpy as np
 import os
 import pickle
+import argparse
     
 class CrossValidation:
     def __init__(self,PROJECT:str,API_TOKEN:str,transformation:Transformation,K,W_SIZE,MODEL_NAME,LOSS,device):
@@ -150,8 +152,15 @@ class CrossValidation:
         score = torch.mean(A)
         return score
         
-    def train_evaluate_loop(self,run:neptune.init_run,model:nn.Module,train_loader,val_loader,epochs,optimizer:torch.optim,cv:bool=True):
+    def train_evaluate_loop(self,run:neptune.init_run,model:nn.Module,train_loader,val_loader,epochs,optimizer:torch.optim,cv:bool=True,evaluate:bool = False):
         
+        #check if evaluate
+        if evaluate:
+            epochs = 1
+            model_path = os.path.join(self.dir,"t_{}_final.pth".format(self.best_trial_number))
+            state_dict = torch.load(model_path,map_location=self.device)
+            model.load_state_dict(state_dict)
+            
         #training loop
         for iter in range(epochs):
             #score
@@ -179,7 +188,10 @@ class CrossValidation:
             for X_train_ts,X_train_im,y_train in train_loader:
                 
                 #training mode
-                model.train()
+                if evaluate:
+                    model.eval()
+                else:    
+                    model.train()
                 
                 #bearing from tensor
                 if cv == False:
@@ -193,25 +205,32 @@ class CrossValidation:
                 #forward pass
                 y_train_pred = model(X_train_ts,X_train_im).ravel()
                 
+                #turn off requires grad if evaluate mode
+                if evaluate:
+                    y_train_pred = y_train_pred.detach()
+                    
                 #calculate the loss
                 loss_train_this_batch = self.loss(y_train_pred,y_train)
                 loss_train = loss_train + loss_train_this_batch
                 
-                #clamp 
+                #clamp
                 y_train_pred = y_train_pred.clamp(0,1)
                 
                 #calculate the score
                 score_train_this_batch = self.score(y_train_pred,y_train)
                 score_train = score_train + score_train_this_batch
                 
-                #gradient zero grad
-                optimizer.zero_grad()
-                
-                #backpropagation
-                loss_train_this_batch.backward()
-                
-                #update the weights and bias
-                optimizer.step()
+                #check evaluate to applied gradient decent
+                if not evaluate:
+                    
+                    #gradient zero grad
+                    optimizer.zero_grad()
+                    
+                    #backpropagation
+                    loss_train_this_batch.backward()
+                    
+                    #update the weights and bias
+                    optimizer.step()
                 
                 #indexing tracking
                 if cv == True:
@@ -247,7 +266,7 @@ class CrossValidation:
                     #clamp
                     y_val_pred = y_val_pred.clamp(0,1)
                     
-                    #calculate the score/loss
+                    #calculate the score
                     score_val_this_batch = self.score(y_val_pred,y_val)
                     score_val = score_val + score_val_this_batch
                     
@@ -302,15 +321,16 @@ class CrossValidation:
             return loss_train, score_train, loss_val, score_val
         
         else:
-            #delete the bad trials mdoel
-            model_bad = sorted([file for file in os.listdir(self.dir) if file.startswith("t_")])
-            for file in model_bad:
-                if not file.startswith("t_{}_s_".format(self.best_trial_number)):
-                    os.remove(os.path.join(self.dir,file))
-                    
-            #save the best trained model
-            model_path = os.path.join(self.dir,"t_{}_final.pth".format(self.best_trial_number))
-            torch.save(model.state_dict(),model_path) 
+            if not evaluate:
+                #delete the bad trials mdoel
+                model_bad = sorted([file for file in os.listdir(self.dir) if file.startswith("t_")])
+                for file in model_bad:
+                    if not file.startswith("t_{}_s_".format(self.best_trial_number)):
+                        os.remove(os.path.join(self.dir,file))
+                        
+                #save the best trained model
+                model_path = os.path.join(self.dir,"t_{}_final.pth".format(self.best_trial_number))
+                torch.save(model.state_dict(),model_path) 
             
             return loss_train, score_train, loss_val, score_val, score_final
     
@@ -553,7 +573,7 @@ class CrossValidation:
         run["metric"].append(metric)
         
         #texting
-        text = "Tracking result from best trial in Cross Validation\n"
+        text = "\n\nTracking result from best trial in Cross Validation\n"
         text = text + "loss test {:.2f}, score test {:.2f}\n".format(loss_test,score_test)
         rul_pred_last = []
         rul_true_last = []
@@ -697,7 +717,21 @@ class CrossValidation:
                 new_name = os.path.join(self.dir,file.replace(".pth","_best.pth"))
                 os.rename(old_name,new_name)
                                         
-    def final_test (self,best_params:dict,best_trial_number):
+    def database_to_csv(self,name_method:str, storage_name:str):
+        #turn database to csv file
+        study = optuna.load_study(study_name=name_method,storage=storage_name)   
+        df = study.trials_dataframe()
+        name_file = os.path.join(self.dir,"trials_data.csv")
+        df.to_csv(name_file, index=False)             
+                       
+    def final_test (self,best_params:dict,best_trial_number, evaluate = False):
+        
+        #print the test
+        if evaluate == False:
+            print("\nTrain model with best hyperparameters on train data and evaluate on test data.\n")
+        else:
+            print("\nEvaluate model with best hyperparameters on train data and on test data.\n")
+        start = default_timer()
         
         #load hyperparamters
         threshold, percentage, dimension, time_delay = best_params["threshold"], best_params["percentage"], best_params["dimension"], best_params["time_delay"]
@@ -722,6 +756,10 @@ class CrossValidation:
         #transform data to images
         train_data, full_data, _ = self.transform_image(train_raw_data=train_raw_data,test_raw_data=full_raw_data,threshold = threshold, percentage = percentage, dimension = dimension, time_delay = time_delay)
         fig_transform = self.visualize_transform_image(train_val_data=train_data)
+        
+        #print the time for data preprocessing
+        end = default_timer()
+        print("Datapreprocessing takes {} seconds".format(end-start))
         
         #create dataset
         train_data = self.load_dataset(train_raw_data,train_data)
@@ -754,7 +792,12 @@ class CrossValidation:
         optimizer = getattr(torch.optim, optimizer)(params = model.parameters(), lr = lr )
         
         #training, testing model
-        loss_train, score_train, loss_test, score_test,  score_final = self.train_evaluate_loop(run=run,model=model,train_loader=train_loader,val_loader=full_loader,epochs=epochs,optimizer=optimizer,cv=False)   
+        start = default_timer()
+        loss_train, score_train, loss_test, score_test,  score_final = self.train_evaluate_loop(run=run,model=model,train_loader=train_loader,val_loader=full_loader,epochs=epochs,optimizer=optimizer,cv=False,evaluate=evaluate)   
+        
+        #print the time for training and testing 
+        end = default_timer()
+        print("Training/testing takes {} seconds".format(end-start))
         
         #finish
         run["status"] = "finished"
@@ -772,15 +815,19 @@ class CrossValidation:
         run["fix_interval"] = stringify_unsupported(fix_interval)  
         
         #tracking model structure and transform image
-        model_summary = summary(model).__repr__()
         run["summary"] = model_summary
         model_structure = model.__repr__()
         run["structure"] = model_structure
         
-        #final best 6 cv
+        #final best 5 cv
+        end = default_timer()
         text = self.best_cv_final(run=run,model=model,best_trial_number=best_trial_number,full_raw_data=full_data_raw,batch_size=batch_size,threshold = threshold, percentage = percentage, dimension = dimension, time_delay = time_delay)
         print(text)
 
+        #print the time for training and testing 
+        end = default_timer()
+        print("Training/testing takes {} seconds".format(end-start))
+        
         #finish
         run["status"] = "finished"
         run["runing_time"] = run["sys/running_time"]
@@ -874,10 +921,21 @@ transform_custom = transforms.Compose([
 transformation = Transformation(transform=transform_custom)
 loss = nn.L1Loss()
 
+#argparse
+parse = argparse.ArgumentParser(description="this file is using method {} as preprocessing and try to find the best hyperparameter by using cross validation on train and validation data. Finaly train the model on train and validation data with best hyperparameters and evaluate on test data. To run this file, please use python3 {}_cv.py -d dir_name -m run_mode. More details about the arguments can be seen below. ".format(METHOD, METHOD.lower()))
+parse.add_argument("-d","--dir_name",type=str, default="model_pretrained",
+                   help='name of the directory store of pretrained models, database file of the trials and the scalers. Default is "model_pretrained".')
+parse.add_argument("-m","--run_mode",type=str, default="optimize", choices=["optimize","evaluate"],
+                   help='choose a mode to run.\n "optimize" is trying to optimize the hyperparameter with 100 trials by using cross validation, if already a database file to store the trials exsist, try to run until 100 trials and choose the best trial with best hyperparameter to train a new model on train data and evaluate on test data, else create a new database file and run from trial 0. "evaluate" is trying to evaluate a pretrained model on test data. If a pretrained model is not available, "optimize" is choosen. Default is "optimize".')
+
+args = parse.parse_args()
+
 #cross validation
 cross = CrossValidation(PROJECT=PROJECT,API_TOKEN=API_TOKEN,transformation=transformation,K = K,W_SIZE=W_SIZE,MODEL_NAME=MODEL_NAME,LOSS=loss,device=device)
-dir_name = cross.dir
+dir_name = args.dir_name
+dir_name = cross.dir = "{}/{}".format(dir_name,METHOD.lower())
 os.makedirs(dir_name,exist_ok=True)
+print("The pretrained models are saved at {}.\n\n".format(dir_name))
 
 #create study
 storage_path = os.path.join(dir_name,"{}.db".format(METHOD))
@@ -886,6 +944,7 @@ storage_name = "sqlite:///{}".format(storage_path)
 if not os.path.isfile(storage_path):
     study = optuna.create_study(direction="minimize",sampler=optuna.samplers.TPESampler(seed=SEED),study_name=METHOD,storage=storage_name,pruner=optuna.pruners.MedianPruner(n_startup_trials=20, n_warmup_steps=5, interval_steps=1, n_min_trials=9))
     study.optimize(objective,n_trials=n_trials)    
+    print('\nRun mode: "optimize".\n')
     
 else:
     study = optuna.load_study(study_name=METHOD, storage=storage_name,sampler=optuna.samplers.TPESampler(seed = SEED),pruner=optuna.pruners.MedianPruner(n_startup_trials=20, n_warmup_steps=5, interval_steps=1, n_min_trials=9))
@@ -908,26 +967,35 @@ else:
                 
         #load the previous study
         study.optimize(objective, n_trials=n_trials)
+        print('\nRun mode: "optimize".\n')
         
     else: 
+        #find the best hyperparameters
+        best_trial_score = study.best_trial
+        best_trial_params = best_trial_score.params
+        
+        #check argument and model path 
+        run_mode = args.run_mode
+        model_path = os.path.join(dir_name,"t_{}_final.pth".format(best_trial_score.number))
+        evaluate = True if (run_mode == "evaluate" and os.path.exists(model_path)) else False
+        run_mode = "evaluate" if evaluate == True else "optimize"
+        print('\nRun mode: {}.\n'.format(run_mode))
+        
         print("Study statistics: ")
         print("  Number of finished trials: ", pruned_trials + complete_trials)
         print("  Number of pruned trials: ", pruned_trials)
         print("  Number of complete trials: ", complete_trials)
 
-        best_trial_score = study.best_trial
-        best_trial_params = best_trial_score.params
-
         print("  Value: ", best_trial_score.value)
-
+        print("  Trial number: ", best_trial_score.number)
         print("  Params: ")
         for key, value in best_trial_params.items():
             print("    {}: {}".format(key, value))
-    
-        #best_trial_params = {'w_stft': 4224, 'hop': 288, 'drop': 0.11783486538870204, 'optimizer': 'SGD', 'lr': 0.0059512475955207835, 'batch_size': 32, 'epochs': 1,"weight_decay":0.0023062583173487318}
-        print("final test best model")
-        loss_train, score_train, loss_test, score_test, score_final = cross.final_test(best_trial_params,best_trial_score.number) #22best_trial_score.number
+
+        loss_train, score_train, loss_test, score_test, score_final = cross.final_test(best_trial_params,best_trial_score.number,evaluate) #22best_trial_score.number
 
         #merge all the result text file
         transformation.merge_result(METHOD)
         
+        #turn database to csv file
+        cross.database_to_csv(name_method=METHOD,storage_name=storage_name)
