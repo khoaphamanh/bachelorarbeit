@@ -167,18 +167,11 @@ Select workspace ba_final in the upper left corner of the screen. Projects named
 
 ## Conclusion
 The table below shows the processing time from time series-to-image. In this work, we consider that STFT is the method with the best performance.
-+--------+-----------------+-----------------+
 | Method | Time Processing | Best score test |
-+--------+-----------------+-----------------+
+|:------:|:---------------:|:---------------:|
 |  STFT  |      1h 15 m    |       0.37      |
-+--------+-----------------+-----------------+
 |   LMS  |     1 h 41 m    |       0.32      |
-+--------+-----------------+-----------------+
 |   CWT  |     7 h 25 m    |       0.34      |
-+--------+-----------------+-----------------+
 |   RP   |       45 s      |       0.34      |
-+--------+-----------------+-----------------+
 |   GAF  |       59 s      |       0.29      |
-+--------+-----------------+-----------------+
 |   MTF  |       63 s      |       0.34      |
-+--------+-----------------+-----------------+
