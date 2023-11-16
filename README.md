@@ -32,6 +32,7 @@ The visualization folder is where data can be displayed. The file raw.ipynb is t
 - gaf.ipynb: Visualize of Gramian angular field.
 - mtf.ipynb: Visualize of Markov transition field.
 - helper.py: Function to read data
+- example_method.ipynb: Visualize of simple example from each method.
 ## Approaches
 In this study, four approaches were proposed, including im_CNN, ts_im_CNN, pann, and tcl_im_CNN, each in its name directory.
 ### im_CNN, ts_im_CNN and tcl_im_CNN
