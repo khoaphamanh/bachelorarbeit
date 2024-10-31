@@ -1,1 +1,1 @@
-pretrained model can be donwload at this [link](https://seafile.cloud.uni-hannover.de/d/c1f86722b48843abafdd/) and the directories cwt, stft, lms, mtf, gaf, rp should be located right in this directory.
+pretrained model can be donwload at this [link](https://seafile.cloud.uni-hannover.de/d/1ad625fe4842431d8ed1/) and the directories cwt, stft, lms, mtf, gaf, rp should be located right in this directory.
