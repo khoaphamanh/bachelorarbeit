@@ -11,9 +11,9 @@ source /path/to/anaconda3/bin/activate /path/to/anaconda3/envs/your_vitual_envir
 conda install --file requirements.txt
 ```
 ## Download datasets
-Data can be downloaded at this [link](https://seafile.cloud.uni-hannover.de/d/18bc6da305bd46fca62e/) and should be located right in this directory, only if you pull the code from gitea.
+Data can be downloaded at this [link](https://seafile.cloud.uni-hannover.de/d/f4b11526f12f40d29caa/) and should be located right in this directory, only if you pull the code from gitea.
 
-Otherwise you can download the entire work including code, data and pretrained model via the [link](https://seafile.cloud.uni-hannover.de/f/4b7b2f4d5eb846fd9502/?dl=1). All this data takes up about 30 GB on the hard drive.
+Otherwise you can download the entire work including code, data and pretrained model via the [link](https://seafile.cloud.uni-hannover.de/d/6ba2f8eb822441b59ae6/). All this data takes up about 30 GB on the hard drive.
 
 Each folder containing data will be annotated as follows:
 - data_2560: Folder containing time series cut into each time window with *window_size* equal to 2560 and *hop_size* equal to 2560.
